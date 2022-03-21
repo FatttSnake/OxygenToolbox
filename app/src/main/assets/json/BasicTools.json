@@ -1,0 +1,40 @@
+[
+  {
+    "id": "basic",
+    "content": {
+      "version": "1.0",
+      "versionID": 210510,
+      "mainVersion": 210510,
+      "font": "fonts/BasicTools.ttf",
+      "icon": "\uE6AE",
+      "title": {
+        "cn": "\u57fa\u7840\u5de5\u5177",
+        "tc": "\u57fa\u790e\u5de5\u5177",
+        "en": "Basic Tools"
+      },
+      "desc": {
+        "cn": "\u4e00\u4e9b\u57fa\u7840\u7684\u5de5\u5177\uff0c\u0041\u0050\u0050\u4e3b\u4f53\u81ea\u5e26",
+        "tc": "\u4e00\u4e9b\u57fa\u790e\u7684\u5de5\u5177\uff0c\u0041\u0050\u0050\u4e3b\u9ad4\u81ea\u5e36",
+        "en": "Some basic tools, the main body of the APP comes with it"
+      },
+      "buttons": [
+        {
+          "text": {
+            "cn": "\u65f6\u95f4\u5c4f\u5e55",
+            "tc": "\u6642\u9593\u5c4f\u5e55",
+            "en": "Time Screen"
+          },
+          "activity": 0
+        },
+        {
+          "text": {
+            "cn": "\u7ffb\u8bd1",
+            "tc": "\u7ffb\u8b6f",
+            "en": "Translation"
+          },
+          "activity": 1
+        }
+      ]
+    }
+  }
+]

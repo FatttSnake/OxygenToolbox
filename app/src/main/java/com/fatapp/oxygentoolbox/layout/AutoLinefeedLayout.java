@@ -20,7 +20,7 @@ public class AutoLinefeedLayout extends ViewGroup {
     }
 
     @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         layoutHorizontal();
     }
 
@@ -66,7 +66,7 @@ public class AutoLinefeedLayout extends ViewGroup {
         for (int i = 0; i < count; i++) {
             measureChild(getChildAt(i), widthMeasureSpec, heightMeasureSpec);
         }
-        if (heightMode == MeasureSpec.AT_MOST||heightMode == MeasureSpec.UNSPECIFIED) {
+        if (heightMode == MeasureSpec.AT_MOST || heightMode == MeasureSpec.UNSPECIFIED) {
             final int width = MeasureSpec.getSize(widthMeasureSpec);
             super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(getDesiredHeight(width), MeasureSpec.EXACTLY));
         } else {

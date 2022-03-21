@@ -10,26 +10,11 @@
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
+        android:id="@+id/foldLayoutsLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:orientation="vertical">
-
-        <com.fatapp.oxygentoolbox.layout.FoldLayout
-            android:id="@+id/foldLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutId="@layout/fold_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.fatapp.oxygentoolbox.layout.FoldLayout
-            android:id="@+id/foldLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutId="@layout/fold_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
 </ScrollView>

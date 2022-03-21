@@ -1,27 +1,25 @@
 package com.fatapp.oxygentoolbox.ui.home;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.fatapp.oxygentoolbox.MainActivity;
 import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.layout.FoldLayout;
+import com.fatapp.oxygentoolbox.util.BasicToolsLauncher;
+import com.fatapp.oxygentoolbox.util.ToolsList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +30,7 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
 
-    private FoldLayout foldLayout;
-    private FoldLayout foldLayout1;
+    private LinearLayout foldLayoutsLinearLayout;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -44,21 +41,56 @@ public class HomeFragment extends Fragment {
     }
 
     private void initView() {
-        foldLayout = root.findViewById(R.id.foldLayout);
-        List<View> viewList = new ArrayList<>();
-        View layout_item = getLayoutInflater().inflate(R.layout.layout_item, null);
-        ViewGroup layout_item_AutoLinefeedLayout = layout_item.findViewById(R.id.layout_item_AutoLinefeedLayout);
-        for (int i = 1; i < 1000; i++) {
-            View toolButton = getLayoutInflater().inflate(R.layout.tool_button, null);
-            ((Button) toolButton.findViewById(R.id.toolButton)).setText("Bt" + i);
-            layout_item_AutoLinefeedLayout.addView(toolButton);
-        }
-        viewList.add(layout_item);
-        foldLayout.addItemView(viewList);
+        for (ToolsList.Tool tool : ToolsList.getToolList()) {
 
-        foldLayout1 = root.findViewById(R.id.foldLayout1);
-        List<View> viewList1 = new ArrayList<>();
-        viewList1.add(getLayoutInflater().inflate(R.layout.layout_item, null));
-        foldLayout1.addItemView(viewList1);
+            View foldLayoutBody = getLayoutInflater().inflate(R.layout.fold_layout_body, null);
+            ViewGroup layout_item_AutoLinefeedLayout = foldLayoutBody.findViewById(R.id.layout_item_AutoLinefeedLayout);
+
+            for (ToolsList.Button button : tool.getButtonList()) {
+                View toolButton = getLayoutInflater().inflate(R.layout.tool_button, null);
+                ((Button) toolButton.findViewById(R.id.toolButton)).setText(button.getText());
+                toolButton.findViewById(R.id.toolButton).setOnClickListener(v -> {
+                    BasicToolsLauncher.launch(button.getActivity(), getContext());
+                });
+                layout_item_AutoLinefeedLayout.addView(toolButton);
+            }
+
+            List<View> viewList = new ArrayList<>();
+            viewList.add(foldLayoutBody);
+
+            View foldLayoutHead = getLayoutInflater().inflate(R.layout.fold_layout, null);
+            FoldLayout foldLayout = foldLayoutHead.findViewById(R.id.foldLayout);
+            ((TextView) foldLayout.findViewById(R.id.foldLayoutTextView)).setText(tool.getFoldLayoutTitle());
+            ((TextView) foldLayout.findViewById(R.id.foldLayoutIcon)).setTypeface(Typeface.createFromAsset(getContext().getAssets(), tool.getFont()));
+            ((TextView) foldLayout.findViewById(R.id.foldLayoutIcon)).setText(tool.getIcon());
+
+            foldLayout.addItemView(viewList);
+
+            foldLayoutsLinearLayout = root.findViewById(R.id.foldLayoutsLinearLayout);
+            foldLayoutsLinearLayout.addView(foldLayoutHead);
+        }
+
+        /*for (int i = 0; i < 10; i++) {
+            View toolButton = getLayoutInflater().inflate(R.layout.tool_button, null);
+            ((Button) toolButton.findViewById(R.id.toolButton)).setText("Button");
+            toolButton.findViewById(R.id.toolButton).setOnClickListener(v -> {
+                BasicToolsLauncher.launch(0, getContext());
+            });
+
+            View foldLayoutBody = getLayoutInflater().inflate(R.layout.fold_layout_body, null);
+            ViewGroup layout_item_AutoLinefeedLayout = foldLayoutBody.findViewById(R.id.layout_item_AutoLinefeedLayout);
+            layout_item_AutoLinefeedLayout.addView(toolButton);
+
+            List<View> viewList = new ArrayList<>();
+            viewList.add(foldLayoutBody);
+
+            View foldLayoutHead = getLayoutInflater().inflate(R.layout.fold_layout, null);
+            FoldLayout foldLayout = foldLayoutHead.findViewById(R.id.foldLayout);
+            ((TextView) foldLayout.findViewById(R.id.foldLayoutTextView)).setText("FoldLayout_" + i);
+            foldLayout.addItemView(viewList);
+
+            foldLayoutsLinearLayout = root.findViewById(R.id.foldLayoutsLinearLayout);
+            foldLayoutsLinearLayout.addView(foldLayoutHead);
+        }*/
     }
 }

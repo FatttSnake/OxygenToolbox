@@ -18,7 +18,7 @@ import com.fatapp.oxygentoolbox.R;
 
 import java.util.List;
 
-public class FoldLayout extends LinearLayout implements View.OnClickListener{
+public class FoldLayout extends LinearLayout implements View.OnClickListener {
 
     private boolean init;
     private final int layoutId;
@@ -40,8 +40,8 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
 
     public FoldLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        @SuppressLint("Recycle") TypedArray ta = context.obtainStyledAttributes(attrs,R.styleable.FoldLayout,defStyleAttr,0);
-        layoutId = ta.getResourceId(R.styleable.FoldLayout_layoutId,-1);
+        @SuppressLint("Recycle") TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.FoldLayout, defStyleAttr, 0);
+        layoutId = ta.getResourceId(R.styleable.FoldLayout_layoutId, -1);
         init(context);
     }
 
@@ -55,18 +55,18 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
      */
     private void addDefaultLayout(Context context) {
 
-        defaultView = LayoutInflater.from(context).inflate(layoutId, this,true);
+        defaultView = LayoutInflater.from(context).inflate(layoutId, this, true);
         defaultView.setOnClickListener(this);
         content = new LinearLayout(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         content.setOrientation(VERTICAL);
-        addView(content,layoutParams);
+        addView(content, layoutParams);
     }
 
     @Override
     public void onClick(View v) {
-        if(isShow) {
+        if (isShow) {
             hideItem();
         } else {
             showItem();
@@ -85,7 +85,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
     private void initAnimation() {
 
         int contentHeight = content.getMeasuredHeight();
-        if(!init) {
+        if (!init) {
             showAnimator = ValueAnimator.ofInt(0, contentHeight);
             showAnimator.addUpdateListener(animation -> {
                 LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
@@ -101,7 +101,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
                 }
             });
 
-            hideAnimator = ValueAnimator.ofInt(contentHeight,0);
+            hideAnimator = ValueAnimator.ofInt(contentHeight, 0);
             hideAnimator.addUpdateListener(animation -> {
                 LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
                 layoutParams.height = (int) animation.getAnimatedValue();
@@ -119,7 +119,6 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
                 }
             });
             init = true;
-            hide();
 
             showItem();
         }
@@ -133,20 +132,11 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
             final int position = i;
             content.addView(views.get(i));
             views.get(i).setOnClickListener(v -> {
-                if(null != mOnItemClickListener) {
-                    mOnItemClickListener.onItemClick(v,position);
+                if (null != mOnItemClickListener) {
+                    mOnItemClickListener.onItemClick(v, position);
                 }
             });
         }
-    }
-
-    /**
-     * Auto hide
-     */
-    public void hide() {
-        LinearLayout.LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
-        layoutParams.height = 0;
-        content.setLayoutParams(layoutParams);
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -170,7 +160,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
     }
 
     interface OnItemClickListener {
-        void onItemClick(View view,int position);
+        void onItemClick(View view, int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
