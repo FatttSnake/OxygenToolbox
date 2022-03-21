@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable-v21/ripple_foreground.xml" value="0.15520833333333334" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11944444444444445" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/bottom_radius_background.xml" value="0.11944444444444445" />
+        <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/button_radius_shape.xml" value="0.15520833333333334" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/down_to_right_arrow.xml" value="0.11944444444444445" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/ic_launcher_background.xml" value="0.11944444444444445" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/ic_menu_camera.xml" value="0.11944444444444445" />
@@ -19,6 +21,7 @@
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/top_radius_background.xml" value="0.11944444444444445" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/basic_tool_list.xml" value="0.1390625" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/content_main.xml" value="0.14990942028985507" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/fold_layout.xml" value="0.1" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />

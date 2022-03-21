@@ -1,23 +1,29 @@
 package com.fatapp.oxygentoolbox;
 
+import android.content.Intent;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
+import android.view.Menu;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
+import com.fatapp.oxygentoolbox.layout.FoldLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.navigation.NavigationView;
+
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import com.fatapp.oxygentoolbox.layout.FoldLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,12 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+        fab.setOnClickListener(view -> {
+            /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();*/
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -50,6 +53,29 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        shortCutCreateTest();
+    }
+
+    private void shortCutCreateTest() {
+
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N_MR1) {
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        intent.setClassName("com.fatapp.oxygentoolbox",
+                "com.fatapp.oxygentoolbox.MainActivity");
+        ShortcutInfo.Builder builder;
+        builder = new ShortcutInfo.Builder(this, "dynamic shortcut")
+                .setIntent(new Intent()
+                        .setAction("android.intent.action.VIEW")
+                        .setClassName("com.fatapp.oxygentoolbox", "com.fatapp.oxygentoolbox.MainActivity"))
+                .setShortLabel("This is a dynamic shortcut")
+                .setLongLabel("This is a dynamic shortcut with long label")
+                .setIcon(Icon.createWithResource(this, R.drawable.ic_menu_camera));
+        ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
+        shortcutManager.addDynamicShortcuts(Collections.singletonList(builder.build()));
     }
 
     @Override

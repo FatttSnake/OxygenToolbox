@@ -7,10 +7,10 @@
         android:shortcutId="main"
         android:shortcutLongLabel="@string/shortcutLongLabel"
         android:shortcutShortLabel="@string/shortcutShortLabel">
-    <intent
-        android:action="android.intent.action.VIEW"
-        android:targetClass="com.tencent.mm.ui.LauncherUI"
-        android:targetPackage="com.tencent.mm" />
-    <categories android:name="android.shortcut.conversation" />
-</shortcut>
-    </shortcuts>
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.fatapp.oxygentoolbox.MainActivity"
+            android:targetPackage="com.oxygenfatapp.toolbox" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

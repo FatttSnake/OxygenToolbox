@@ -58,7 +58,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
         defaultView = LayoutInflater.from(context).inflate(layoutId, this,true);
         defaultView.setOnClickListener(this);
         content = new LinearLayout(context);
-        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         /*content.setShowDividers(SHOW_DIVIDER_BEGINNING|SHOW_DIVIDER_MIDDLE);
         content.setDividerDrawable(ContextCompat.getDrawable(context,R.drawable.item_divider));*/
@@ -119,6 +119,8 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
             });
             init = true;
             hide();
+
+            showItem();
         }
     }
 
@@ -141,7 +143,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
      * Auto hide
      */
     public void hide() {
-        LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
         layoutParams.height = 0;
         content.setLayoutParams(layoutParams);
     }

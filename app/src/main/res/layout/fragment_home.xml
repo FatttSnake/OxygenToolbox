@@ -6,11 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#80CCCCCC"
+    android:background="@color/app_background"
     tools:context=".ui.home.HomeFragment">
 
     <com.fatapp.oxygentoolbox.layout.FoldLayout
         android:id="@+id/foldLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layoutId="@layout/fold_layout" />
+    <com.fatapp.oxygentoolbox.layout.FoldLayout
+        android:id="@+id/foldLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
