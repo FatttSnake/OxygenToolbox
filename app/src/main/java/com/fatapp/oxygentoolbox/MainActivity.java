@@ -5,6 +5,7 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -29,7 +30,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private FoldLayout foldLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +44,18 @@ public class MainActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.inflateHeaderView(R.layout.nav_header_main);
+        navigationView.inflateMenu(R.menu.activity_main_drawer);
+        navigationView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+            if (navigationView.getMenu().getItem(0).isChecked()) {
+                fab.setVisibility(View.VISIBLE);
+            } else {
+                fab.setVisibility(View.GONE);
+            }
+        });
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -73,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         .setClassName("com.fatapp.oxygentoolbox", "com.fatapp.oxygentoolbox.MainActivity"))
                 .setShortLabel("This is a dynamic shortcut")
                 .setLongLabel("This is a dynamic shortcut with long label")
-                .setIcon(Icon.createWithResource(this, R.drawable.ic_menu_camera));
+                .setIcon(Icon.createWithResource(this, R.drawable.ic_menu_home));
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
         shortcutManager.addDynamicShortcuts(Collections.singletonList(builder.build()));
     }
@@ -90,15 +98,5 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
-
-    public void initView() {
-        foldLayout = (FoldLayout) findViewById(R.id.foldLayout);
-
-        List<View> viewList = new ArrayList<>();
-
-        viewList.add(getLayoutInflater().inflate(R.layout.layout_item, null));
-
-        foldLayout.addItemView(viewList);
     }
 }
