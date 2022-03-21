@@ -26,41 +26,36 @@ public class AutoLinefeedLayout extends ViewGroup {
 
     private void layoutHorizontal() {
         final int count = getChildCount();
-        final int lineWidth = getMeasuredWidth() - getPaddingLeft()
-                - getPaddingRight();
+        final int lineWidth = getMeasuredWidth() - getPaddingLeft() - getPaddingRight();
         int paddingTop = getPaddingTop();
-        int childTop = 0;
+        int childTop;
         int childLeft = getPaddingLeft();
 
         int availableLineWidth = lineWidth;
-        int maxLineHight = 0;
+        int maxLineHeight = 0;
 
         for (int i = 0; i < count; i++) {
             final View child = getChildAt(i);
-            if (child == null) {
-                continue;
-            } else if (child.getVisibility() != GONE) {
+            if (child != null && child.getVisibility() != GONE) {
                 final int childWidth = child.getMeasuredWidth();
                 final int childHeight = child.getMeasuredHeight();
 
                 if (availableLineWidth < childWidth) {
                     availableLineWidth = lineWidth;
-                    paddingTop = paddingTop + maxLineHight;
+                    paddingTop = paddingTop + maxLineHeight;
                     childLeft = getPaddingLeft();
-                    maxLineHight = 0;
+                    maxLineHeight = 0;
                 }
                 childTop = paddingTop;
-                setChildFrame(child, childLeft, childTop, childWidth,
-                        childHeight);
+                setChildFrame(child, childLeft, childTop, childWidth, childHeight);
                 childLeft += childWidth;
                 availableLineWidth = availableLineWidth - childWidth;
-                maxLineHight = Math.max(maxLineHight, childHeight);
+                maxLineHeight = Math.max(maxLineHeight, childHeight);
             }
         }
     }
 
-    private void setChildFrame(View child, int left, int top, int width,
-                               int height) {
+    private void setChildFrame(View child, int left, int top, int width, int height) {
         child.layout(left, top, left + width, top + height);
     }
 
@@ -73,8 +68,7 @@ public class AutoLinefeedLayout extends ViewGroup {
         }
         if (heightMode == MeasureSpec.AT_MOST||heightMode == MeasureSpec.UNSPECIFIED) {
             final int width = MeasureSpec.getSize(widthMeasureSpec);
-            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(
-                    getDesiredHeight(width), MeasureSpec.EXACTLY));
+            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(getDesiredHeight(width), MeasureSpec.EXACTLY));
         } else {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         }

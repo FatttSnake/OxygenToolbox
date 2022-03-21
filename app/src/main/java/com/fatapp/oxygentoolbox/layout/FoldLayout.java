@@ -60,8 +60,6 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
         content = new LinearLayout(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        /*content.setShowDividers(SHOW_DIVIDER_BEGINNING|SHOW_DIVIDER_MIDDLE);
-        content.setDividerDrawable(ContextCompat.getDrawable(context,R.drawable.item_divider));*/
         content.setOrientation(VERTICAL);
         addView(content,layoutParams);
     }
@@ -95,7 +93,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
                 content.setLayoutParams(layoutParams);
             });
             showAnimator.addListener(new AnimatorListenerAdapter() {
-                @Override
+                @SuppressLint("UseCompatLoadingForDrawables")
                 public void onAnimationStart(Animator animation) {
                     super.onAnimationStart(animation);
                     LinearLayout linearLayout = defaultView.findViewById(R.id.foldLayoutLinearLayout);
@@ -110,11 +108,14 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
                 content.setLayoutParams(layoutParams);
             });
             hideAnimator.addListener(new AnimatorListenerAdapter() {
+                @SuppressLint("UseCompatLoadingForDrawables")
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    LinearLayout linearLayout = defaultView.findViewById(R.id.foldLayoutLinearLayout);
-                    linearLayout.setBackground(getResources().getDrawable(R.drawable.top_bottom_radius_background));
+                    if (!isShow) {
+                        LinearLayout linearLayout = defaultView.findViewById(R.id.foldLayoutLinearLayout);
+                        linearLayout.setBackground(getResources().getDrawable(R.drawable.top_bottom_radius_background));
+                    }
                 }
             });
             init = true;
@@ -148,6 +149,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
         content.setLayoutParams(layoutParams);
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void showItem() {
         isShow = true;
         showAnimator.start();
@@ -157,6 +159,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener{
         animatedVectorDrawable.start();
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void hideItem() {
         isShow = false;
         hideAnimator.start();
