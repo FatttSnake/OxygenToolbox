@@ -9,9 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OxygenToolbox">
-        <activity android:name=".tools.TimeScreenActivity" />
+        <!--<activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.OxygenToolbox.Full">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.OxygenToolbox.NoActionBar">
             <intent-filter>
@@ -19,9 +29,19 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
+        </activity>
+        <activity
+            android:name=".tools.TimeScreenActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="activity.timescreen" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

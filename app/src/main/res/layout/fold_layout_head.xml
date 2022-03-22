@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/foldLayoutLinearLayout"
+    android:id="@+id/fold_layout_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:layout_marginLeft="10dp"
@@ -11,7 +11,7 @@
     android:gravity="center_vertical" >
 
     <TextView
-        android:id="@+id/foldLayoutIcon"
+        android:id="@+id/fold_layout_icon"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_weight="1"
@@ -20,7 +20,7 @@
         android:textColor="@color/app_theme" />
 
     <TextView
-        android:id="@+id/foldLayoutTextView"
+        android:id="@+id/fold_layout_text_view"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="6"
@@ -29,7 +29,7 @@
         android:textSize="18sp" />
 
     <ImageView
-        android:id="@+id/arrowIcon"
+        android:id="@+id/arrow_icon"
         android:layout_width="0dp"
         android:layout_height="15dp"
         android:layout_weight="1"

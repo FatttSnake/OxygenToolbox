@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.fatapp.oxygentoolbox.layout.FoldLayout
-        android:id="@+id/foldLayout"
+        android:id="@+id/fold_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutId="@layout/fold_layout_head"

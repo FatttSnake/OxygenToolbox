@@ -21,31 +21,49 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import java.io.IOException;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    private Toolbar toolbar;
+    private FloatingActionButton fab;
+    private DrawerLayout drawer;
+    private NavigationView navigationView;
+
+    private void initView() {
+        toolbar = findViewById(R.id.toolbar);
+        fab = findViewById(R.id.fab);
+        drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        //init
+        initView();
+        initLayout();
+
+        shortCutCreateTest();
+    }
+
+    private void initLayout() {
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();*/
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.inflateHeaderView(R.layout.nav_header_main);
         navigationView.inflateMenu(R.menu.activity_main_drawer);
         navigationView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
             if (navigationView.getMenu().getItem(0).isChecked()) {
                 fab.setVisibility(View.VISIBLE);
+            } else if (navigationView.getMenu().getItem(4).isChecked()) {
+                System.exit(0);
             } else {
                 fab.setVisibility(View.GONE);
             }
@@ -53,23 +71,14 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home)
-                .setDrawerLayout(drawer)
+                .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-        try {
-            ToolsList.init(getResources().getAssets().open("json/BasicTools.json"));
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "初始化工具集失败", Toast.LENGTH_LONG).show();
-        }
-        shortCutCreateTest();
     }
 
     private void shortCutCreateTest() {
-
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N_MR1) {
             return;
         }
@@ -78,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
         intent.setClassName("com.fatapp.oxygentoolbox",
                 "com.fatapp.oxygentoolbox.MainActivity");
         ShortcutInfo.Builder builder;
-        builder = new ShortcutInfo.Builder(this, "dynamic shortcut")
+        builder = new ShortcutInfo.Builder(this, "Time Screen")
                 .setIntent(new Intent()
-                        .setAction("android.intent.action.VIEW")
-                        .setClassName("com.fatapp.oxygentoolbox", "com.fatapp.oxygentoolbox.MainActivity"))
-                .setShortLabel("This is a dynamic shortcut")
-                .setLongLabel("This is a dynamic shortcut with long label")
+                        .setAction("activity.timescreen")
+                        .setClassName("com.fatapp.oxygentoolbox", "com.fatapp.oxygentoolbox.tools.TimeScreenActivity"))
+                .setShortLabel("Time Screen")
+                .setLongLabel("Time Screen")
                 .setIcon(Icon.createWithResource(this, R.drawable.ic_menu_home));
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
         shortcutManager.addDynamicShortcuts(Collections.singletonList(builder.build()));

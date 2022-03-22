@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/transparent"
-    android:orientation="vertical"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:orientation="vertical">
 
     <com.fatapp.oxygentoolbox.layout.AutoLinefeedLayout
-        android:id="@+id/layout_item_AutoLinefeedLayout"
+        android:id="@+id/auto_linefeed_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"

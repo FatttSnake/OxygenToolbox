@@ -16,7 +16,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/basicToolsRecyclerView"
+            android:id="@+id/basic_tools_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

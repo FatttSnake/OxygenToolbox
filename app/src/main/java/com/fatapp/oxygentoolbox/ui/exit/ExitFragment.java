@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 public class ExitFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        System.exit(0);
         return null;
     }
 }

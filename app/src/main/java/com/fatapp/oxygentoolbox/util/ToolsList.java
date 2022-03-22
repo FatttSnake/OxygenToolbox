@@ -40,7 +40,7 @@ public class ToolsList {
         return toolList;
     }
 
-    public void setToolList(List<Tool> toolList) {
+    public static void setToolList(List<Tool> toolList) {
         ToolsList.toolList = toolList;
     }
 
