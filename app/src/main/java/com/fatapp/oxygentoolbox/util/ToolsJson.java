@@ -108,67 +108,55 @@ public class ToolsJson {
             this.buttons = buttons;
         }
 
-        public static class Title {
+        public static class Title implements Locales {
             @SerializedName("cn")
             private String cn;
-            @SerializedName("tc")
-            private String tc;
             @SerializedName("en")
             private String en;
 
+            @Override
             public String getCn() {
                 return cn;
             }
 
+            @Override
             public void setCn(String cn) {
                 this.cn = cn;
             }
 
-            public String getTc() {
-                return tc;
-            }
-
-            public void setTc(String tc) {
-                this.tc = tc;
-            }
-
+            @Override
             public String getEn() {
                 return en;
             }
 
+            @Override
             public void setEn(String en) {
                 this.en = en;
             }
         }
 
-        public static class Desc {
+        public static class Desc implements Locales {
             @SerializedName("cn")
             private String cn;
-            @SerializedName("tc")
-            private String tc;
             @SerializedName("en")
             private String en;
 
+            @Override
             public String getCn() {
                 return cn;
             }
 
+            @Override
             public void setCn(String cn) {
                 this.cn = cn;
             }
 
-            public String getTc() {
-                return tc;
-            }
-
-            public void setTc(String tc) {
-                this.tc = tc;
-            }
-
+            @Override
             public String getEn() {
                 return en;
             }
 
+            @Override
             public void setEn(String en) {
                 this.en = en;
             }
@@ -196,34 +184,28 @@ public class ToolsJson {
                 this.activity = activity;
             }
 
-            public static class Text {
+            public static class Text implements Locales {
                 @SerializedName("cn")
                 private String cn;
-                @SerializedName("tc")
-                private String tc;
                 @SerializedName("en")
                 private String en;
 
+                @Override
                 public String getCn() {
                     return cn;
                 }
 
+                @Override
                 public void setCn(String cn) {
                     this.cn = cn;
                 }
 
-                public String getTc() {
-                    return tc;
-                }
-
-                public void setTc(String tc) {
-                    this.tc = tc;
-                }
-
+                @Override
                 public String getEn() {
                     return en;
                 }
 
+                @Override
                 public void setEn(String en) {
                     this.en = en;
                 }

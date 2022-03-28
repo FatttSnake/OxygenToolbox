@@ -13,14 +13,18 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-    </style>
-
-    <style name="Theme.OxygenToolbox.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.OxygenToolbox.Full" parent="Theme.OxygenToolbox.NoActionBar">
+    <style name="Theme.OxygenToolbox.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/app_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher</item>
+        <item name="windowSplashScreenAnimationDuration">0</item>
+        <item name="postSplashScreenTheme">@style/Theme.OxygenToolbox</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Full" parent="Theme.OxygenToolbox">
         <item name="android:windowFullscreen">true</item>
     </style>
 

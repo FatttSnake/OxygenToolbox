@@ -22,7 +22,6 @@ import com.fatapp.oxygentoolbox.util.ToolsList;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -57,7 +56,7 @@ public class HomeFragment extends Fragment {
             ToolsList.init(getResources().getAssets().open("json/BasicTools.json"));
         } catch (IOException e) {
             e.printStackTrace();
-            Toast.makeText(getContext(), "初始化工具集失败", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), R.string.init_tools_failed, Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -70,9 +69,7 @@ public class HomeFragment extends Fragment {
 
                 Button toolButton = toolButtonLayout.findViewById(R.id.tool_button);
                 toolButton.setText(button.getText());
-                toolButton.setOnClickListener(v -> {
-                    BasicToolsLauncher.launch(button.getActivity(), getContext());
-                });
+                toolButton.setOnClickListener(v -> BasicToolsLauncher.launch(button.getActivity(), getContext()));
                 autoLinefeedLayout.addView(toolButtonLayout);
             }
 
@@ -84,7 +81,7 @@ public class HomeFragment extends Fragment {
             ((TextView) foldLayout.findViewById(R.id.fold_layout_text_view)).setText(tool.getFoldLayoutTitle());
 
             TextView foldLayoutIcon = foldLayout.findViewById(R.id.fold_layout_icon);
-            foldLayoutIcon.setTypeface(Typeface.createFromAsset(Objects.requireNonNull(getContext()).getAssets(), tool.getFont()));
+            foldLayoutIcon.setTypeface(Typeface.createFromAsset(requireContext().getAssets(), tool.getFont()));
             foldLayoutIcon.setText(tool.getIcon());
 
             foldLayout.addItemView(viewList);

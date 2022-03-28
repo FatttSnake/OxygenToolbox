@@ -7,14 +7,13 @@ import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Toast;
 
-import com.fatapp.oxygentoolbox.util.ToolsList;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -22,8 +21,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import java.util.Collections;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static AppCompatActivity mainActivity;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -31,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
     private DrawerLayout drawer;
     private NavigationView navigationView;
-
     private void initView() {
         toolbar = findViewById(R.id.toolbar);
         fab = findViewById(R.id.fab);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        mainActivity = this;
     }
 
     @Override
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         initView();
         initLayout();
 
-        shortCutCreateTest();
+//        shortCutCreateTest();
     }
 
     private void initLayout() {
@@ -73,17 +75,18 @@ public class MainActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = ((NavHostFragment) Objects.requireNonNull(getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment))).getNavController();
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
+/*
     private void shortCutCreateTest() {
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N_MR1) {
             return;
         }
         Intent intent = new Intent();
-        intent.setAction("android.intent.action.VIEW");
+        intent.setAction("android.intent.action.MAIN");
         intent.setClassName("com.fatapp.oxygentoolbox",
                 "com.fatapp.oxygentoolbox.MainActivity");
         ShortcutInfo.Builder builder;
@@ -97,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
         shortcutManager.addDynamicShortcuts(Collections.singletonList(builder.build()));
     }
+*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

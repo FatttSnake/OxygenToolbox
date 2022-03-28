@@ -8,35 +8,37 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OxygenToolbox">
-        <!--<activity
+        android:theme="@style/Theme.OxygenToolbox.Starting">
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.OxygenToolbox.Full">
+            android:theme="@style/Theme.OxygenToolbox.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.OxygenToolbox.NoActionBar">
+            android:theme="@style/Theme.OxygenToolbox">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
+<!--
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
+-->
         </activity>
         <activity
             android:name=".tools.TimeScreenActivity"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/Theme.OxygenToolbox">
             <intent-filter>
                 <action android:name="activity.timescreen" />
 

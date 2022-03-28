@@ -17,4 +17,8 @@
     <string name="shortcutDisabledMessage">Disable</string>
     <string name="shortcutLongLabel">Oxygen Toolbox</string>
     <string name="shortcutShortLabel">Oxygen Toolbox</string>
+
+    <string name="fab">Fab</string>
+    <string name="arrow_icon" translatable="false"><![CDATA[>]]></string>
+    <string name="init_tools_failed">Failed to initialize tools</string>
 </resources>

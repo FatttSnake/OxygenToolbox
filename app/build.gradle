@@ -44,7 +44,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
 
     implementation 'com.google.code.gson:gson:2.9.0'
 //    请务必使用@aar结尾，以中断依赖传递
