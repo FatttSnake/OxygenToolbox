@@ -1,13 +1,10 @@
 package com.fatapp.oxygentoolbox;
 
-import android.content.Intent;
-import android.content.pm.ShortcutInfo;
-import android.content.pm.ShortcutManager;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -20,7 +17,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import java.util.Collections;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         mainActivity = this;
+        ResourceUtil.init(getApplication());
     }
 
     @Override

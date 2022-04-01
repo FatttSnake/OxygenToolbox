@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FoldLayout">
-        <attr name="layoutId" format="integer"/>
+        <attr name="layoutId" format="integer" />
     </declare-styleable>
+
+    <attr name="app_theme" format="color" />
+    <attr name="app_on_theme" format="color" />
+    <attr name="app_text_theme" format="color" />
+    <attr name="app_background" format="color" />
+
+    <attr name="app_second_theme" format="color" />
+    <attr name="app_second_on_theme" format="color" />
+
+    <attr name="fold_layout_background" format="color" />
+    <attr name="tools_arrow" format="color" />
+    <attr name="tools_button_background" format="color" />
+    <attr name="tools_button_text" format="color" />
+    <attr name="tools_button_ripple" format="color" />
 </resources>

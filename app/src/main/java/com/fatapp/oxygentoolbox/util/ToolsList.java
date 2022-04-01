@@ -46,9 +46,9 @@ public class ToolsList {
     private static String getLocale(Locales strings) {
         String language;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            language = MainActivity.mainActivity.getResources().getConfiguration().getLocales().get(0).getLanguage();
+            language = ResourceUtil.getResources().getConfiguration().getLocales().get(0).getLanguage();
         } else {
-            language = MainActivity.mainActivity.getResources().getConfiguration().locale.getLanguage();
+            language = ResourceUtil.getResources().getConfiguration().locale.getLanguage();
         }
         if (language.equals("zh")) {
             return strings.getCn();
@@ -105,7 +105,7 @@ public class ToolsList {
 
     public static class Button {
         private String text;
-        private Integer activity;
+        private String activity;
 
         public String getText() {
             return text;
@@ -115,11 +115,11 @@ public class ToolsList {
             this.text = text;
         }
 
-        public Integer getActivity() {
+        public String getActivity() {
             return activity;
         }
 
-        public void setActivity(Integer activity) {
+        public void setActivity(String activity) {
             this.activity = activity;
         }
     }

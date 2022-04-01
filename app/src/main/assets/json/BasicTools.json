@@ -21,14 +21,14 @@
             "cn": "\u65f6\u95f4\u5c4f\u5e55",
             "en": "Time Screen"
           },
-          "activity": 0
+          "activity": "com.fatapp.oxygentoolbox.tools.TimeScreenActivity"
         },
         {
           "text": {
             "cn": "\u7ffb\u8bd1",
             "en": "Translation"
           },
-          "activity": 1
+          "activity": ""
         }
       ]
     }

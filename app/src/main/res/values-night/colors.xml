@@ -8,14 +8,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="app_theme">#FFBB86FC</color>
-    <color name="app_on_theme">@color/white</color>
-    <color name="app_text_theme">@color/white</color>
-    <color name="app_background">#FF202020</color>
+    <color name="default_app_theme">@color/purple_200</color>
+    <color name="default_app_on_theme">@color/white</color>
+    <color name="default_app_text_theme">@color/white</color>
+    <color name="default_app_background">#FF202020</color>
 
-    <color name="fold_layout_background">#FF303030</color>
-    <color name="tools_arrow">#FF666666</color>
-    <color name="tools_button_background">@color/app_background</color>
-    <color name="tools_button_text">#FFFAFAFA</color>
-    <color name="tools_button_ripple">#88cccccc</color>
+    <color name="default_app_second_theme">@color/teal_700</color>
+    <color name="default_app_second_on_theme">@color/black</color>
+
+    <color name="default_fold_layout_background">#FF303030</color>
+    <color name="default_tools_arrow">#FF666666</color>
+    <color name="default_tools_button_background">@color/default_app_background</color>
+    <color name="default_tools_button_text">#FFFAFAFA</color>
+    <color name="default_tools_button_ripple">#88CCCCCC</color>
 </resources>

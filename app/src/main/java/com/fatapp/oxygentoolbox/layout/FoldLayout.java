@@ -97,7 +97,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                 public void onAnimationStart(Animator animation) {
                     super.onAnimationStart(animation);
                     LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                    linearLayout.setBackground(getResources().getDrawable(R.drawable.top_radius_background));
+                    linearLayout.setBackground(getContext().getDrawable(R.drawable.top_radius_background));
                 }
             });
 
@@ -114,7 +114,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                     super.onAnimationEnd(animation);
                     if (!isShow) {
                         LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                        linearLayout.setBackground(getResources().getDrawable(R.drawable.top_bottom_radius_background));
+                        linearLayout.setBackground(getContext().getDrawable(R.drawable.top_bottom_radius_background));
                     }
                 }
             });
@@ -144,7 +144,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
         isShow = true;
         showAnimator.start();
         ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.right_to_down_arrow));
+        imageView.setImageDrawable(getContext().getDrawable(R.drawable.right_to_down_arrow));
         AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
         animatedVectorDrawable.start();
     }
@@ -154,7 +154,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
         isShow = false;
         hideAnimator.start();
         ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
-        imageView.setImageDrawable(getResources().getDrawable(R.drawable.down_to_right_arrow));
+        imageView.setImageDrawable(getContext().getDrawable(R.drawable.down_to_right_arrow));
         AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
         animatedVectorDrawable.start();
     }

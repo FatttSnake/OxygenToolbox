@@ -18,7 +18,9 @@
     <string name="shortcutLongLabel">Oxygen Toolbox</string>
     <string name="shortcutShortLabel">Oxygen Toolbox</string>
 
-    <string name="fab">Fab</string>
     <string name="arrow_icon" translatable="false"><![CDATA[>]]></string>
+
+    <string name="fab">Fab</string>
     <string name="init_tools_failed">Failed to initialize tools</string>
+    <string name="activity_class_not_found">Can not load tool, it may be damaged</string>
 </resources>

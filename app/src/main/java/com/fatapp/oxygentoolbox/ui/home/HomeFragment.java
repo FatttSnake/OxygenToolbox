@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.layout.FoldLayout;
-import com.fatapp.oxygentoolbox.util.BasicToolsLauncher;
+import com.fatapp.oxygentoolbox.util.ToolsLauncher;
 import com.fatapp.oxygentoolbox.util.ToolsList;
 
 import java.io.IOException;
@@ -66,10 +66,9 @@ public class HomeFragment extends Fragment {
 
             for (ToolsList.Button button : tool.getButtonList()) {
                 View toolButtonLayout = getLayoutInflater().inflate(R.layout.tool_button, null);
-
                 Button toolButton = toolButtonLayout.findViewById(R.id.tool_button);
                 toolButton.setText(button.getText());
-                toolButton.setOnClickListener(v -> BasicToolsLauncher.launch(button.getActivity(), getContext()));
+                toolButton.setOnClickListener(v -> ToolsLauncher.launch(getContext(), button.getActivity()));
                 autoLinefeedLayout.addView(toolButtonLayout);
             }
 
@@ -90,28 +89,29 @@ public class HomeFragment extends Fragment {
             foldLayoutsLinearLayout.addView(foldLayoutHead);
         }
 
-        /*for (int i = 0; i < 10; i++) {
+/*
+        for (int i = 0; i < 10; i++) {
             View toolButton = getLayoutInflater().inflate(R.layout.tool_button, null);
-            ((Button) toolButton.findViewById(R.id.toolButton)).setText("Button");
-            toolButton.findViewById(R.id.toolButton).setOnClickListener(v -> {
+            ((Button) toolButton.findViewById(R.id.tool_button)).setText("Button");
+            toolButton.findViewById(R.id.tool_button).setOnClickListener(v -> {
                 BasicToolsLauncher.launch(0, getContext());
             });
 
             View foldLayoutBody = getLayoutInflater().inflate(R.layout.fold_layout_body, null);
-            ViewGroup layout_item_AutoLinefeedLayout = foldLayoutBody.findViewById(R.id.layout_item_AutoLinefeedLayout);
+            ViewGroup layout_item_AutoLinefeedLayout = foldLayoutBody.findViewById(R.id.auto_linefeed_layout);
             layout_item_AutoLinefeedLayout.addView(toolButton);
 
             List<View> viewList = new ArrayList<>();
             viewList.add(foldLayoutBody);
 
             View foldLayoutHead = getLayoutInflater().inflate(R.layout.fold_layout, null);
-            FoldLayout foldLayout = foldLayoutHead.findViewById(R.id.foldLayout);
-            ((TextView) foldLayout.findViewById(R.id.foldLayoutTextView)).setText("FoldLayout_" + i);
+            FoldLayout foldLayout = foldLayoutHead.findViewById(R.id.fold_layout);
+            ((TextView) foldLayout.findViewById(R.id.fold_layout_text_view)).setText("FoldLayout_" + i);
             foldLayout.addItemView(viewList);
 
-            foldLayoutsLinearLayout = root.findViewById(R.id.foldLayoutsLinearLayout);
             foldLayoutsLinearLayout.addView(foldLayoutHead);
-        }*/
+        }
+*/
     }
 
 

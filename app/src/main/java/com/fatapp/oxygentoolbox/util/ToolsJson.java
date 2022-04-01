@@ -166,7 +166,7 @@ public class ToolsJson {
             @SerializedName("text")
             private Text text;
             @SerializedName("activity")
-            private Integer activity;
+            private String activity;
 
             public Text getText() {
                 return text;
@@ -176,11 +176,11 @@ public class ToolsJson {
                 this.text = text;
             }
 
-            public Integer getActivity() {
+            public String getActivity() {
                 return activity;
             }
 
-            public void setActivity(Integer activity) {
+            public void setActivity(String activity) {
                 this.activity = activity;
             }
 

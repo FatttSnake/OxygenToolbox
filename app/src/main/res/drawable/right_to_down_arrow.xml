@@ -11,7 +11,7 @@
             <path
                 android:name="path"
                 android:pathData="M 13.25 15.29 C -4.56 34.88 -2.78 65.15 15 83 L 367.64 410.64 L 15 738.32 C -4.56 756.14 -4.56 786.41 13.25 806 C 31.06 825.59 61.33 825.59 80.92 807.78 L 470.92 446.26 C 479.83 437.36 486.92 424.89 486.92 410.64 C 486.92 398.18 481.58 383.93 470.92 375.03 L 80.92 13.51 C 61.33 -4.3 31.06 -4.3 13.25 15.29 Z M 13.25 15.29"
-                android:fillColor="@color/tools_arrow"
+                android:fillColor="?attr/tools_arrow"
                 android:strokeWidth="1"/>
         </vector>
     </aapt:attr>

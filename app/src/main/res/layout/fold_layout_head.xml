@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
     android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
     android:background="@drawable/top_bottom_radius_background"
-    android:gravity="center_vertical" >
+    android:gravity="center_vertical">
 
     <TextView
         android:id="@+id/fold_layout_icon"
@@ -17,8 +17,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textAlignment="center"
-        android:textSize="20sp"
-        android:textColor="@color/app_theme" />
+        android:textColor="?attr/app_theme"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/fold_layout_text_view"
@@ -26,7 +26,7 @@
         android:layout_height="40dp"
         android:layout_weight="6"
         android:gravity="center_vertical"
-        android:textColor="@color/app_text_theme"
+        android:textColor="?attr/app_text_theme"
         android:textSize="18sp" />
 
     <ImageView
@@ -34,6 +34,6 @@
         android:layout_width="0dp"
         android:layout_height="15dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/right_to_down_arrow"
-        android:contentDescription="@string/arrow_icon" />
+        android:contentDescription="@string/arrow_icon"
+        app:srcCompat="@drawable/right_to_down_arrow" />
 </LinearLayout>
