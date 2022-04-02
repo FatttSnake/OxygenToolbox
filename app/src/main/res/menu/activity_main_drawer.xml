@@ -16,6 +16,8 @@
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_menu_setting"
             android:title="@string/menu_setting" />
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/nav_group_exit">
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about"

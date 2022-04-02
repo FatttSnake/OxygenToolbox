@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.Menu;
 
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
+import com.fatapp.oxygentoolbox.util.VibratorController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
@@ -35,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         mainActivity = this;
-        ResourceUtil.init(getApplication());
     }
 
     @Override
@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         //init
         initView();
         initLayout();
+        ResourceUtil.init(getApplication());
+        VibratorController.init();
 
 //        shortCutCreateTest();
     }
@@ -60,10 +62,12 @@ public class MainActivity extends AppCompatActivity {
         navigationView.inflateMenu(R.menu.activity_main_drawer);
         navigationView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
             if (navigationView.getMenu().getItem(0).isChecked()) {
+                drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
                 fab.setVisibility(View.VISIBLE);
             } else if (navigationView.getMenu().getItem(4).isChecked()) {
-                System.exit(0);
+                finish();
             } else {
+                drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
                 fab.setVisibility(View.GONE);
             }
         });

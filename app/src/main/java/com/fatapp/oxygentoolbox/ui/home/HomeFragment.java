@@ -1,8 +1,10 @@
 package com.fatapp.oxygentoolbox.ui.home;
 
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.layout.FoldLayout;
 import com.fatapp.oxygentoolbox.util.ToolsLauncher;
 import com.fatapp.oxygentoolbox.util.ToolsList;
+import com.fatapp.oxygentoolbox.util.VibratorController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +54,7 @@ public class HomeFragment extends Fragment {
         initFoldLayout();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initFoldLayout() {
         try {
             ToolsList.init(getResources().getAssets().open("json/BasicTools.json"));
@@ -68,7 +72,25 @@ public class HomeFragment extends Fragment {
                 View toolButtonLayout = getLayoutInflater().inflate(R.layout.tool_button, null);
                 Button toolButton = toolButtonLayout.findViewById(R.id.tool_button);
                 toolButton.setText(button.getText());
+
                 toolButton.setOnClickListener(v -> ToolsLauncher.launch(getContext(), button.getActivity()));
+
+                toolButton.setOnTouchListener((v, event) -> {
+                    if (event.getAction()== MotionEvent.ACTION_DOWN) {
+                        v.animate().translationZ(8f).setDuration(100L);
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
+                        v.animate().translationZ(0).setDuration(100L);
+                    }
+                    return false;
+                });
+
+                toolButton.setOnLongClickListener(v -> {
+                    v.animate().translationZ(0).setDuration(100L);
+                    VibratorController.vibrate(1);
+                    return false;
+                });
+
                 autoLinefeedLayout.addView(toolButtonLayout);
             }
 
