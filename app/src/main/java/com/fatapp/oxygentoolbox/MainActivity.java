@@ -64,12 +64,14 @@ public class MainActivity extends AppCompatActivity {
             if (navigationView.getMenu().getItem(0).isChecked()) {
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
                 fab.setVisibility(View.VISIBLE);
-            } else if (navigationView.getMenu().getItem(4).isChecked()) {
-                finish();
             } else {
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
                 fab.setVisibility(View.GONE);
             }
+        });
+        navigationView.getMenu().getItem(4).setOnMenuItemClickListener(item -> {
+            finish();
+            return false;
         });
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
