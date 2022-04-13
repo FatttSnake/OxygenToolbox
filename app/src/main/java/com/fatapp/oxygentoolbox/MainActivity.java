@@ -1,14 +1,13 @@
 package com.fatapp.oxygentoolbox;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
 
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.fatapp.oxygentoolbox.util.VibratorController;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -26,14 +25,15 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    private Toolbar toolbar;
-    private FloatingActionButton fab;
     private DrawerLayout drawer;
+    private CoordinatorLayout mainPage;
+    private Toolbar toolbar;
     private NavigationView navigationView;
+
     private void initView() {
-        toolbar = findViewById(R.id.toolbar);
-        fab = findViewById(R.id.fab);
         drawer = findViewById(R.id.drawer_layout);
+        mainPage = findViewById(R.id.main_page);
+        toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.nav_view);
         mainActivity = this;
     }
@@ -53,21 +53,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initLayout() {
+        mainPage.setPadding(0, ResourceUtil.getStatusBarHeight(getWindow(), getApplicationContext()), 0, 0);
+
         setSupportActionBar(toolbar);
-        fab.setOnClickListener(view -> {
-            /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();*/
-        });
         navigationView.inflateHeaderView(R.layout.nav_header_main);
         navigationView.inflateMenu(R.menu.activity_main_drawer);
         navigationView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
-            if (navigationView.getMenu().getItem(0).isChecked()) {
-                drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-                fab.setVisibility(View.VISIBLE);
-            } else {
-                drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                fab.setVisibility(View.GONE);
-            }
+            drawer.setDrawerLockMode(navigationView.getMenu().getItem(0).isChecked()
+                    ? DrawerLayout.LOCK_MODE_UNLOCKED
+                    : DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         });
         navigationView.getMenu().getItem(4).setOnMenuItemClickListener(item -> {
             finish();

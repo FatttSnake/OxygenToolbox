@@ -9,6 +9,8 @@
     <string name="action_settings">设置</string>
 
     <string name="menu_home">主页</string>
+    <string name="menu_home_tools">工具</string>
+    <string name="menu_home_fav">收藏</string>
     <string name="menu_theme">主题</string>
     <string name="menu_setting">设置</string>
     <string name="menu_about">关于</string>
@@ -18,7 +20,6 @@
     <string name="shortcutLongLabel">氧工具</string>
     <string name="shortcutShortLabel">氧工具</string>
 
-    <string name="fab">浮动按钮</string>
     <string name="init_tools_failed">初始化工具集失败</string>
     <string name="activity_class_not_found">无法加载工具，该工具可能已损坏</string>
 </resources>

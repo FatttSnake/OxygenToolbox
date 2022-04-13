@@ -15,6 +15,7 @@
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
 
         <item name="app_theme">@color/default_app_theme</item>
         <item name="app_on_theme">@color/default_app_on_theme</item>
@@ -31,15 +32,19 @@
         <item name="tools_button_ripple">@color/default_tools_button_ripple</item>
     </style>
 
+    <style name="Theme.OxygenToolbox.Full" parent="Theme.OxygenToolbox.Default">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.SplashActivity" parent="Theme.OxygenToolbox.Full">
+
+    </style>
+
     <style name="Theme.OxygenToolbox.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/default_app_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher</item>
         <item name="windowSplashScreenAnimationDuration">0</item>
-        <item name="postSplashScreenTheme">@style/Theme.OxygenToolbox.Default</item>
-    </style>
-
-    <style name="Theme.OxygenToolbox.Full" parent="Theme.OxygenToolbox.Default">
-        <item name="android:windowFullscreen">true</item>
+        <item name="postSplashScreenTheme">@style/Theme.OxygenToolbox.SplashActivity</item>
     </style>
 
     <style name="Theme.OxygenToolbox.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

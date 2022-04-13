@@ -18,10 +18,8 @@ public class ThemeFragment extends Fragment {
 
     private ThemeViewModel themeViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        themeViewModel =
-                new ViewModelProvider(this).get(ThemeViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        themeViewModel = new ViewModelProvider(this).get(ThemeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_theme, container, false);
         final TextView textView = root.findViewById(R.id.text_theme);
         themeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
