@@ -86,9 +86,11 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
 
         int contentHeight = content.getMeasuredHeight();
         if (!init) {
+            LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
+            layoutParams.height = 0;
+            content.setLayoutParams(layoutParams);
             showAnimator = ValueAnimator.ofInt(0, contentHeight);
             showAnimator.addUpdateListener(animation -> {
-                LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
                 layoutParams.height = (int) animation.getAnimatedValue();
                 content.setLayoutParams(layoutParams);
             });
@@ -103,7 +105,6 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
 
             hideAnimator = ValueAnimator.ofInt(contentHeight, 0);
             hideAnimator.addUpdateListener(animation -> {
-                LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
                 layoutParams.height = (int) animation.getAnimatedValue();
                 content.setLayoutParams(layoutParams);
             });
@@ -119,8 +120,6 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                 }
             });
             init = true;
-
-            showItem();
         }
     }
 
