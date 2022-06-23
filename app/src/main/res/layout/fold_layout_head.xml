@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fold_layout_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
-    android:background="@drawable/top_bottom_radius_background"
     android:gravity="center_vertical">
 
     <TextView
@@ -34,6 +32,5 @@
         android:layout_width="0dp"
         android:layout_height="15dp"
         android:layout_weight="1"
-        android:contentDescription="@string/arrow_icon"
-        app:srcCompat="@drawable/right_to_down_arrow" />
+        android:contentDescription="@string/arrow_icon" />
 </LinearLayout>

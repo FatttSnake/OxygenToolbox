@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.content.res.AppCompatResources;
+
 import com.fatapp.oxygentoolbox.R;
 
 import java.util.List;
@@ -23,6 +25,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
     private boolean init;
     private final int layoutId;
     private boolean isShow;
+    private boolean isDefaultShow;
     private LinearLayout content;
     private ValueAnimator showAnimator;
     private ValueAnimator hideAnimator;
@@ -35,19 +38,28 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
     }
 
     public FoldLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        this(context, attrs, 0, false);
     }
 
-    public FoldLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FoldLayout(Context context, AttributeSet attrs, int defStyleAttr, boolean isDefaultShow) {
         super(context, attrs, defStyleAttr);
         @SuppressLint("Recycle") TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.FoldLayout, defStyleAttr, 0);
         layoutId = ta.getResourceId(R.styleable.FoldLayout_layoutId, -1);
+        this.isDefaultShow = isDefaultShow;
         init(context);
     }
 
     private void init(Context context) {
         setOrientation(VERTICAL);
         addDefaultLayout(context);
+    }
+
+    public void setDefaultShow(boolean defaultShow) {
+        isDefaultShow = defaultShow;
+    }
+
+    public View getDefaultView() {
+        return defaultView;
     }
 
     /**
@@ -87,8 +99,22 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
         int contentHeight = content.getMeasuredHeight();
         if (!init) {
             LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
-            layoutParams.height = 0;
+            if (isDefaultShow) {
+                isShow = true;
+                layoutParams.height = contentHeight;
+                LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
+                linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.top_radius_background));
+                ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
+                imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.down_to_right_arrow));
+            } else {
+                layoutParams.height = 0;
+                LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
+                linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.top_bottom_radius_background));
+                ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
+                imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.right_to_down_arrow));
+            }
             content.setLayoutParams(layoutParams);
+
             showAnimator = ValueAnimator.ofInt(0, contentHeight);
             showAnimator.addUpdateListener(animation -> {
                 layoutParams.height = (int) animation.getAnimatedValue();

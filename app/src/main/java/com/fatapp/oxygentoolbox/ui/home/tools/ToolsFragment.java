@@ -98,6 +98,7 @@ public class ToolsFragment extends Fragment {
 
             View foldLayoutHead = getLayoutInflater().inflate(R.layout.fold_layout, null);
             FoldLayout foldLayout = foldLayoutHead.findViewById(R.id.fold_layout);
+            foldLayout.setDefaultShow(true);
             ((TextView) foldLayout.findViewById(R.id.fold_layout_text_view)).setText(tool.getFoldLayoutTitle());
 
             TextView foldLayoutIcon = foldLayout.findViewById(R.id.fold_layout_icon);

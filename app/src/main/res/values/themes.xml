@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.OxygenToolbox.Default" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
         <!-- Primary brand color. -->
@@ -11,11 +11,12 @@
         <item name="colorSecondaryVariant">@color/default_app_second_theme</item>
         <item name="colorOnSecondary">@color/default_app_second_on_theme</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowDisablePreview">true</item>
 
         <item name="app_theme">@color/default_app_theme</item>
         <item name="app_on_theme">@color/default_app_on_theme</item>
