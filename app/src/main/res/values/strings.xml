@@ -24,4 +24,26 @@
 
     <string name="init_tools_failed">Failed to initialize tools</string>
     <string name="activity_class_not_found">Can not load tool, it may be damaged</string>
+
+    <string name="setting_dark_mode">Dark Theme</string>
+    <string-array name="setting_dark_theme_selects_array">
+        <item>Follow Device</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string name="setting_base_settings">Base Settings</string>
+    <string name="setting_language">Language</string>
+    <string name="setting_language_key" translatable="false">app_language</string>
+    <string-array name="setting_language_array">
+        <item>Follow System</item>
+        <item>中文</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="setting_language_values">
+        <item>default</item>
+        <item>zh_CN</item>
+        <item>en_US</item>
+    </string-array>
+    <string name="setting_launch_page">Launch Page</string>
 </resources>

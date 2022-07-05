@@ -3,9 +3,12 @@ package com.fatapp.oxygentoolbox.util;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.os.Build;
+import android.util.DisplayMetrics;
 import android.view.Window;
 
 import androidx.annotation.AttrRes;
@@ -13,19 +16,20 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.core.os.ConfigurationCompat;
+import androidx.core.os.LocaleListCompat;
 
 import com.google.android.material.color.MaterialColors;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public final class ResourceUtil {
 
     private static Application sApp;
-    private static Resources sRes;
 
     public static void init(Application app) {
         sApp = app;
-        sRes = app.getResources();
     }
 
     public static Application getApplication() {
@@ -33,15 +37,23 @@ public final class ResourceUtil {
     }
 
     public static Resources getResources() {
-        return sRes;
+        return sApp.getResources();
+    }
+
+    public static Configuration getConfiguration() {
+        return sApp.getResources().getConfiguration();
+    }
+
+    public static DisplayMetrics getDisplayMetrics() {
+        return sApp.getResources().getDisplayMetrics();
     }
 
     public static String getString(int resId) {
-        return sRes.getString(resId);
+        return sApp.getResources().getString(resId);
     }
 
     public static int getColor(int resId) {
-        return sRes.getColor(resId);
+        return sApp.getResources().getColor(resId);
     }
 
     @ColorInt
@@ -81,5 +93,20 @@ public final class ResourceUtil {
         } else {
             return 0;
         }
+    }
+
+    public static Locale getAppLocale() {
+        Locale local;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            local = getConfiguration().getLocales().get(0);
+        } else {
+            local = getConfiguration().locale;
+        }
+        return local;
+    }
+
+    public static LocaleListCompat getSystemLocale() {
+        Configuration configuration = Resources.getSystem().getConfiguration();
+        return ConfigurationCompat.getLocales(configuration);
     }
 }

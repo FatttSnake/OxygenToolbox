@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory app:title="@string/setting_base_settings">
+        <ListPreference
+            app:defaultValue="default"
+            app:entries="@array/setting_language_array"
+            app:entryValues="@array/setting_language_values"
+            app:key="@string/setting_language_key"
+            app:title="@string/setting_language"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="help_category"
+        app:title="Help">
+        <Preference
+            app:key="feedback"
+            app:summary="Report technical issues or suggest new features"
+            app:title="Send feedback" />
+    </PreferenceCategory>
+</PreferenceScreen>

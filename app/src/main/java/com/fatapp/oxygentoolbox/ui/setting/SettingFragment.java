@@ -1,33 +1,38 @@
 package com.fatapp.oxygentoolbox.ui.setting;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.annotation.Nullable;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 
+import com.fatapp.oxygentoolbox.MainActivity;
 import com.fatapp.oxygentoolbox.R;
+import com.fatapp.oxygentoolbox.util.MultiLanguageUtils;
+import com.fatapp.oxygentoolbox.util.ResourceUtil;
 
-public class SettingFragment extends Fragment {
+import java.util.Objects;
 
-    private SettingViewModel settingViewModel;
+public class SettingFragment extends PreferenceFragmentCompat {
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        settingViewModel = new ViewModelProvider(this).get(SettingViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_setting, container, false);
-/*
-        final TextView textView = root.findViewById(R.id.text_setting);
-        settingViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-*/
-        return root;
+    @Override
+    public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
+        setPreferencesFromResource(R.xml.fragment_setting, rootKey);
+        ListPreference appLanguage = findPreference("app_language");
+        if (appLanguage != null) {
+            appLanguage.setOnPreferenceChangeListener((preference, newValue) -> {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                requireActivity().startActivity(intent);
+                requireActivity().finish();
+                return true;
+            });
+        }
     }
 }

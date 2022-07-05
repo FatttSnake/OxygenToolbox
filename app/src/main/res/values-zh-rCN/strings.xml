@@ -22,4 +22,16 @@
 
     <string name="init_tools_failed">初始化工具集失败</string>
     <string name="activity_class_not_found">无法加载工具，该工具可能已损坏</string>
+
+    <string name="setting_dark_mode">深色主题</string>
+
+    <string name="setting_base_settings">基本设置</string>
+    <string name="setting_language">语言</string>
+    <string name="setting_launch_page">启动页</string>
+
+    <string-array name="setting_language_array">
+        <item>跟随系统</item>
+        <item>中文</item>
+        <item>English</item>
+    </string-array>
 </resources>

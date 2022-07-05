@@ -1,12 +1,15 @@
 package com.fatapp.oxygentoolbox;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.fatapp.oxygentoolbox.util.MultiLanguageUtils;
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.fatapp.oxygentoolbox.util.VibratorController;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -46,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         //init
         initView();
         initLayout();
-        ResourceUtil.init(getApplication());
         VibratorController.init();
 
 //        shortCutCreateTest();
@@ -58,11 +60,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         navigationView.inflateHeaderView(R.layout.nav_header_main);
         navigationView.inflateMenu(R.menu.activity_main_drawer);
-        navigationView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
-            drawer.setDrawerLockMode(navigationView.getMenu().getItem(0).isChecked()
-                    ? DrawerLayout.LOCK_MODE_UNLOCKED
-                    : DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        });
+        navigationView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> drawer.setDrawerLockMode(navigationView.getMenu().getItem(0).isChecked()
+                ? DrawerLayout.LOCK_MODE_UNLOCKED
+                : DrawerLayout.LOCK_MODE_LOCKED_CLOSED));
         navigationView.getMenu().getItem(4).setOnMenuItemClickListener(item -> {
             finish();
             return false;
@@ -111,5 +111,16 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(MultiLanguageUtils.attachBaseContext(newBase));
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        MultiLanguageUtils.attachBaseContext(getApplicationContext());
     }
 }
