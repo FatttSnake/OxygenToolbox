@@ -109,4 +109,12 @@ public final class ResourceUtil {
         Configuration configuration = Resources.getSystem().getConfiguration();
         return ConfigurationCompat.getLocales(configuration);
     }
+
+    public static int dpToPx(float dp) {
+        return (int) (dp * getDisplayMetrics().density + 0.5f);
+    }
+
+    public static float pxToDp(int px) {
+        return px / getDisplayMetrics().density + 0.5f;
+    }
 }

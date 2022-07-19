@@ -1,28 +1,25 @@
 package com.fatapp.oxygentoolbox.util;
 
-import android.os.Build;
-import android.widget.Toast;
-
-import com.fatapp.oxygentoolbox.MainActivity;
-import com.fatapp.oxygentoolbox.ui.home.HomeFragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ToolsList {
     private static List<Tool> toolList = new ArrayList<>();
 
     public static void init(InputStream file) throws IOException {
-        int i;
+        String str;
         StringBuilder jsonStringBuilder = new StringBuilder();
-
-        while ((i = file.read()) != -1) {
-            jsonStringBuilder.append((char) i);
+        InputStreamReader inputStreamReader = new InputStreamReader(file);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        while ((str = bufferedReader.readLine()) != null) {
+            jsonStringBuilder.append(str);
         }
         file.close();
         List<ToolsJson> toolsJsonList = new Gson().fromJson(jsonStringBuilder.toString(), new TypeToken<List<ToolsJson>>() {
@@ -44,13 +41,7 @@ public class ToolsList {
     }
 
     private static String getLocale(Locales strings) {
-        String language;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            language = ResourceUtil.getResources().getConfiguration().getLocales().get(0).getLanguage();
-        } else {
-            language = ResourceUtil.getResources().getConfiguration().locale.getLanguage();
-        }
-        if (language.equals("zh")) {
+        if (SharedPreferencesUtils.getLanguage().getLanguage().equals("zh")) {
             return strings.getCn();
         }
         return strings.getEn();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.OxygenToolbox.Default" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+    <style name="Theme.OxygenToolbox.Default" parent="Theme.MaterialComponents.DayNight.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/default_app_theme</item>
         <item name="colorPrimaryVariant">@color/default_app_theme</item>

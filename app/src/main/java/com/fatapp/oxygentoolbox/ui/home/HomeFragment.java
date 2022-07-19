@@ -14,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.ui.home.fav.FavFragment;
 import com.fatapp.oxygentoolbox.ui.home.tools.ToolsFragment;
+import com.fatapp.oxygentoolbox.util.SharedPreferencesUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
@@ -29,7 +30,7 @@ public class HomeFragment extends Fragment {
         ViewPager2 bottomNavViewPager = root.findViewById(R.id.bottom_nav_view_pager);
         BottomNavigationView bottomNavigationView = root.findViewById(R.id.bottom_navigation_view);
 
-        bottomNavViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){
+        bottomNavViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 bottomNavigationView.getMenu().getItem(position).setChecked(true);
@@ -43,13 +44,10 @@ public class HomeFragment extends Fragment {
             @NonNull
             @Override
             public Fragment createFragment(int position) {
-                switch (position) {
-                    case 0:
-                        return new ToolsFragment();
-                    case 1:
-                        return new FavFragment();
+                if (position == 1) {
+                    return new FavFragment();
                 }
-                return null;
+                return new ToolsFragment();
             }
 
             @Override
@@ -57,6 +55,8 @@ public class HomeFragment extends Fragment {
                 return 2;
             }
         });
+
+        bottomNavViewPager.setCurrentItem(SharedPreferencesUtils.getLaunchPage() == SharedPreferencesUtils.LaunchPage.tools ? 0 : 1, false);
 
         return root;
     }

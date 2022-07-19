@@ -45,5 +45,21 @@
         <item>zh_CN</item>
         <item>en_US</item>
     </string-array>
+    <string name="setting_language_default_value" translatable="false">default</string>
     <string name="setting_launch_page">Launch Page</string>
+    <string name="setting_launch_page_key" translatable="false">app_launch_page</string>
+    <string-array name="setting_launch_page_array">
+        <item>Tools</item>
+        <item>Favourites</item>
+    </string-array>
+    <string-array name="setting_launch_page_values">
+        <item>tools</item>
+        <item>favourites</item>
+    </string-array>
+    <string name="setting_launch_page_default_value" translatable="false">tools</string>
+    <string name="setting_open_source">OpenSource</string>
+    <string name="setting_search">Search</string>
+    <string name="setting_about">About</string>
+    <string name="setting_about_oxygen_toolbox">About OxygenToolbox</string>
+    <string name="setting_about_oxygen_toolbox_key" translatable="false">app_about</string>
 </resources>

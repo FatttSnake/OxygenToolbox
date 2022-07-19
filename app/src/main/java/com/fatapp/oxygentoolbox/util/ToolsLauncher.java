@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.fatapp.oxygentoolbox.R;
-import com.fatapp.oxygentoolbox.tools.TimeScreenActivity;
 
 public class ToolsLauncher {
     public static void launch(Context context, String activity) {

@@ -1,47 +1,25 @@
 package com.fatapp.oxygentoolbox.util;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.LocaleList;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.view.ContextThemeWrapper;
-import androidx.core.os.ConfigurationCompat;
-import androidx.core.os.LocaleListCompat;
-
-import com.fatapp.oxygentoolbox.R;
 
 import java.util.Locale;
+import java.util.Objects;
 
 public class MultiLanguageUtils {
 
     public static Context attachBaseContext(Context context) {
-        String locale;
-        if (SharedPreferencesUtils.isNull()) {
-            locale = "default";
-        } else {
-            locale = SharedPreferencesUtils.getLocale();
-        }
-        String language;
-        String country;
-        if (!locale.equals("default")) {
-            language = locale.substring(0, locale.indexOf("_"));
-            country = locale.substring(locale.indexOf("_") + 1);
-        } else {
-            language = ResourceUtil.getSystemLocale().get(0).getLanguage();
-            country = ResourceUtil.getSystemLocale().get(0).getCountry();
-        }
+        Locale locale = SharedPreferencesUtils.getLanguage();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
-            return createConfigurationContext(context, language, country);
+            return createConfigurationContext(context, locale.getLanguage(), locale.getCountry());
         } else {
-            return updateConfiguration(context, language, country);
+            return updateConfiguration(context, locale.getLanguage(), locale.getCountry());
         }
     }
 

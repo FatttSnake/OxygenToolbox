@@ -29,17 +29,7 @@ public class App extends Application {
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
                 ResourceUtil.init(App.this);
                 SharedPreferencesUtils.init(App.this);
-                String locale = SharedPreferencesUtils.getLocale();
-                String language;
-                String country;
-                if (!locale.equals("default")) {
-                    language = locale.substring(0, locale.indexOf("_"));
-                    country = locale.substring(locale.indexOf("_") + 1);
-                } else {
-                    language = ResourceUtil.getSystemLocale().get(0).getLanguage();
-                    country = ResourceUtil.getSystemLocale().get(0).getCountry();
-                }
-                setAppLanguage(getApplicationContext(), new Locale(language, country));
+                setAppLanguage(getApplicationContext(), SharedPreferencesUtils.getLanguage());
             }
 
             @Override

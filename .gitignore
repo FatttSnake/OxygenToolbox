@@ -14,6 +14,7 @@
 
 # Local configuration files (sdk path, etc)
 local.properties
+keystore.properties
 
 # Mac .DS_Store files
 .DS_Store
@@ -32,6 +33,7 @@ captures
 # ignore lint html and xml output
 lint-*ml
 
+*.jks
 
 /.idea/caches
 /.idea/libraries

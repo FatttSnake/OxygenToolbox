@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OxygenToolbox.Default">
         <activity
+            android:name=".ui.about.LibrariesActivity"
+            android:exported="false"
+            android:label="@string/setting_open_source"
+            android:theme="@style/Theme.OxygenToolbox.Default" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.OxygenToolbox.Starting">
