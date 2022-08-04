@@ -1,4 +1,4 @@
-package com.fatapp.oxygentoolbox.util;
+package com.fatapp.oxygentoolbox.util.json;
 
 import com.google.gson.JsonParser;
 import com.google.gson.TypeAdapter;

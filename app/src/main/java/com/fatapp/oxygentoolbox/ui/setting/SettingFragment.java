@@ -1,9 +1,6 @@
 package com.fatapp.oxygentoolbox.ui.setting;
 
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.navigation.Navigation;

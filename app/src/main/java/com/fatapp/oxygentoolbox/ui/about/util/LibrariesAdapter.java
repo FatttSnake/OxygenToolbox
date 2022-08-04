@@ -16,9 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fatapp.oxygentoolbox.R;
-import com.fatapp.oxygentoolbox.util.DependenciesJson;
-import com.fatapp.oxygentoolbox.util.LicenseJson;
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
+import com.fatapp.oxygentoolbox.util.json.DependenciesJson;
+import com.fatapp.oxygentoolbox.util.json.LicenseJson;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
