@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -160,5 +162,25 @@ public final class ResourceUtil {
 
     public static float pxToDp(int px) {
         return px / getDisplayMetrics().density + 0.5f;
+    }
+
+    public static String getAppVersionName() {
+        try {
+            PackageManager packageManager = sApp.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(sApp.getPackageName(), 0);
+            return packageInfo.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            return "Null";
+        }
+    }
+
+    public static int getAppVersionCode() {
+        try {
+            PackageManager packageManager = sApp.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(sApp.getPackageName(), 0);
+            return packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            return -1;
+        }
     }
 }

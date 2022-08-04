@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/libraries_page"
     android:layout_width="match_parent"
+    android:background="?attr/app_background"
     android:layout_height="match_parent"
     tools:context=".ui.about.LibrariesActivity">
 

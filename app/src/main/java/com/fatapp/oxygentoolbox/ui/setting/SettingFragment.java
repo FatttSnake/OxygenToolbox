@@ -28,11 +28,6 @@ public class SettingFragment extends PreferenceFragmentCompat {
         Preference aboutPreference = findPreference(ResourceUtil.getString(R.string.setting_about_oxygen_toolbox_key));
         if (aboutPreference != null) {
             aboutPreference.setOnPreferenceClickListener(preference -> {
-/*
-                Intent intent = new Intent(getActivity(), LibrariesActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-*/
                 Navigation.findNavController(requireView()).navigate(R.id.action_setting_to_about);
                 return true;
             });

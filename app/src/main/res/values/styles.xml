@@ -26,4 +26,9 @@
         <item name="android:textSize">@dimen/default_text_size</item>
         <item name="android:textColor">?attr/app_text_theme</item>
     </style>
+
+    <style name="RoundImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">64dp</item>
+    </style>
 </resources>
