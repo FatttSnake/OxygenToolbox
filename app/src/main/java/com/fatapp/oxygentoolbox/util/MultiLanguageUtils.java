@@ -10,12 +10,11 @@ import android.util.DisplayMetrics;
 import androidx.annotation.RequiresApi;
 
 import java.util.Locale;
-import java.util.Objects;
 
 public class MultiLanguageUtils {
 
     public static Context attachBaseContext(Context context) {
-        Locale locale = SharedPreferencesUtils.getLanguage();
+        Locale locale = SharedPreferencesUtils.getPreferenceLocale();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
             return createConfigurationContext(context, locale.getLanguage(), locale.getCountry());
         } else {

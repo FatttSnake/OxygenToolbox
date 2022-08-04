@@ -41,11 +41,11 @@
         <item>English</item>
     </string-array>
     <string-array name="setting_language_values">
-        <item>default</item>
+        <item>system</item>
         <item>zh_CN</item>
         <item>en_US</item>
     </string-array>
-    <string name="setting_language_default_value" translatable="false">default</string>
+    <string name="setting_language_default_value" translatable="false">system</string>
     <string name="setting_launch_page">Launch Page</string>
     <string name="setting_launch_page_key" translatable="false">app_launch_page</string>
     <string-array name="setting_launch_page_array">
@@ -57,6 +57,19 @@
         <item>favourites</item>
     </string-array>
     <string name="setting_launch_page_default_value" translatable="false">tools</string>
+    <string name="setting_ui_mode">Theme Mode</string>
+    <string name="setting_ui_mode_key" translatable="false">app_ui_mode</string>
+    <string-array name="setting_ui_mode_array">
+        <item>Follow System</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="setting_ui_mode_values">
+        <item>system</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+    <string name="setting_ui_mode_default_value" translatable="false">system</string>
     <string name="setting_open_source">OpenSource</string>
     <string name="setting_search">Search</string>
     <string name="setting_about">About</string>

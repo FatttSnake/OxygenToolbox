@@ -37,6 +37,12 @@
         <item>工具</item>
         <item>收藏</item>
     </string-array>
+    <string name="setting_ui_mode">主题模式</string>
+    <string-array name="setting_ui_mode_array">
+        <item>跟随系统</item>
+        <item>亮色</item>
+        <item>深色</item>
+    </string-array>
     <string name="setting_open_source">开源许可</string>
     <string name="setting_search">查找</string>
     <string name="setting_about">关于</string>

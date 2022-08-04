@@ -17,6 +17,13 @@
             app:key="@string/setting_launch_page_key"
             app:title="@string/setting_launch_page"
             app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            app:defaultValue="@string/setting_ui_mode_default_value"
+            app:entries="@array/setting_ui_mode_array"
+            app:entryValues="@array/setting_ui_mode_values"
+            app:key="@string/setting_ui_mode_key"
+            app:title="@string/setting_ui_mode"
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/setting_about">

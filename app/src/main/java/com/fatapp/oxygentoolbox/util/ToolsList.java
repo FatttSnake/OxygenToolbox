@@ -41,7 +41,7 @@ public class ToolsList {
     }
 
     private static String getLocale(Locales strings) {
-        if (SharedPreferencesUtils.getLanguage().getLanguage().equals("zh")) {
+        if (SharedPreferencesUtils.getPreferenceLocale().getLanguage().equals("zh")) {
             return strings.getCn();
         }
         return strings.getEn();

@@ -17,7 +17,11 @@ public class SharedPreferencesUtils {
         preferences = PreferenceManager.getDefaultSharedPreferences(app);
     }
 
-    public static Locale getLanguage() {
+    public static boolean isNull() {
+        return preferences == null;
+    }
+
+    public static Locale getPreferenceLocale() {
         String languagePreference;
         String language;
         String country;
@@ -33,15 +37,21 @@ public class SharedPreferencesUtils {
         return new Locale(language, country);
     }
 
-    public static boolean isNull() {
-        return preferences == null;
-    }
-
-    public static LaunchPage getLaunchPage() {
+    public static LaunchPage getPreferenceLaunchPage() {
         return LaunchPage.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_launch_page_key), ResourceUtil.getString(R.string.setting_launch_page_default_value)));
     }
 
+    public static UiMode getPreferenceUiMode() {
+        return UiMode.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_ui_mode_key), ResourceUtil.getString(R.string.setting_ui_mode_default_value)));
+    }
+
+    @SuppressWarnings("unused")
     public enum LaunchPage {
-        tools,favourites
+        tools, favourites
+    }
+
+    @SuppressWarnings("unused")
+    public enum UiMode {
+        system, light, dark
     }
 }

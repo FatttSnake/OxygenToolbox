@@ -1,13 +1,16 @@
 package com.fatapp.oxygentoolbox.util;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Build;
+import android.os.LocaleList;
 import android.util.DisplayMetrics;
 import android.view.Window;
 
@@ -25,11 +28,17 @@ import java.util.Locale;
 import java.util.Objects;
 
 public final class ResourceUtil {
+    private static int UI_MODE_SYSTEM;
+    public static final int UI_MODE_LIGHT = Configuration.UI_MODE_NIGHT_NO + Configuration.UI_MODE_TYPE_NORMAL;
+    public static final int UI_MODE_DARK = Configuration.UI_MODE_NIGHT_YES + Configuration.UI_MODE_TYPE_NORMAL;
 
     private static Application sApp;
 
     public static void init(Application app) {
         sApp = app;
+        if (UI_MODE_SYSTEM == 0) {
+            UI_MODE_SYSTEM = getAppUiMode();
+        }
     }
 
     public static Application getApplication() {
@@ -108,6 +117,41 @@ public final class ResourceUtil {
     public static LocaleListCompat getSystemLocale() {
         Configuration configuration = Resources.getSystem().getConfiguration();
         return ConfigurationCompat.getLocales(configuration);
+    }
+
+    public static void setAppLocale(Locale locale) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            getConfiguration().setLocale(locale);
+            getConfiguration().setLocales(new LocaleList(locale));
+            getApplication().createConfigurationContext(getConfiguration());
+        } else {
+            getConfiguration().setLocale(locale);
+        }
+        updateConfiguration();
+    }
+
+    public static int getSystemUiMode() {
+        return UI_MODE_SYSTEM;
+    }
+
+    public static int getAppUiMode() {
+        return getConfiguration().uiMode;
+    }
+
+    public static void setAppUiMode(int uiMode) {
+        getConfiguration().uiMode = uiMode;
+        updateConfiguration();
+    }
+
+    private static void updateConfiguration() {
+        getResources().updateConfiguration(getConfiguration(), getDisplayMetrics());
+    }
+
+    public static void restartActivity(Activity activity, Class<?> cls) {
+        Intent intent = new Intent(activity, cls);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        activity.startActivity(intent);
+        activity.finish();
     }
 
     public static int dpToPx(float dp) {
