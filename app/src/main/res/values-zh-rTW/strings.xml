@@ -25,23 +25,50 @@
     <string name="setting_dark_mode">深色主题</string>
 
     <string name="setting_base_settings">基本设置</string>
+
     <string name="setting_language">语言</string>
     <string-array name="setting_language_array">
         <item>跟随系统</item>
         <item>中文</item>
         <item>English</item>
     </string-array>
+
     <string name="setting_launch_page">启动页</string>
     <string-array name="setting_launch_page_array">
         <item>工具</item>
         <item>收藏</item>
     </string-array>
+
     <string name="setting_ui_mode">主题模式</string>
     <string-array name="setting_ui_mode_array">
         <item>跟随系统</item>
         <item>亮色</item>
         <item>深色</item>
     </string-array>
+
+    <string name="setting_theme">主题</string>
+    <string-array name="setting_theme_array">
+        <item>红</item>
+        <item>粉</item>
+        <item>紫</item>
+        <item>深紫</item>
+        <item>靛青</item>
+        <item>蓝</item>
+        <item>亮蓝</item>
+        <item>青</item>
+        <item>青绿</item>
+        <item>绿</item>
+        <item>亮绿</item>
+        <item>酸橙</item>
+        <item>黄</item>
+        <item>琥珀</item>
+        <item>橙</item>
+        <item>深橙</item>
+        <item>棕</item>
+        <item>灰</item>
+        <item>蓝灰</item>
+    </string-array>
+
     <string name="setting_open_source">开源许可</string>
     <string name="setting_search">查找</string>
     <string name="setting_about">关于</string>

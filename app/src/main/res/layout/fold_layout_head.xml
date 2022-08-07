@@ -25,7 +25,8 @@
         android:layout_weight="6"
         android:gravity="center_vertical"
         android:textColor="?attr/app_text_theme"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/arrow_icon"

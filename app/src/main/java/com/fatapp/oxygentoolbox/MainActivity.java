@@ -4,21 +4,22 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 
-import com.fatapp.oxygentoolbox.util.MultiLanguageUtils;
-import com.fatapp.oxygentoolbox.util.ResourceUtil;
-import com.fatapp.oxygentoolbox.util.VibratorController;
-import com.google.android.material.navigation.NavigationView;
-
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.splashscreen.SplashScreen;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
+import com.fatapp.oxygentoolbox.util.MultiLanguageUtils;
+import com.fatapp.oxygentoolbox.util.ResourceUtil;
+import com.fatapp.oxygentoolbox.util.VibratorController;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         mainPage.setPadding(0, ResourceUtil.getStatusBarHeight(getWindow(), getApplicationContext()), 0, 0);
 
         setSupportActionBar(toolbar);
-        navigationView.inflateHeaderView(R.layout.nav_header_main);
+        navigationView.inflateHeaderView(R.layout.app_nav_header_main);
         navigationView.inflateMenu(R.menu.activity_main_drawer);
         navigationView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> drawer.setDrawerLockMode(navigationView.getMenu().getItem(0).isChecked()
                 ? DrawerLayout.LOCK_MODE_UNLOCKED

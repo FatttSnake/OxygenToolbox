@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/app_background"
+    android:background="?attr/app_background_theme"
     tools:context=".ui.about.AboutFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/about_icon_text_margin"
         android:text="@string/app_full_name"
+        android:textColor="?attr/app_text_theme"
         android:textSize="@dimen/default_text_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/about_text_text_margin"
         android:text="@string/nav_header_subtitle"
+        android:textColor="@color/app_secondary_text"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/about_text_text_margin"
+        android:textColor="@color/app_secondary_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_desc" />

@@ -45,13 +45,28 @@ public class SharedPreferencesUtils {
         return UiMode.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_ui_mode_key), ResourceUtil.getString(R.string.setting_ui_mode_default_value)));
     }
 
+    public static Theme getPreferenceTheme() {
+        return Theme.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_theme_key), ResourceUtil.getString(R.string.setting_theme_default_value)));
+    }
+
+    public static void setPreferenceTheme(Theme theme) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(ResourceUtil.getString(R.string.setting_theme_key), theme.toString());
+        editor.apply();
+    }
+
     @SuppressWarnings("unused")
     public enum LaunchPage {
-        tools, favourites
+        TOOLS, FAVOURITES
     }
 
     @SuppressWarnings("unused")
     public enum UiMode {
-        system, light, dark
+        SYSTEM, LIGHT, DARK
+    }
+
+    @SuppressWarnings("unused")
+    public enum Theme {
+        RED, PINK, PURPLE, DEEP_PURPLE, INDIGO, BLUE, LIGHT_BLUE, CYAN, TEAL, GREEN, LIGHT_GREEN, LIME, YELLOW, AMBER, ORANGE, DEEP_ORANGE, BROWN, GREY, BLUE_GREY
     }
 }

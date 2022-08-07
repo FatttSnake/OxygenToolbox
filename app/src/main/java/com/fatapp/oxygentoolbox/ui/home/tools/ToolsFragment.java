@@ -68,7 +68,7 @@ public class ToolsFragment extends Fragment {
             ViewGroup autoLinefeedLayout = foldLayoutBodyLayout.findViewById(R.id.auto_linefeed_layout);
 
             for (ToolsList.Button button : tool.getButtonList()) {
-                View toolButtonLayout = getLayoutInflater().inflate(R.layout.tool_button, null);
+                View toolButtonLayout = getLayoutInflater().inflate(R.layout.fold_layout_button, null);
                 Button toolButton = toolButtonLayout.findViewById(R.id.tool_button);
                 toolButton.setText(button.getText());
 
@@ -112,7 +112,7 @@ public class ToolsFragment extends Fragment {
         }
 
         for (int i = 0; i < 10; i++) {
-            View toolButton = getLayoutInflater().inflate(R.layout.tool_button, null);
+            View toolButton = getLayoutInflater().inflate(R.layout.fold_layout_button, null);
             ((Button) toolButton.findViewById(R.id.tool_button)).setText("Button");
             toolButton.findViewById(R.id.tool_button).setOnClickListener(v -> {
             });

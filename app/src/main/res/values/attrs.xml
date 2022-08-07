@@ -5,12 +5,18 @@
     </declare-styleable>
 
     <attr name="app_theme" format="color" />
+    <attr name="app_variant_theme" format="color" />
     <attr name="app_on_theme" format="color" />
-    <attr name="app_text_theme" format="color" />
-    <attr name="app_background" format="color" />
-
     <attr name="app_second_theme" format="color" />
+    <attr name="app_second_variant_theme" format="color" />
     <attr name="app_second_on_theme" format="color" />
+
+    <attr name="app_background_theme" format="color" />
+    <attr name="app_on_background_theme" format="color" />
+    <attr name="app_text_theme" format="color" />
+    <attr name="app_second_text_theme" format="color" />
+    <attr name="app_ripple_theme" format="color" />
+    <attr name="app_divider_theme" format="color" />
 
     <attr name="fold_layout_background" format="color" />
     <attr name="tools_arrow" format="color" />

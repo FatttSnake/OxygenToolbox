@@ -16,14 +16,18 @@ import android.os.LocaleList;
 import android.util.DisplayMetrics;
 import android.view.Window;
 
+import androidx.annotation.ArrayRes;
 import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.core.os.ConfigurationCompat;
 import androidx.core.os.LocaleListCompat;
 
+import com.fatapp.oxygentoolbox.R;
 import com.google.android.material.color.MaterialColors;
 
 import java.util.Locale;
@@ -59,11 +63,15 @@ public final class ResourceUtil {
         return sApp.getResources().getDisplayMetrics();
     }
 
-    public static String getString(int resId) {
+    public static String getString(@StringRes int resId) {
         return sApp.getResources().getString(resId);
     }
 
-    public static int getColor(int resId) {
+    public static String[] getStringArray(@ArrayRes int redId) {
+        return sApp.getResources().getStringArray(redId);
+    }
+
+    public static int getColor(@ColorRes int resId) {
         return sApp.getResources().getColor(resId);
     }
 
@@ -181,6 +189,87 @@ public final class ResourceUtil {
             return packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             return -1;
+        }
+    }
+
+    public static void loadAppTheme(Activity activity) {
+        switch (SharedPreferencesUtils.getPreferenceTheme()) {
+            case RED:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Red);
+                activity.getWindow().setStatusBarColor(getColor(R.color.red_primary));
+                break;
+            case PINK:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Pink);
+                activity.getWindow().setStatusBarColor(getColor(R.color.pink_primary));
+                break;
+            case PURPLE:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Purple);
+                activity.getWindow().setStatusBarColor(getColor(R.color.purple_primary));
+                break;
+            case DEEP_PURPLE:
+                activity.setTheme(R.style.Theme_OxygenToolbox_DeepPurple);
+                activity.getWindow().setStatusBarColor(getColor(R.color.deep_purple_primary));
+                break;
+            case INDIGO:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Indigo);
+                activity.getWindow().setStatusBarColor(getColor(R.color.indigo_primary));
+                break;
+            case BLUE:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Blue);
+                activity.getWindow().setStatusBarColor(getColor(R.color.blue_primary));
+                break;
+            case LIGHT_BLUE:
+                activity.setTheme(R.style.Theme_OxygenToolbox_LightBlue);
+                activity.getWindow().setStatusBarColor(getColor(R.color.light_blue_primary));
+                break;
+            case CYAN:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Cyan);
+                activity.getWindow().setStatusBarColor(getColor(R.color.cyan_primary));
+                break;
+            case TEAL:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Teal);
+                activity.getWindow().setStatusBarColor(getColor(R.color.teal_primary));
+                break;
+            case GREEN:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Green);
+                activity.getWindow().setStatusBarColor(getColor(R.color.green_primary));
+                break;
+            case LIGHT_GREEN:
+                activity.setTheme(R.style.Theme_OxygenToolbox_LightGreen);
+                activity.getWindow().setStatusBarColor(getColor(R.color.light_green_primary));
+                break;
+            case LIME:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Lime);
+                activity.getWindow().setStatusBarColor(getColor(R.color.lime_primary));
+                break;
+            case YELLOW:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Yellow);
+                activity.getWindow().setStatusBarColor(getColor(R.color.yellow_primary));
+                break;
+            case AMBER:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Amber);
+                activity.getWindow().setStatusBarColor(getColor(R.color.amber_primary));
+                break;
+            case ORANGE:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Orange);
+                activity.getWindow().setStatusBarColor(getColor(R.color.orange_primary));
+                break;
+            case DEEP_ORANGE:
+                activity.setTheme(R.style.Theme_OxygenToolbox_DeepOrange);
+                activity.getWindow().setStatusBarColor(getColor(R.color.deep_orange_primary));
+                break;
+            case BROWN:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Brown);
+                activity.getWindow().setStatusBarColor(getColor(R.color.brown_primary));
+                break;
+            case GREY:
+                activity.setTheme(R.style.Theme_OxygenToolbox_Grey);
+                activity.getWindow().setStatusBarColor(getColor(R.color.grey_primary));
+                break;
+            case BLUE_GREY:
+                activity.setTheme(R.style.Theme_OxygenToolbox_BlueGrey);
+                activity.getWindow().setStatusBarColor(getColor(R.color.blue_grey_primary));
+                break;
         }
     }
 }

@@ -24,6 +24,7 @@ public class App extends Application {
                 SharedPreferencesUtils.init(App.this);
                 ResourceUtil.init(App.this);
                 ResourceUtil.setAppLocale(SharedPreferencesUtils.getPreferenceLocale());
+                ResourceUtil.loadAppTheme(activity);
                 loadAppUiMode();
             }
 
@@ -70,12 +71,12 @@ public class App extends Application {
         MultiLanguageUtils.attachBaseContext(this);
     }
 
-    public static void loadAppUiMode() {
+    private void loadAppUiMode() {
         switch (SharedPreferencesUtils.getPreferenceUiMode()) {
-            case light:
+            case LIGHT:
                 ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_LIGHT);
                 break;
-            case dark:
+            case DARK:
                 ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_DARK);
                 break;
             default:

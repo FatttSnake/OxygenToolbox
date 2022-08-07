@@ -2,35 +2,214 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Theme.OxygenToolbox.Default" parent="Theme.MaterialComponents.DayNight.Bridge">
+        <item name="app_theme">@color/deep_purple_primary</item>
+        <item name="app_variant_theme">@color/deep_purple_primary_dark</item>
+        <item name="app_on_theme">@color/deep_purple_text_icons</item>
+        <item name="app_second_theme">@color/deep_purple_accent</item>
+        <item name="app_second_variant_theme">@color/deep_purple_accent</item>
+        <item name="app_second_on_theme">@color/deep_purple_text_icons</item>
+
+        <item name="app_background_theme">@color/app_background</item>
+        <item name="app_on_background_theme">@color/app_on_background</item>
+        <item name="app_text_theme">@color/app_primary_text</item>
+        <item name="app_second_text_theme">@color/app_secondary_text</item>
+        <item name="app_ripple_theme">@color/app_ripple</item>
+        <item name="app_divider_theme">@color/app_divider</item>
+
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/default_app_theme</item>
-        <item name="colorPrimaryVariant">@color/default_app_theme</item>
-        <item name="colorOnPrimary">@color/default_app_on_theme</item>
+        <item name="colorPrimary">?attr/app_theme</item>
+        <item name="colorPrimaryVariant">?attr/app_theme</item>
+        <item name="colorOnPrimary">?attr/app_on_theme</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/default_app_second_theme</item>
-        <item name="colorSecondaryVariant">@color/default_app_second_theme</item>
-        <item name="colorOnSecondary">@color/default_app_second_on_theme</item>
+        <item name="colorSecondary">?attr/app_second_theme</item>
+        <item name="colorSecondaryVariant">?attr/app_second_variant_theme</item>
+        <item name="colorOnSecondary">?attr/app_on_theme</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/app_theme</item>
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowDisablePreview">true</item>
 
-        <item name="app_theme">@color/default_app_theme</item>
-        <item name="app_on_theme">@color/default_app_on_theme</item>
-        <item name="app_text_theme">@color/default_app_text_theme</item>
-        <item name="app_background">@color/default_app_background</item>
+        <item name="fold_layout_background">?attr/app_on_background_theme</item>
+        <item name="tools_arrow">?attr/app_second_text_theme</item>
+        <item name="tools_button_background">?attr/app_background_theme</item>
+        <item name="tools_button_text">?attr/app_text_theme</item>
+        <item name="tools_button_ripple">?attr/app_ripple_theme</item>
+    </style>
 
-        <item name="app_second_theme">@color/default_app_second_theme</item>
-        <item name="app_second_on_theme">@color/default_app_second_on_theme</item>
+    <style name="Theme.OxygenToolbox.Red" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/red_primary</item>
+        <item name="app_variant_theme">@color/red_primary_dark</item>
+        <item name="app_on_theme">@color/red_text_icons</item>
+        <item name="app_second_theme">@color/red_accent</item>
+        <item name="app_second_variant_theme">@color/red_accent</item>
+        <item name="app_second_on_theme">@color/red_text_icons</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/red_primary</item>
+    </style>
 
-        <item name="fold_layout_background">@color/default_fold_layout_background</item>
-        <item name="tools_arrow">@color/default_tools_arrow</item>
-        <item name="tools_button_background">@color/default_tools_button_background</item>
-        <item name="tools_button_text">@color/default_tools_button_text</item>
-        <item name="tools_button_ripple">@color/default_tools_button_ripple</item>
+    <style name="Theme.OxygenToolbox.Pink" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/pink_primary</item>
+        <item name="app_variant_theme">@color/pink_primary_dark</item>
+        <item name="app_on_theme">@color/pink_text_icons</item>
+        <item name="app_second_theme">@color/pink_accent</item>
+        <item name="app_second_variant_theme">@color/pink_accent</item>
+        <item name="app_second_on_theme">@color/pink_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Purple" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/purple_primary</item>
+        <item name="app_variant_theme">@color/purple_primary_dark</item>
+        <item name="app_on_theme">@color/purple_text_icons</item>
+        <item name="app_second_theme">@color/purple_accent</item>
+        <item name="app_second_variant_theme">@color/purple_accent</item>
+        <item name="app_second_on_theme">@color/purple_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.DeepPurple" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/deep_purple_primary</item>
+        <item name="app_variant_theme">@color/deep_purple_primary_dark</item>
+        <item name="app_on_theme">@color/deep_purple_text_icons</item>
+        <item name="app_second_theme">@color/deep_purple_accent</item>
+        <item name="app_second_variant_theme">@color/deep_purple_accent</item>
+        <item name="app_second_on_theme">@color/deep_purple_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Indigo" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/indigo_primary</item>
+        <item name="app_variant_theme">@color/indigo_primary_dark</item>
+        <item name="app_on_theme">@color/indigo_text_icons</item>
+        <item name="app_second_theme">@color/indigo_accent</item>
+        <item name="app_second_variant_theme">@color/indigo_accent</item>
+        <item name="app_second_on_theme">@color/indigo_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Blue" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/blue_primary</item>
+        <item name="app_variant_theme">@color/blue_primary_dark</item>
+        <item name="app_on_theme">@color/blue_text_icons</item>
+        <item name="app_second_theme">@color/blue_accent</item>
+        <item name="app_second_variant_theme">@color/blue_accent</item>
+        <item name="app_second_on_theme">@color/blue_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.LightBlue" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/light_blue_primary</item>
+        <item name="app_variant_theme">@color/light_blue_primary_dark</item>
+        <item name="app_on_theme">@color/light_blue_text_icons</item>
+        <item name="app_second_theme">@color/light_blue_accent</item>
+        <item name="app_second_variant_theme">@color/light_blue_accent</item>
+        <item name="app_second_on_theme">@color/light_blue_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Cyan" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/cyan_primary</item>
+        <item name="app_variant_theme">@color/cyan_primary_dark</item>
+        <item name="app_on_theme">@color/cyan_text_icons</item>
+        <item name="app_second_theme">@color/cyan_accent</item>
+        <item name="app_second_variant_theme">@color/cyan_accent</item>
+        <item name="app_second_on_theme">@color/cyan_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Teal" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/teal_primary</item>
+        <item name="app_variant_theme">@color/teal_primary_dark</item>
+        <item name="app_on_theme">@color/teal_text_icons</item>
+        <item name="app_second_theme">@color/teal_accent</item>
+        <item name="app_second_variant_theme">@color/teal_accent</item>
+        <item name="app_second_on_theme">@color/teal_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Green" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/green_primary</item>
+        <item name="app_variant_theme">@color/green_primary_dark</item>
+        <item name="app_on_theme">@color/green_text_icons</item>
+        <item name="app_second_theme">@color/green_accent</item>
+        <item name="app_second_variant_theme">@color/green_accent</item>
+        <item name="app_second_on_theme">@color/green_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.LightGreen" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/light_green_primary</item>
+        <item name="app_variant_theme">@color/light_green_primary_dark</item>
+        <item name="app_on_theme">@color/light_green_text_icons</item>
+        <item name="app_second_theme">@color/light_green_accent</item>
+        <item name="app_second_variant_theme">@color/light_green_accent</item>
+        <item name="app_second_on_theme">@color/light_green_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Lime" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/lime_primary</item>
+        <item name="app_variant_theme">@color/lime_primary_dark</item>
+        <item name="app_on_theme">@color/lime_text_icons</item>
+        <item name="app_second_theme">@color/lime_accent</item>
+        <item name="app_second_variant_theme">@color/lime_accent</item>
+        <item name="app_second_on_theme">@color/lime_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Yellow" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/yellow_primary</item>
+        <item name="app_variant_theme">@color/yellow_primary_dark</item>
+        <item name="app_on_theme">@color/yellow_text_icons</item>
+        <item name="app_second_theme">@color/yellow_accent</item>
+        <item name="app_second_variant_theme">@color/yellow_accent</item>
+        <item name="app_second_on_theme">@color/yellow_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Amber" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/amber_primary</item>
+        <item name="app_variant_theme">@color/amber_primary_dark</item>
+        <item name="app_on_theme">@color/amber_text_icons</item>
+        <item name="app_second_theme">@color/amber_accent</item>
+        <item name="app_second_variant_theme">@color/amber_accent</item>
+        <item name="app_second_on_theme">@color/amber_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Orange" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/orange_primary</item>
+        <item name="app_variant_theme">@color/orange_primary_dark</item>
+        <item name="app_on_theme">@color/orange_text_icons</item>
+        <item name="app_second_theme">@color/orange_accent</item>
+        <item name="app_second_variant_theme">@color/orange_accent</item>
+        <item name="app_second_on_theme">@color/orange_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.DeepOrange" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/deep_orange_primary</item>
+        <item name="app_variant_theme">@color/deep_orange_primary_dark</item>
+        <item name="app_on_theme">@color/deep_orange_text_icons</item>
+        <item name="app_second_theme">@color/deep_orange_accent</item>
+        <item name="app_second_variant_theme">@color/deep_orange_accent</item>
+        <item name="app_second_on_theme">@color/deep_orange_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Brown" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/brown_primary</item>
+        <item name="app_variant_theme">@color/brown_primary_dark</item>
+        <item name="app_on_theme">@color/brown_text_icons</item>
+        <item name="app_second_theme">@color/brown_accent</item>
+        <item name="app_second_variant_theme">@color/brown_accent</item>
+        <item name="app_second_on_theme">@color/brown_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.Grey" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/grey_primary</item>
+        <item name="app_variant_theme">@color/grey_primary_dark</item>
+        <item name="app_on_theme">@color/grey_text_icons</item>
+        <item name="app_second_theme">@color/grey_accent</item>
+        <item name="app_second_variant_theme">@color/grey_accent</item>
+        <item name="app_second_on_theme">@color/grey_text_icons</item>
+    </style>
+
+    <style name="Theme.OxygenToolbox.BlueGrey" parent="Theme.OxygenToolbox.Default">
+        <item name="app_theme">@color/blue_grey_primary</item>
+        <item name="app_variant_theme">@color/blue_grey_primary_dark</item>
+        <item name="app_on_theme">@color/blue_grey_text_icons</item>
+        <item name="app_second_theme">@color/blue_grey_accent</item>
+        <item name="app_second_variant_theme">@color/blue_grey_accent</item>
+        <item name="app_second_on_theme">@color/blue_grey_text_icons</item>
     </style>
 
     <style name="Theme.OxygenToolbox.Full" parent="Theme.OxygenToolbox.Default">
@@ -42,10 +221,10 @@
     </style>
 
     <style name="Theme.OxygenToolbox.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/default_app_background</item>
+        <item name="windowSplashScreenBackground">@color/app_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher</item>
         <item name="windowSplashScreenAnimationDuration">0</item>
-        <item name="postSplashScreenTheme">@style/Theme.OxygenToolbox.SplashActivity</item>
+        <item name="postSplashScreenTheme">@style/Theme.OxygenToolbox.Default</item>
     </style>
 
     <style name="Theme.OxygenToolbox.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

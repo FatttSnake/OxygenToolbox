@@ -35,6 +35,7 @@
     </string-array>
 
     <string name="setting_base_settings">Base Settings</string>
+
     <string name="setting_language">Language</string>
     <string name="setting_language_key" translatable="false">app_language</string>
     <string-array name="setting_language_array">
@@ -43,11 +44,12 @@
         <item>English</item>
     </string-array>
     <string-array name="setting_language_values">
-        <item>system</item>
-        <item>zh_CN</item>
-        <item>en_US</item>
+        <item>SYSTEM</item>
+        <item>ZH_CN</item>
+        <item>EN_US</item>
     </string-array>
-    <string name="setting_language_default_value" translatable="false">system</string>
+    <string name="setting_language_default_value" translatable="false">SYSTEM</string>
+
     <string name="setting_launch_page">Launch Page</string>
     <string name="setting_launch_page_key" translatable="false">app_launch_page</string>
     <string-array name="setting_launch_page_array">
@@ -55,10 +57,11 @@
         <item>Favourites</item>
     </string-array>
     <string-array name="setting_launch_page_values">
-        <item>tools</item>
-        <item>favourites</item>
+        <item>TOOLS</item>
+        <item>FAVOURITES</item>
     </string-array>
-    <string name="setting_launch_page_default_value" translatable="false">tools</string>
+    <string name="setting_launch_page_default_value" translatable="false">TOOLS</string>
+
     <string name="setting_ui_mode">Theme Mode</string>
     <string name="setting_ui_mode_key" translatable="false">app_ui_mode</string>
     <string-array name="setting_ui_mode_array">
@@ -67,11 +70,37 @@
         <item>Dark</item>
     </string-array>
     <string-array name="setting_ui_mode_values">
-        <item>system</item>
-        <item>light</item>
-        <item>dark</item>
+        <item>SYSTEM</item>
+        <item>LIGHT</item>
+        <item>DARK</item>
     </string-array>
-    <string name="setting_ui_mode_default_value" translatable="false">system</string>
+    <string name="setting_ui_mode_default_value" translatable="false">SYSTEM</string>
+
+    <string name="setting_theme">Theme</string>
+    <string name="setting_theme_key" translatable="false">app_theme</string>
+    <string-array name="setting_theme_array">
+        <item>Red</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Deep Purple</item>
+        <item>Indigo</item>
+        <item>Blue</item>
+        <item>Light Blue</item>
+        <item>Cyan</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Light Green</item>
+        <item>Lime</item>
+        <item>Yellow</item>
+        <item>Amber</item>
+        <item>Orange</item>
+        <item>Deep Orange</item>
+        <item>Brown</item>
+        <item>Grey</item>
+        <item>Blue Grey</item>
+    </string-array>
+    <string name="setting_theme_default_value" translatable="false">BLUE_GREY</string>
+
     <string name="setting_open_source">Open Source License</string>
     <string name="setting_search">Search</string>
     <string name="setting_about">About</string>

@@ -56,7 +56,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        bottomNavViewPager.setCurrentItem(SharedPreferencesUtils.getPreferenceLaunchPage() == SharedPreferencesUtils.LaunchPage.tools ? 0 : 1, false);
+        bottomNavViewPager.setCurrentItem(SharedPreferencesUtils.getPreferenceLaunchPage() == SharedPreferencesUtils.LaunchPage.TOOLS ? 0 : 1, false);
 
         return root;
     }

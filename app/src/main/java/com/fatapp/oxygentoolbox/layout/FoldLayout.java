@@ -103,13 +103,13 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                 isShow = true;
                 layoutParams.height = contentHeight;
                 LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.top_radius_background));
+                linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_radius));
                 ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
                 imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.down_to_right_arrow));
             } else {
                 layoutParams.height = 0;
                 LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.top_bottom_radius_background));
+                linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_bottom_radius));
                 ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
                 imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.right_to_down_arrow));
             }
@@ -125,7 +125,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                 public void onAnimationStart(Animator animation) {
                     super.onAnimationStart(animation);
                     LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                    linearLayout.setBackground(getContext().getDrawable(R.drawable.top_radius_background));
+                    linearLayout.setBackground(getContext().getDrawable(R.drawable.background_top_radius));
                 }
             });
 
@@ -141,7 +141,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                     super.onAnimationEnd(animation);
                     if (!isShow) {
                         LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                        linearLayout.setBackground(getContext().getDrawable(R.drawable.top_bottom_radius_background));
+                        linearLayout.setBackground(getContext().getDrawable(R.drawable.background_top_bottom_radius));
                     }
                 }
             });

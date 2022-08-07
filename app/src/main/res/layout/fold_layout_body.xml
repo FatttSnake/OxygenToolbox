@@ -15,7 +15,7 @@
         android:layout_marginRight="10dp"
         android:paddingHorizontal="5dp"
         android:paddingBottom="2dp"
-        android:background="@drawable/bottom_radius_background"
+        android:background="@drawable/background_bottom_radius"
         android:gravity="center_vertical">
     </com.fatapp.oxygentoolbox.layout.AutoLinefeedLayout>
 
