@@ -45,8 +45,8 @@
     </string-array>
     <string-array name="setting_language_values">
         <item>SYSTEM</item>
-        <item>ZH_CN</item>
-        <item>EN_US</item>
+        <item>zh_CN</item>
+        <item>en_US</item>
     </string-array>
     <string name="setting_language_default_value" translatable="false">SYSTEM</string>
 

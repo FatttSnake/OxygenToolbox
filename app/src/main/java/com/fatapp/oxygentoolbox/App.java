@@ -22,22 +22,15 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        try {
-            ToolsList.init(getResources().getAssets().open("json/BasicTools.json"));
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), R.string.init_tools_failed, Toast.LENGTH_LONG).show();
-            return;
-        }
-
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-                SharedPreferencesUtils.init(App.this);
                 ResourceUtil.init(App.this);
+                SharedPreferencesUtils.init(App.this);
                 ResourceUtil.setAppLocale(SharedPreferencesUtils.getPreferenceLocale());
                 ResourceUtil.loadAppTheme(activity);
                 loadAppUiMode();
+                loadTools();
             }
 
             @Override
@@ -93,6 +86,15 @@ public class App extends Application {
                 break;
             default:
                 ResourceUtil.setAppUiMode(ResourceUtil.getSystemUiMode());
+        }
+    }
+
+    private void loadTools() {
+        try {
+            ToolsList.init(getResources().getAssets().open("json/BasicTools.json"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), R.string.init_tools_failed, Toast.LENGTH_LONG).show();
         }
     }
 }

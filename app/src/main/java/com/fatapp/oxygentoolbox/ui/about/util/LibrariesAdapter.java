@@ -70,7 +70,8 @@ public class LibrariesAdapter extends RecyclerView.Adapter<LibrariesAdapter.View
                     String licenseStr = new JSONObject(dependencies.getLicenses()).getString(license);
                     LicenseJson licenseObject = new Gson().fromJson(licenseStr, new TypeToken<LicenseJson>() {
                     }.getType());
-                    new MaterialAlertDialogBuilder(context).setMessage(licenseObject.getContent()).show();
+                    new MaterialAlertDialogBuilder(context).setMessage(licenseObject.getContent()).show()
+                            .getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 } catch (JSONException e) {
                     new MaterialAlertDialogBuilder(context).setMessage(String.format("Could not load license \"%s\"", license)).show();
                 }
