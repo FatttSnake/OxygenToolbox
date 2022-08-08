@@ -44,11 +44,9 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ViewHolder> 
             toolButton.setText(button.getText());
             toolButton.setOnClickListener(view -> ToolsLauncher.launch(parent.getContext(), button.getActivity()));
             toolButton.setOnTouchListener((view, motionEvent) -> {
-
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     view.animate().translationZ(8f).setDuration(100L);
-                }
-                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                }else {
                     view.animate().translationZ(0).setDuration(100L);
                 }
                 return false;
