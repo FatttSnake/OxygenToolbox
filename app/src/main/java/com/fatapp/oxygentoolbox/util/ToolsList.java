@@ -15,6 +15,7 @@ public class ToolsList {
     private static List<Tool> toolList = new ArrayList<>();
 
     public static void init(InputStream file) throws IOException {
+        toolList.clear();
         String str;
         StringBuilder jsonStringBuilder = new StringBuilder();
         InputStreamReader inputStreamReader = new InputStreamReader(file);

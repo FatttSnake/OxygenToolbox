@@ -5,14 +5,11 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:layout_height">35dp</item>
-        <item name="android:layout_marginStart">5dp</item>
-        <item name="android:layout_marginEnd">5dp</item>
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:paddingStart">15dp</item>
         <item name="android:paddingEnd">15dp</item>
-        <item name="android:background">@drawable/radius_shape</item>
-        <item name="android:foreground">@drawable/ripple_foreground</item>
+        <item name="android:background">@drawable/shape_radius</item>
+        <item name="android:foreground">@drawable/foreground_ripple</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="android:textColor">?attr/tools_button_text</item>
     </style>

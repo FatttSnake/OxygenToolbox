@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,11 +13,22 @@ import androidx.annotation.Nullable;
 import com.fatapp.oxygentoolbox.util.MultiLanguageUtils;
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.fatapp.oxygentoolbox.util.SharedPreferencesUtils;
+import com.fatapp.oxygentoolbox.util.ToolsList;
+
+import java.io.IOException;
 
 public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        try {
+            ToolsList.init(getResources().getAssets().open("json/BasicTools.json"));
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), R.string.init_tools_failed, Toast.LENGTH_LONG).show();
+            return;
+        }
 
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_home_tools"
     android:layout_width="match_parent"
@@ -7,12 +7,8 @@
     android:background="?attr/app_background_theme"
     android:orientation="vertical"
     tools:context=".ui.home.tools.ToolsFragment">
-
-    <LinearLayout
-        android:id="@+id/fold_layouts_linear_layout"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tools_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp" />
-</ScrollView>
+        android:layout_height="match_parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

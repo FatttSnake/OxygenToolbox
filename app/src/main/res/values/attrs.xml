@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="FoldLayout">
         <attr name="layoutId" format="integer" />
+        <attr name="transitionTime" format="integer" />
     </declare-styleable>
 
     <attr name="app_theme" format="color" />

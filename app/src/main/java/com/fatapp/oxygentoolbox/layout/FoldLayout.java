@@ -3,7 +3,6 @@ package com.fatapp.oxygentoolbox.layout;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -14,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import com.fatapp.oxygentoolbox.R;
@@ -24,8 +24,8 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
 
     private boolean init;
     private final int layoutId;
-    private boolean isShow;
-    private boolean isDefaultShow;
+    private final long duration;
+    private boolean isShow = true;
     private LinearLayout content;
     private ValueAnimator showAnimator;
     private ValueAnimator hideAnimator;
@@ -37,15 +37,19 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
         this(context, null);
     }
 
-    public FoldLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0, false);
+    public FoldLayout(Context context, @Nullable AttributeSet attrs) {
+        this(context, attrs, 0);
     }
 
-    public FoldLayout(Context context, AttributeSet attrs, int defStyleAttr, boolean isDefaultShow) {
+    public FoldLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        @SuppressLint("Recycle") TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.FoldLayout, defStyleAttr, 0);
-        layoutId = ta.getResourceId(R.styleable.FoldLayout_layoutId, -1);
-        this.isDefaultShow = isDefaultShow;
+        TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs, R.styleable.FoldLayout, defStyleAttr, 0);
+        try {
+            layoutId = typedArray.getResourceId(R.styleable.FoldLayout_layoutId, -1);
+            duration = typedArray.getInt(R.styleable.FoldLayout_transitionTime, 500);
+        } finally {
+            typedArray.recycle();
+        }
         init(context);
     }
 
@@ -54,19 +58,11 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
         addDefaultLayout(context);
     }
 
-    public void setDefaultShow(boolean defaultShow) {
-        isDefaultShow = defaultShow;
-    }
-
     public View getDefaultView() {
         return defaultView;
     }
 
-    /**
-     * Init
-     */
     private void addDefaultLayout(Context context) {
-
         defaultView = LayoutInflater.from(context).inflate(layoutId, this, true);
         defaultView.setOnClickListener(this);
         content = new LinearLayout(context);
@@ -95,53 +91,46 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
      * Animation
      */
     private void initAnimation() {
-
-        int contentHeight = content.getMeasuredHeight();
         if (!init) {
+            int contentHeight = content.getMeasuredHeight();
             LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
-            if (isDefaultShow) {
-                isShow = true;
-                layoutParams.height = contentHeight;
-                LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_radius));
-                ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
-                imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.down_to_right_arrow));
-            } else {
-                layoutParams.height = 0;
-                LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_bottom_radius));
-                ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
-                imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.right_to_down_arrow));
-            }
+            layoutParams.height = contentHeight;
+            LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_head_layout);
+            linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_radius));
+            ImageView imageView = defaultView.findViewById(R.id.fold_layout_arrow_icon);
+            imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.animation_down_to_right_arrow));
             content.setLayoutParams(layoutParams);
 
             showAnimator = ValueAnimator.ofInt(0, contentHeight);
+            showAnimator.setDuration(duration);
             showAnimator.addUpdateListener(animation -> {
                 layoutParams.height = (int) animation.getAnimatedValue();
                 content.setLayoutParams(layoutParams);
             });
             showAnimator.addListener(new AnimatorListenerAdapter() {
-                @SuppressLint("UseCompatLoadingForDrawables")
+                @Override
                 public void onAnimationStart(Animator animation) {
                     super.onAnimationStart(animation);
-                    LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                    linearLayout.setBackground(getContext().getDrawable(R.drawable.background_top_radius));
+                    if (isShow) {
+                        LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_head_layout);
+                        linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_radius));
+                    }
                 }
             });
 
             hideAnimator = ValueAnimator.ofInt(contentHeight, 0);
+            hideAnimator.setDuration(duration);
             hideAnimator.addUpdateListener(animation -> {
                 layoutParams.height = (int) animation.getAnimatedValue();
                 content.setLayoutParams(layoutParams);
             });
             hideAnimator.addListener(new AnimatorListenerAdapter() {
-                @SuppressLint("UseCompatLoadingForDrawables")
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
                     if (!isShow) {
-                        LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_linear_layout);
-                        linearLayout.setBackground(getContext().getDrawable(R.drawable.background_top_bottom_radius));
+                        LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_head_layout);
+                        linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_bottom_radius));
                     }
                 }
             });
@@ -156,30 +145,28 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
         for (int i = 0; i < views.size(); i++) {
             final int position = i;
             content.addView(views.get(i));
-            views.get(i).setOnClickListener(v -> {
+            views.get(i).setOnClickListener(view -> {
                 if (null != mOnItemClickListener) {
-                    mOnItemClickListener.onItemClick(v, position);
+                    mOnItemClickListener.onItemClick(view, position);
                 }
             });
         }
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     public void showItem() {
         isShow = true;
         showAnimator.start();
-        ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
-        imageView.setImageDrawable(getContext().getDrawable(R.drawable.right_to_down_arrow));
+        ImageView imageView = defaultView.findViewById(R.id.fold_layout_arrow_icon);
+        imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.animation_right_to_down_arrow));
         AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
         animatedVectorDrawable.start();
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     public void hideItem() {
         isShow = false;
         hideAnimator.start();
-        ImageView imageView = defaultView.findViewById(R.id.arrow_icon);
-        imageView.setImageDrawable(getContext().getDrawable(R.drawable.down_to_right_arrow));
+        ImageView imageView = defaultView.findViewById(R.id.fold_layout_arrow_icon);
+        imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.animation_down_to_right_arrow));
         AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
         animatedVectorDrawable.start();
     }
