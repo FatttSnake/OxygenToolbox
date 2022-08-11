@@ -37,9 +37,10 @@
             android:label="@string/setting_open_source"
             android:theme="@style/Theme.OxygenToolbox.Default" />
         <activity
-            android:name=".tools.TimeScreenActivity"
+            android:name=".tools.timescreen.MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.OxygenToolbox.Default">
+            android:theme="@style/Theme.OxygenToolbox.Default"
+            android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="activity.timescreen" />
 

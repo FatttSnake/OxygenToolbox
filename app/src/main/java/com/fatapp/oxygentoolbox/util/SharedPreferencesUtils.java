@@ -37,36 +37,21 @@ public class SharedPreferencesUtils {
         return new Locale(language, country);
     }
 
-    public static LaunchPage getPreferenceLaunchPage() {
-        return LaunchPage.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_launch_page_key), ResourceUtil.getString(R.string.setting_launch_page_default_value)));
+    public static ResourceUtil.LaunchPage getPreferenceLaunchPage() {
+        return ResourceUtil.LaunchPage.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_launch_page_key), ResourceUtil.getString(R.string.setting_launch_page_default_value)));
     }
 
-    public static UiMode getPreferenceUiMode() {
-        return UiMode.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_ui_mode_key), ResourceUtil.getString(R.string.setting_ui_mode_default_value)));
+    public static ResourceUtil.UiMode getPreferenceUiMode() {
+        return ResourceUtil.UiMode.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_ui_mode_key), ResourceUtil.getString(R.string.setting_ui_mode_default_value)));
     }
 
-    public static Theme getPreferenceTheme() {
-        return Theme.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_theme_key), ResourceUtil.getString(R.string.setting_theme_default_value)));
+    public static ResourceUtil.Theme getPreferenceTheme() {
+        return ResourceUtil.Theme.valueOf(preferences.getString(ResourceUtil.getString(R.string.setting_theme_key), ResourceUtil.getString(R.string.setting_theme_default_value)));
     }
 
-    public static void setPreferenceTheme(Theme theme) {
+    public static void setPreferenceTheme(ResourceUtil.Theme theme) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(ResourceUtil.getString(R.string.setting_theme_key), theme.toString());
         editor.apply();
-    }
-
-    @SuppressWarnings("unused")
-    public enum LaunchPage {
-        TOOLS, FAVOURITES
-    }
-
-    @SuppressWarnings("unused")
-    public enum UiMode {
-        SYSTEM, LIGHT, DARK
-    }
-
-    @SuppressWarnings("unused")
-    public enum Theme {
-        RED, PINK, PURPLE, DEEP_PURPLE, INDIGO, BLUE, LIGHT_BLUE, CYAN, TEAL, GREEN, LIGHT_GREEN, LIME, YELLOW, AMBER, ORANGE, DEEP_ORANGE, BROWN, GREY, BLUE_GREY
     }
 }

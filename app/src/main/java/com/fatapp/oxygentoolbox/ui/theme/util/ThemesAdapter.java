@@ -95,14 +95,14 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder
         }
 
         holder.getThemeLayout().setOnClickListener(view -> {
-            SharedPreferencesUtils.setPreferenceTheme(SharedPreferencesUtils.Theme.values()[position]);
+            SharedPreferencesUtils.setPreferenceTheme(ResourceUtil.Theme.values()[position]);
             ResourceUtil.restartActivity(activity, activity.getClass());
         });
     }
 
     @Override
     public int getItemCount() {
-        return SharedPreferencesUtils.Theme.values().length;
+        return ResourceUtil.Theme.values().length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

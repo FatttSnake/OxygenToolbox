@@ -16,6 +16,9 @@
     <attr name="app_on_background_theme" format="color" />
     <attr name="app_text_theme" format="color" />
     <attr name="app_second_text_theme" format="color" />
+    <attr name="app_show_background_theme" format="color" />
+    <attr name="app_show_text_theme" format="color" />
+    <attr name="app_show_second_text_theme" format="color" />
     <attr name="app_ripple_theme" format="color" />
     <attr name="app_divider_theme" format="color" />
 

@@ -14,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.ui.home.fav.FavFragment;
 import com.fatapp.oxygentoolbox.ui.home.tools.ToolsFragment;
+import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.fatapp.oxygentoolbox.util.SharedPreferencesUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -56,7 +57,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        bottomNavViewPager.setCurrentItem(SharedPreferencesUtils.getPreferenceLaunchPage() == SharedPreferencesUtils.LaunchPage.TOOLS ? 0 : 1, false);
+        bottomNavViewPager.setCurrentItem(SharedPreferencesUtils.getPreferenceLaunchPage() == ResourceUtil.LaunchPage.TOOLS ? 0 : 1, false);
 
         return root;
     }

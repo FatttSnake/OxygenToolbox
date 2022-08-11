@@ -272,4 +272,19 @@ public final class ResourceUtil {
                 break;
         }
     }
+
+    @SuppressWarnings("unused")
+    public enum LaunchPage {
+        TOOLS, FAVOURITES
+    }
+
+    @SuppressWarnings("unused")
+    public enum UiMode {
+        SYSTEM, LIGHT, DARK
+    }
+
+    @SuppressWarnings("unused")
+    public enum Theme {
+        RED, PINK, PURPLE, DEEP_PURPLE, INDIGO, BLUE, LIGHT_BLUE, CYAN, TEAL, GREEN, LIGHT_GREEN, LIME, YELLOW, AMBER, ORANGE, DEEP_ORANGE, BROWN, GREY, BLUE_GREY
+    }
 }

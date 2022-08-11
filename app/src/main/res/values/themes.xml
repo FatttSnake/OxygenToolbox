@@ -13,6 +13,9 @@
         <item name="app_on_background_theme">@color/app_on_background</item>
         <item name="app_text_theme">@color/app_primary_text</item>
         <item name="app_second_text_theme">@color/app_secondary_text</item>
+        <item name="app_show_background_theme">@color/app_show_background</item>
+        <item name="app_show_text_theme">@color/app_show_primary_text</item>
+        <item name="app_show_second_text_theme">@color/app_show_secondary_text</item>
         <item name="app_ripple_theme">@color/app_ripple</item>
         <item name="app_divider_theme">@color/app_divider</item>
 

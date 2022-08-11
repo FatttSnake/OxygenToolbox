@@ -13,19 +13,4 @@
         <item name="android:stateListAnimator">@null</item>
         <item name="android:textColor">?attr/tools_button_text</item>
     </style>
-
-    <style name="ToolsLinearLayout">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="ThemeSpinner" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
-        <item name="android:textSize">@dimen/default_text_size</item>
-        <item name="android:textColor">?attr/app_text_theme</item>
-    </style>
-
-    <style name="RoundImage">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">64dp</item>
-    </style>
 </resources>

@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         builder = new ShortcutInfo.Builder(this, "Time Screen")
                 .setIntent(new Intent()
                         .setAction("activity.timescreen")
-                        .setClassName("com.fatapp.oxygentoolbox", "com.fatapp.oxygentoolbox.tools.TimeScreenActivity"))
+                        .setClassName("com.fatapp.oxygentoolbox", "com.fatapp.oxygentoolbox.tools.timescreen.TimeScreenActivity"))
                 .setShortLabel("Time Screen")
                 .setLongLabel("Time Screen")
                 .setIcon(Icon.createWithResource(this, R.drawable.ic_menu_home));

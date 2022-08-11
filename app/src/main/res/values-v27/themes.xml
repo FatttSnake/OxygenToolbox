@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.OxygenToolbox.Default" parent="Theme.MaterialComponents.DayNight.Bridge">
+        <item name="app_theme">@color/deep_purple_primary</item>
+        <item name="app_variant_theme">@color/deep_purple_primary_dark</item>
+        <item name="app_on_theme">@color/deep_purple_text_icons</item>
+        <item name="app_second_theme">@color/deep_purple_accent</item>
+        <item name="app_second_variant_theme">@color/deep_purple_accent</item>
+        <item name="app_second_on_theme">@color/deep_purple_text_icons</item>
+
+        <item name="app_background_theme">@color/app_background</item>
+        <item name="app_on_background_theme">@color/app_on_background</item>
+        <item name="app_text_theme">@color/app_primary_text</item>
+        <item name="app_second_text_theme">@color/app_secondary_text</item>
+        <item name="app_show_background_theme">@color/app_show_background</item>
+        <item name="app_show_text_theme">@color/app_show_primary_text</item>
+        <item name="app_show_second_text_theme">@color/app_show_secondary_text</item>
+        <item name="app_ripple_theme">@color/app_ripple</item>
+        <item name="app_divider_theme">@color/app_divider</item>
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">?attr/app_theme</item>
+        <item name="colorPrimaryVariant">?attr/app_theme</item>
+        <item name="colorOnPrimary">?attr/app_on_theme</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">?attr/app_second_theme</item>
+        <item name="colorSecondaryVariant">?attr/app_second_variant_theme</item>
+        <item name="colorOnSecondary">?attr/app_on_theme</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/app_theme</item>
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+
+        <item name="fold_layout_background">?attr/app_on_background_theme</item>
+        <item name="tools_arrow">?attr/app_second_text_theme</item>
+        <item name="tools_button_background">?attr/app_background_theme</item>
+        <item name="tools_button_text">?attr/app_text_theme</item>
+        <item name="tools_button_ripple">?attr/app_ripple_theme</item>
+    </style>
+</resources>
