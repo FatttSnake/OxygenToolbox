@@ -107,6 +107,6 @@
     <string name="setting_about_oxygen_toolbox">About OxygenToolbox</string>
     <string name="setting_about_oxygen_toolbox_key" translatable="false">app_about</string>
 
-    <string name="tool_time_screen_colon" translatable="false"> : </string>
+    <string name="tool_time_screen_colon" translatable="false">&#160;:&#160;</string>
     <string name="tool_time_change_mode" translatable="false">Change Mode</string>
 </resources>
