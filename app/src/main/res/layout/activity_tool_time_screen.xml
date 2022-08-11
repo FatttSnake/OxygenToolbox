@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/app_show_background_theme"
+    android:keepScreenOn="true"
     tools:context=".tools.timescreen.MainActivity">
 
     <ImageView
