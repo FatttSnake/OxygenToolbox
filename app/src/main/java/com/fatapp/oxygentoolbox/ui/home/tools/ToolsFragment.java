@@ -39,6 +39,6 @@ public class ToolsFragment extends Fragment {
 
     private void initLayout() {
         toolsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        toolsRecyclerView.setAdapter(new ToolsAdapter());
+        toolsRecyclerView.setAdapter(new ToolsAdapter(getActivity()));
     }
 }

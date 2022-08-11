@@ -19,6 +19,10 @@
         <item name="app_ripple_theme">@color/app_ripple</item>
         <item name="app_divider_theme">@color/app_divider</item>
 
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
+
         <!-- Primary brand color. -->
         <item name="colorPrimary">?attr/app_theme</item>
         <item name="colorPrimaryVariant">?attr/app_theme</item>

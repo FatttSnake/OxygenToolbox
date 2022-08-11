@@ -1,6 +1,7 @@
 package com.fatapp.oxygentoolbox.ui.home.util;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -23,6 +24,11 @@ import java.util.Collections;
 
 public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ViewHolder> {
     private ViewGroup parent;
+    private Activity activity;
+
+    public ToolsAdapter(Activity activity) {
+        this.activity = activity;
+    }
 
     @NonNull
     @Override
@@ -42,7 +48,7 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ViewHolder> 
             View toolButtonLayout = LayoutInflater.from(parent.getContext()).inflate(R.layout.fold_layout_button, parent, false);
             Button toolButton = toolButtonLayout.findViewById(R.id.tool_button);
             toolButton.setText(button.getText());
-            toolButton.setOnClickListener(view -> ToolsLauncher.launch(parent.getContext(), button.getActivity()));
+            toolButton.setOnClickListener(view -> ToolsLauncher.launch(activity, parent.getContext(), button.getActivity()));
             toolButton.setOnTouchListener((view, motionEvent) -> {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     view.animate().translationZ(8f).setDuration(100L);
