@@ -1,6 +1,7 @@
 package com.fatapp.oxygentoolbox.tools.timescreen;
 
 import android.animation.ObjectAnimator;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         BangScreenTools.getBangScreenTools().fullscreen(getWindow(), this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tool_time_screen);
 
