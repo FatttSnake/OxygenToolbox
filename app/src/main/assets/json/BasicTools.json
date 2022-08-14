@@ -28,7 +28,7 @@
             "cn": "\u7ffb\u8bd1",
             "en": "Translation"
           },
-          "activity": ""
+          "activity": "com.fatapp.oxygentoolbox.tools.translation.MainActivity"
         }
       ]
     }

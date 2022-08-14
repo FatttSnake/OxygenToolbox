@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="?attr/fold_layout_background" />
+    <solid android:color="?attr/app_on_background_theme" />
     <corners
         android:bottomLeftRadius="10dp"
         android:bottomRightRadius="10dp"/>

@@ -1,5 +1,7 @@
 package com.fatapp.oxygentoolbox.util;
 
+import androidx.annotation.NonNull;
+
 import com.fatapp.oxygentoolbox.util.json.ToolsJson;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -115,5 +117,16 @@ public class ToolsList {
         public void setActivity(String activity) {
             this.activity = activity;
         }
+    }
+
+    public static String getToolName(@NonNull String className) {
+        for (Tool tool : toolList) {
+            for (Button button : tool.getButtonList()) {
+                if (button.getActivity().equals(className)) {
+                    return button.getText();
+                }
+            }
+        }
+        return null;
     }
 }

@@ -32,5 +32,5 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginHorizontal="10dp"
-        android:contentDescription="@string/arrow_icon" />
+        android:contentDescription="Arrow" />
 </LinearLayout>

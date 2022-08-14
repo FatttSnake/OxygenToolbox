@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:contentDescription="@string/tool_time_change_mode"
+        android:contentDescription="Change Mode"
         android:padding="10dp"
         android:src="@drawable/animation_light_to_dark_mode"
         app:layout_constraintEnd_toEndOf="parent"

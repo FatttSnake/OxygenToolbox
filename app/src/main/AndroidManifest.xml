@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".App"
@@ -10,7 +12,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.OxygenToolbox.Default">
+        android:theme="@style/Theme.OxygenToolbox.Default"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -42,6 +46,16 @@
             android:theme="@style/Theme.OxygenToolbox.Default">
             <intent-filter>
                 <action android:name="oxygentoolbox.timescreen" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".tools.translation.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.OxygenToolbox.Default">
+            <intent-filter>
+                <action android:name="oxygentoolbox.translation" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

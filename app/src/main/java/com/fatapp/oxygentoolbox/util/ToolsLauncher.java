@@ -13,7 +13,9 @@ import com.fatapp.oxygentoolbox.R;
 public class ToolsLauncher {
     public static void launch(Activity activity, Context context, String launchActivity) {
         try {
-            startActivity(context, new Intent(context, Class.forName(launchActivity)), ActivityOptions.makeSceneTransitionAnimation(activity).toBundle());
+            startActivity(context, new Intent(context, Class.forName(launchActivity))
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                    ActivityOptions.makeSceneTransitionAnimation(activity).toBundle());
         } catch (ClassNotFoundException e) {
             Toast.makeText(context, R.string.activity_class_not_found, Toast.LENGTH_LONG).show();
         }
