@@ -16,7 +16,7 @@ public class Tester {
 
     @Test
     public void buildConfigTest() {
-        assertEquals(BuildConfig.API_APP_ID, "123456789");
-        assertEquals(BuildConfig.API_APP_SECRET, "abcdefg");
+        assertEquals("123456789", BuildConfig.API_APP_ID);
+        assertEquals("abcdefg", BuildConfig.API_APP_SECRET);
     }
 }
