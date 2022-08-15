@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,29 +15,23 @@ import com.fatapp.oxygentoolbox.ui.home.util.ToolsAdapter;
 
 public class ToolsFragment extends Fragment {
 
-    private View root;
+    private RecyclerView recyclerViewTools;
 
-    private ToolsViewModel toolsViewModel;
-
-    private RecyclerView toolsRecyclerView;
+    private void initView(View root) {
+        recyclerViewTools = root.findViewById(R.id.recycler_view_tools);
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        toolsViewModel = new ViewModelProvider(this).get(ToolsViewModel.class);
-        root = inflater.inflate(R.layout.fragment_home_tools, container, false);
+        View root = inflater.inflate(R.layout.fragment_home_tools, container, false);
 
-        //init
-        initView();
-        initLayout();
+        initView(root);
+        initTools();
 
         return root;
     }
 
-    private void initView() {
-        toolsRecyclerView = root.findViewById(R.id.tools_recycler_view);
-    }
-
-    private void initLayout() {
-        toolsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        toolsRecyclerView.setAdapter(new ToolsAdapter(getActivity()));
+    private void initTools() {
+        recyclerViewTools.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerViewTools.setAdapter(new ToolsAdapter(getActivity()));
     }
 }

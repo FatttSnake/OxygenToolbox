@@ -14,23 +14,34 @@ import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
 
 public class AboutFragment extends Fragment {
+    private TextView textViewAppVersion;
+    private TextView textViewOpenSource;
 
-    private AboutViewModel aboutViewModel;
+    private void initView(View root) {
+        textViewAppVersion = root.findViewById(R.id.text_view_app_version);
+        textViewOpenSource = root.findViewById(R.id.text_view_open_source);
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_about, container, false);
 
-        TextView appVersion = root.findViewById(R.id.app_version);
-        appVersion.setText(String.format(ResourceUtil.getAppLocale(), "%s(%d)", ResourceUtil.getAppVersionName(), ResourceUtil.getAppVersionCode()));
+        initView(root);
+        initAppVersion();
+        initOpenSource();
 
-        TextView openSource = root.findViewById(R.id.open_source);
-        openSource.setOnClickListener(view -> {
+        return root;
+    }
+
+    private void initOpenSource() {
+        textViewOpenSource.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), LibrariesActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         });
+    }
 
-        return root;
+    private void initAppVersion() {
+        textViewAppVersion.setText(String.format(ResourceUtil.getAppLocale(), "%s(%d)", ResourceUtil.getAppVersionName(), ResourceUtil.getAppVersionCode()));
     }
 }

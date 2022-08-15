@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="common_layout_margin">10dp</dimen>
+    <dimen name="common_text_size">20sp</dimen>
+
+    <dimen name="splash_logo_size">288dp</dimen>
+
+    <dimen name="nav_padding">16dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
-    <dimen name="default_text_size">20sp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
 
-    <dimen name="library_item_card_margin_vertical">16dp</dimen>
-    <dimen name="library_item_card_margin_horizontal">16dp</dimen>
-    <dimen name="library_item_card_inner_padding">16dp</dimen>
-    <dimen name="library_item_card_divider_padding_vertical">8dp</dimen>
-    <dimen name="library_item_card_divider_padding_horizontal">16dp</dimen>
+    <dimen name="fold_layout_head_layout_height">40dp</dimen>
+    <dimen name="fold_layout_head_icon_size">20dp</dimen>
+    <dimen name="fold_layout_head_title_height">40dp</dimen>
+    <dimen name="fold_layout_head_arrow_size">15dp</dimen>
 
-    <dimen name="about_activity_margin_top">50dp</dimen>
-    <dimen name="about_activity_margin_bottom">30dp</dimen>
+    <dimen name="fold_layout_body_auto_linefeed_layout_padding_horizontal">5dp</dimen>
+    <dimen name="fold_layout_body_auto_linefeed_layout_padding_bottom">2dp</dimen>
+
+    <dimen name="about_layout_margin_top">50dp</dimen>
+    <dimen name="about_layout_margin_bottom">30dp</dimen>
     <dimen name="about_app_icon_size">96dp</dimen>
     <dimen name="about_icon_text_margin">20dp</dimen>
     <dimen name="about_text_text_margin">4dp</dimen>
+
+    <dimen name="item_libraries_card_margin">16dp</dimen>
+    <dimen name="item_libraries_card_inner_padding">16dp</dimen>
+    <dimen name="item_libraries_card_divider_height">1dp</dimen>
+    <dimen name="item_libraries_card_divider_padding_vertical">8dp</dimen>
+    <dimen name="item_libraries_card_divider_padding_horizontal">16dp</dimen>
+
+    <dimen name="item_themes_primary_layout_height">40dp</dimen>
+    <dimen name="item_themes_other_layout_height">20dp</dimen>
+    <dimen name="item_themes_check_icon_size">24dp</dimen>
+
+    <dimen name="tool_time_screen_clickable_padding">10dp</dimen>
+    <dimen name="tool_time_screen_image_view_mode_margin">20dp</dimen>
+    <dimen name="tool_time_screen_time_height">120dp</dimen>
+    <dimen name="tool_time_screen_time_text_size">100sp</dimen>
+
+    <dimen name="tool_translation_text_size">16sp</dimen>
+    <dimen name="tool_translation_clickable_padding">5dp</dimen>
+    <dimen name="tool_translation_edit_text_view_padding">15dp</dimen>
+    <dimen name="tool_translation_edit_text_view_padding_plus">30dp</dimen>
+    <dimen name="tool_translation_layout_margin">@dimen/common_layout_margin</dimen>
+    <dimen name="tool_translation_edit_text_view_height">200dp</dimen>
 </resources>

@@ -87,7 +87,33 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         initLayout();
+        initLanguageChoose();
+        initTranslation();
+    }
 
+    private void initTranslation() {
+        editTextFrom.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                imageViewTranslate.setEnabled(charSequence.length() != 0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        textViewTo.setOnFocusChangeListener((view, b) -> ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(editTextFrom.getWindowToken(), 0));
+
+        imageViewTranslate.setEnabled(false);
+        imageViewTranslate.setOnClickListener(view -> translate());
+    }
+
+    private void initLanguageChoose() {
         textViewLanguageFrom.setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
                 .setTitle(ResourceUtil.getString(R.string.tool_translation_choose_language))
                 .setItems(languageTo.equals(LANGUAGE_CHINESE) ? CHINESE_ITEMS : OTHER_ITEMS, (dialogInterface, i) -> {
@@ -114,26 +140,6 @@ public class MainActivity extends AppCompatActivity {
             textViewLanguageFrom.setText(textViewLanguageTo.getText());
             textViewLanguageTo.setText(temp);
         });
-
-        editTextFrom.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                imageViewTranslate.setEnabled(charSequence.length() != 0);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        });
-
-        textViewTo.setOnFocusChangeListener((view, b) -> ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(editTextFrom.getWindowToken(), 0));
-
-        imageViewTranslate.setEnabled(false);
-        imageViewTranslate.setOnClickListener(view -> translate());
     }
 
     private void initLayout() {

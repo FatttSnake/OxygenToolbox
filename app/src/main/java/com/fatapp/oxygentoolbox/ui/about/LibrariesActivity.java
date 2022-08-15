@@ -30,12 +30,18 @@ import java.io.InputStreamReader;
 import java.util.Objects;
 
 public class LibrariesActivity extends AppCompatActivity {
+    private LibrariesAdapter librariesAdapter;
+
+    private ConstraintLayout constraintLayoutRoot;
     private Toolbar toolbar;
-    private ConstraintLayout librariesPage;
-    private RecyclerView librariesRecyclerView;
+    private RecyclerView recyclerViewLibraries;
     private SearchView searchView;
 
-    private LibrariesAdapter librariesAdapter;
+    private void initView() {
+        constraintLayoutRoot = findViewById(R.id.constraint_layout_root);
+        toolbar = findViewById(R.id.toolbar);
+        recyclerViewLibraries = findViewById(R.id.recycler_view_libraries);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,23 +50,17 @@ public class LibrariesActivity extends AppCompatActivity {
 
         initView();
         initLayout();
-        loadLibraries();
-    }
-
-    private void initView() {
-        toolbar = findViewById(R.id.toolbar);
-        librariesPage = findViewById(R.id.libraries_page);
-        librariesRecyclerView = findViewById(R.id.libraries_recycler_view);
+        initLibraries();
     }
 
     private void initLayout() {
-        librariesPage.setPadding(0, ResourceUtil.getStatusBarHeight(getWindow(), getApplicationContext()), 0, 0);
+        constraintLayoutRoot.setPadding(0, ResourceUtil.getStatusBarHeight(getWindow(), getApplicationContext()), 0, 0);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.setting_open_source);
     }
 
-    private void loadLibraries() {
+    private void initLibraries() {
         StringBuilder dependenciesJson = new StringBuilder();
         try {
             InputStream inputStream = ResourceUtil.getResources().openRawResource(R.raw.dependencies);
@@ -72,10 +72,10 @@ public class LibrariesActivity extends AppCompatActivity {
             }
             DependenciesJson dependencies = new Gson().fromJson(dependenciesJson.toString(), new TypeToken<DependenciesJson>() {
             }.getType());
-            librariesRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            recyclerViewLibraries.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             librariesAdapter = new LibrariesAdapter(this, dependencies);
-            librariesRecyclerView.addItemDecoration(new LibrariesAdapter.LibrariesItemDecoration());
-            librariesRecyclerView.setAdapter(librariesAdapter);
+            recyclerViewLibraries.addItemDecoration(new LibrariesAdapter.LibrariesItemDecoration());
+            recyclerViewLibraries.setAdapter(librariesAdapter);
         } catch (IOException e) {
             Log.d("TAG", e.toString());
         }

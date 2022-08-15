@@ -46,7 +46,7 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ViewHolder> 
         ToolsList.Tool tool = ToolsList.getToolList().get(position);
         for (ToolsList.Button button : tool.getButtonList()) {
             View toolButtonLayout = LayoutInflater.from(parent.getContext()).inflate(R.layout.fold_layout_button, parent, false);
-            Button toolButton = toolButtonLayout.findViewById(R.id.tool_button);
+            Button toolButton = toolButtonLayout.findViewById(R.id.button_tool);
             toolButton.setText(button.getText());
             toolButton.setOnClickListener(view -> ToolsLauncher.launch(activity, parent.getContext(), button.getActivity()));
             toolButton.setOnTouchListener((view, motionEvent) -> {
@@ -66,10 +66,10 @@ public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ViewHolder> 
             autoLinefeedLayout.addView(toolButtonLayout);
         }
 
-        TextView foldLayoutIcon = holder.getFoldLayout().findViewById(R.id.fold_layout_icon);
+        TextView foldLayoutIcon = holder.getFoldLayout().findViewById(R.id.text_view_icon);
         foldLayoutIcon.setTypeface(Typeface.createFromAsset(parent.getContext().getAssets(), tool.getFont()));
         foldLayoutIcon.setText(tool.getIcon());
-        ((TextView) holder.getFoldLayout().findViewById(R.id.fold_layout_text_view)).setText(tool.getFoldLayoutTitle());
+        ((TextView) holder.getFoldLayout().findViewById(R.id.text_view_title)).setText(tool.getFoldLayoutTitle());
         holder.getFoldLayout().addItemView(Collections.singletonList(foldLayoutBodyLayout));
     }
 

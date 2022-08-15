@@ -95,9 +95,9 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
             int contentHeight = content.getMeasuredHeight();
             LayoutParams layoutParams = (LayoutParams) content.getLayoutParams();
             layoutParams.height = contentHeight;
-            LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_head_layout);
+            LinearLayout linearLayout = defaultView.findViewById(R.id.linear_layout_head);
             linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_radius));
-            ImageView imageView = defaultView.findViewById(R.id.fold_layout_arrow_icon);
+            ImageView imageView = defaultView.findViewById(R.id.image_view_arrow);
             imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.animation_down_to_right_arrow));
             content.setLayoutParams(layoutParams);
 
@@ -112,7 +112,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                 public void onAnimationStart(Animator animation) {
                     super.onAnimationStart(animation);
                     if (isShow) {
-                        LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_head_layout);
+                        LinearLayout linearLayout = defaultView.findViewById(R.id.linear_layout_head);
                         linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_radius));
                     }
                 }
@@ -129,7 +129,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
                     if (!isShow) {
-                        LinearLayout linearLayout = defaultView.findViewById(R.id.fold_layout_head_layout);
+                        LinearLayout linearLayout = defaultView.findViewById(R.id.linear_layout_head);
                         linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_bottom_radius));
                     }
                 }
@@ -156,7 +156,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
     public void showItem() {
         isShow = true;
         showAnimator.start();
-        ImageView imageView = defaultView.findViewById(R.id.fold_layout_arrow_icon);
+        ImageView imageView = defaultView.findViewById(R.id.image_view_arrow);
         imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.animation_right_to_down_arrow));
         AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
         animatedVectorDrawable.start();
@@ -165,7 +165,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
     public void hideItem() {
         isShow = false;
         hideAnimator.start();
-        ImageView imageView = defaultView.findViewById(R.id.fold_layout_arrow_icon);
+        ImageView imageView = defaultView.findViewById(R.id.image_view_arrow);
         imageView.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.animation_down_to_right_arrow));
         AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageView.getDrawable();
         animatedVectorDrawable.start();

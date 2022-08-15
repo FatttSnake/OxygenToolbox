@@ -116,13 +116,13 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            themeLayout = itemView.findViewById(R.id.theme_layout);
-            colorName = itemView.findViewById(R.id.color_name);
-            check = itemView.findViewById(R.id.check);
-            primaryColor = itemView.findViewById(R.id.primary_color);
-            primaryDarkColor = itemView.findViewById(R.id.primary_dark_color);
-            primaryLightColor = itemView.findViewById(R.id.primary_light_color);
-            accentColor = itemView.findViewById(R.id.accent_color);
+            themeLayout = itemView.findViewById(R.id.linear_layout_root);
+            colorName = itemView.findViewById(R.id.text_view_color_name);
+            check = itemView.findViewById(R.id.view_check);
+            primaryColor = itemView.findViewById(R.id.linear_layout_primary_color);
+            primaryDarkColor = itemView.findViewById(R.id.view_primary_dark_color);
+            primaryLightColor = itemView.findViewById(R.id.view_primary_light_color);
+            accentColor = itemView.findViewById(R.id.view_accent_color);
         }
 
         public LinearLayout getThemeLayout() {

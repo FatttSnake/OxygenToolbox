@@ -6,9 +6,9 @@
     android:background="?attr/windowSplashScreenBackground">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="288dp"
-        android:layout_height="288dp"
+        android:id="@+id/image_view_logo"
+        android:layout_width="@dimen/splash_logo_size"
+        android:layout_height="@dimen/splash_logo_size"
         android:contentDescription="Logo"
         android:src="@drawable/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"

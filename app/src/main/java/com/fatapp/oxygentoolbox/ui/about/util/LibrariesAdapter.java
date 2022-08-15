@@ -141,11 +141,11 @@ public class LibrariesAdapter extends RecyclerView.Adapter<LibrariesAdapter.View
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = (MaterialCardView) itemView;
-            libraryName = itemView.findViewById(R.id.library_name);
-            libraryCreator = itemView.findViewById(R.id.library_creator);
-            libraryVersion = itemView.findViewById(R.id.library_version);
-            libraryDescription = itemView.findViewById(R.id.library_description);
-            libraryLicense = itemView.findViewById(R.id.library_license);
+            libraryName = itemView.findViewById(R.id.text_view_library_name);
+            libraryCreator = itemView.findViewById(R.id.text_view_library_creator);
+            libraryVersion = itemView.findViewById(R.id.text_view_library_version);
+            libraryDescription = itemView.findViewById(R.id.text_view_library_description);
+            libraryLicense = itemView.findViewById(R.id.text_view_library_license);
         }
 
         public TextView getLibraryName() {

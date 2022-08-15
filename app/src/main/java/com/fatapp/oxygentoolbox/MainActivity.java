@@ -25,30 +25,26 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static AppCompatActivity mainActivity;
-
     private AppBarConfiguration mAppBarConfiguration;
 
-    private DrawerLayout drawer;
+    private DrawerLayout drawerLayout;
+    private NavigationView navView;
     private CoordinatorLayout mainPage;
     private Toolbar toolbar;
-    private NavigationView navigationView;
 
     private void initView() {
-        drawer = findViewById(R.id.drawer_layout);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navView = findViewById(R.id.nav_view);
         mainPage = findViewById(R.id.main_page);
         toolbar = findViewById(R.id.toolbar);
-        navigationView = findViewById(R.id.nav_view);
-        mainActivity = this;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
+        SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //init
         initView();
         initLayout();
         VibratorController.init();
@@ -60,23 +56,23 @@ public class MainActivity extends AppCompatActivity {
         mainPage.setPadding(0, ResourceUtil.getStatusBarHeight(getWindow(), getApplicationContext()), 0, 0);
 
         setSupportActionBar(toolbar);
-        navigationView.inflateHeaderView(R.layout.app_nav_header_main);
-        navigationView.inflateMenu(R.menu.activity_main_drawer);
-        navigationView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> drawer.setDrawerLockMode(navigationView.getMenu().getItem(0).isChecked()
+
+        navView.inflateHeaderView(R.layout.app_nav_header_main);
+        navView.inflateMenu(R.menu.activity_main_drawer);
+        navView.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> drawerLayout.setDrawerLockMode(navView.getMenu().getItem(0).isChecked()
                 ? DrawerLayout.LOCK_MODE_UNLOCKED
                 : DrawerLayout.LOCK_MODE_LOCKED_CLOSED));
-        navigationView.getMenu().getItem(4).setOnMenuItemClickListener(item -> {
+        navView.getMenu().getItem(4).setOnMenuItemClickListener(item -> {
             finish();
             return false;
         });
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home)
-                .setOpenableLayout(drawer)
+                .setOpenableLayout(drawerLayout)
                 .build();
         NavController navController = ((NavHostFragment) Objects.requireNonNull(getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment))).getNavController();
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        NavigationUI.setupWithNavController(navView, navController);
     }
 
 /*
@@ -103,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }

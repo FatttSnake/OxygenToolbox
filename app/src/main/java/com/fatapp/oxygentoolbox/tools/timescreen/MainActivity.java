@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private VariableChangeSupport<Boolean> dateVisibilityChangeSupport;
     private VariableChangeSupport<Boolean> uiVisibilityChangeSupport;
 
-    private ConstraintLayout constraintLayoutTimeScreen;
+    private ConstraintLayout constraintLayoutRoot;
     private ImageView imageViewMode;
     private TextSwitcher textSwitcherHourTen;
     private TextSwitcher textSwitcherHourOne;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewDate;
 
     private void initView() {
-        constraintLayoutTimeScreen = findViewById(R.id.constraint_layout_time_screen);
+        constraintLayoutRoot = findViewById(R.id.constraint_layout_root);
         imageViewMode = findViewById(R.id.image_view_mode);
         textSwitcherHourTen = findViewById(R.id.text_switcher_hour_ten);
         textSwitcherHourOne = findViewById(R.id.text_switcher_hour_one);
@@ -77,43 +77,14 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         initTextSwitcher();
+        initUiVisibility();
+        initUiMode();
+        initDateVisibility();
 
-        constraintLayoutTimeScreen.setOnClickListener(view -> uiVisibilityChangeSupport.setValue(!uiVisibilityChangeSupport.getValue()));
-        uiVisibilityChangeSupport = new VariableChangeSupport<>(true, new VariableChangeListener() {
-            @Override
-            public <T> void onChange(T newValue, T oldValue) {
-                ObjectAnimator.ofFloat(imageViewMode, View.ALPHA, (boolean) newValue ? 0.0f : 1.0f, (boolean) newValue ? 1.0f : 0.0f).start();
-            }
-        });
+        initTimer();
+    }
 
-        if (uiMode >= Configuration.UI_MODE_NIGHT_YES) {
-            imageViewMode.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.animation_dark_to_light_mode));
-        }
-        imageViewMode.setOnClickListener(view -> {
-            if (uiMode < Configuration.UI_MODE_NIGHT_YES) {
-                uiMode = ResourceUtil.UI_MODE_DARK;
-                setColors(ResourceUtil.getColor(R.color.app_show_dark_background), ResourceUtil.getColor(R.color.app_show_dark_primary_text));
-                imageViewMode.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.animation_light_to_dark_mode));
-                AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageViewMode.getDrawable();
-                animatedVectorDrawable.start();
-            } else {
-                uiMode = ResourceUtil.UI_MODE_LIGHT;
-                setColors(ResourceUtil.getColor(R.color.app_show_light_background), ResourceUtil.getColor(R.color.app_show_light_primary_text));
-                imageViewMode.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.animation_dark_to_light_mode));
-                AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageViewMode.getDrawable();
-                animatedVectorDrawable.start();
-            }
-        });
-
-        dateVisibilityChangeSupport = new VariableChangeSupport<>(true, new VariableChangeListener() {
-            @Override
-            public <T> void onChange(T newValue, T oldValue) {
-                ObjectAnimator.ofFloat(textViewDate, View.ALPHA, (boolean) newValue ? 0.0f : 1.0f, (boolean) newValue ? 1.0f : 0.0f).start();
-            }
-        });
-
-        textViewDate.setOnClickListener(view -> dateVisibilityChangeSupport.setValue(!dateVisibilityChangeSupport.getValue()));
-
+    private void initTimer() {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -132,8 +103,49 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         };
-
         new Timer().schedule(timerTask, 0, 100L);
+    }
+
+    private void initDateVisibility() {
+        dateVisibilityChangeSupport = new VariableChangeSupport<>(true, new VariableChangeListener() {
+            @Override
+            public <T> void onChange(T newValue, T oldValue) {
+                ObjectAnimator.ofFloat(textViewDate, View.ALPHA, (boolean) newValue ? 0.0f : 1.0f, (boolean) newValue ? 1.0f : 0.0f).start();
+            }
+        });
+        textViewDate.setOnClickListener(view -> dateVisibilityChangeSupport.setValue(!dateVisibilityChangeSupport.getValue()));
+    }
+
+    private void initUiMode() {
+        if (uiMode >= Configuration.UI_MODE_NIGHT_YES) {
+            imageViewMode.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.animation_dark_to_light_mode));
+        }
+
+        imageViewMode.setOnClickListener(view -> {
+            if (uiMode < Configuration.UI_MODE_NIGHT_YES) {
+                uiMode = ResourceUtil.UI_MODE_DARK;
+                setColors(ResourceUtil.getColor(R.color.app_show_dark_background), ResourceUtil.getColor(R.color.app_show_dark_primary_text));
+                imageViewMode.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.animation_light_to_dark_mode));
+                AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageViewMode.getDrawable();
+                animatedVectorDrawable.start();
+            } else {
+                uiMode = ResourceUtil.UI_MODE_LIGHT;
+                setColors(ResourceUtil.getColor(R.color.app_show_light_background), ResourceUtil.getColor(R.color.app_show_light_primary_text));
+                imageViewMode.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.animation_dark_to_light_mode));
+                AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) imageViewMode.getDrawable();
+                animatedVectorDrawable.start();
+            }
+        });
+    }
+
+    private void initUiVisibility() {
+        uiVisibilityChangeSupport = new VariableChangeSupport<>(true, new VariableChangeListener() {
+            @Override
+            public <T> void onChange(T newValue, T oldValue) {
+                ObjectAnimator.ofFloat(imageViewMode, View.ALPHA, (boolean) newValue ? 0.0f : 1.0f, (boolean) newValue ? 1.0f : 0.0f).start();
+            }
+        });
+        constraintLayoutRoot.setOnClickListener(view -> uiVisibilityChangeSupport.setValue(!uiVisibilityChangeSupport.getValue()));
     }
 
     private void initTextSwitcher() {
@@ -208,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setColors(@ColorInt int backgroundColor, @ColorInt int primaryTextColor) {
-        ObjectAnimator backgroundColorAnimator = ObjectAnimator.ofArgb(constraintLayoutTimeScreen, "backgroundColor", ((ColorDrawable) constraintLayoutTimeScreen.getBackground()).getColor(), backgroundColor);
+        ObjectAnimator backgroundColorAnimator = ObjectAnimator.ofArgb(constraintLayoutRoot, "backgroundColor", ((ColorDrawable) constraintLayoutRoot.getBackground()).getColor(), backgroundColor);
         backgroundColorAnimator.setDuration(500L);
         backgroundColorAnimator.start();
         ((TextView) textSwitcherHourTen.getChildAt(0)).setTextColor(primaryTextColor);

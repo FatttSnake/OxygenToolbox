@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -19,29 +18,30 @@ import com.fatapp.oxygentoolbox.util.SharedPreferencesUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
+    private ViewPager2 viewPagerBottomNav;
+    private BottomNavigationView navigationViewBottomNav;
 
-    private View root;
-
-    private HomeViewModel homeViewModel;
+    private void initView(View root) {
+        viewPagerBottomNav = root.findViewById(R.id.view_pager_bottom_nav);
+        navigationViewBottomNav = root.findViewById(R.id.navigation_view_bottom_nav);
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ViewPager2 bottomNavViewPager = root.findViewById(R.id.bottom_nav_view_pager);
-        BottomNavigationView bottomNavigationView = root.findViewById(R.id.bottom_navigation_view);
+        initView(root);
+        initBottomNav();
 
-        bottomNavViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                bottomNavigationView.getMenu().getItem(position).setChecked(true);
-            }
-        });
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            bottomNavViewPager.setCurrentItem(item.getOrder());
+        return root;
+    }
+
+    private void initBottomNav() {
+        navigationViewBottomNav.setOnItemSelectedListener(item -> {
+            viewPagerBottomNav.setCurrentItem(item.getOrder());
             return true;
         });
-        bottomNavViewPager.setAdapter(new FragmentStateAdapter(this) {
+
+        viewPagerBottomNav.setAdapter(new FragmentStateAdapter(this) {
             @NonNull
             @Override
             public Fragment createFragment(int position) {
@@ -56,10 +56,13 @@ public class HomeFragment extends Fragment {
                 return 2;
             }
         });
-
-        bottomNavViewPager.setCurrentItem(SharedPreferencesUtils.getPreferenceLaunchPage() == ResourceUtil.LaunchPage.TOOLS ? 0 : 1, false);
-
-        return root;
+        viewPagerBottomNav.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                navigationViewBottomNav.getMenu().getItem(position).setChecked(true);
+            }
+        });
+        viewPagerBottomNav.setCurrentItem(SharedPreferencesUtils.getPreferenceLaunchPage() == ResourceUtil.LaunchPage.TOOLS ? 0 : 1, false);
     }
 
 }

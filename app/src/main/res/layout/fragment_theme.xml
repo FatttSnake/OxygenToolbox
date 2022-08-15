@@ -7,7 +7,7 @@
     tools:context=".ui.theme.ThemeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/theme_recycler_view"
+        android:id="@+id/recycler_view_themes"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

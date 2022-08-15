@@ -17,6 +17,7 @@ public class SettingFragment extends PreferenceFragmentCompat {
     @Override
     public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
         setPreferencesFromResource(R.xml.fragment_setting, rootKey);
+
         ListPreference appLanguagePreference = findPreference(ResourceUtil.getString(R.string.setting_language_key));
         if (appLanguagePreference != null) {
             appLanguagePreference.setOnPreferenceChangeListener((preference, newValue) -> {

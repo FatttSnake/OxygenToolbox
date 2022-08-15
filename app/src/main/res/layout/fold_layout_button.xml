@@ -3,6 +3,6 @@
     android:layout_width="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <Button
-        android:id="@+id/tool_button"
+        android:id="@+id/button_tool"
         style="@style/ToolsButton" />
 </LinearLayout>

@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraint_layout_time_screen"
+    android:id="@+id/constraint_layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/app_show_background_theme"
@@ -13,9 +13,9 @@
         android:id="@+id/image_view_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/tool_time_screen_image_view_mode_margin"
         android:contentDescription="Change Mode"
-        android:padding="10dp"
+        android:padding="@dimen/tool_time_screen_clickable_padding"
         android:src="@drawable/animation_light_to_dark_mode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,14 +32,14 @@
         <TextSwitcher
             android:id="@+id/text_switcher_hour_ten"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/tool_time_screen_time_height"
             android:inAnimation="@anim/text_from_top_in"
             android:outAnimation="@anim/text_to_down_out" />
 
         <TextSwitcher
             android:id="@+id/text_switcher_hour_one"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/tool_time_screen_time_height"
             android:gravity="center"
             android:inAnimation="@anim/text_from_top_in"
             android:outAnimation="@anim/text_to_down_out" />
@@ -47,17 +47,17 @@
         <TextView
             android:id="@+id/text_view_colon_hour_minute"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/tool_time_screen_time_height"
             android:gravity="center"
             android:text="@string/tool_time_screen_colon"
             android:textColor="?attr/app_show_text_theme"
-            android:textSize="100sp"
+            android:textSize="@dimen/tool_time_screen_time_text_size"
             android:textStyle="bold" />
 
         <TextSwitcher
             android:id="@+id/text_switcher_minute_ten"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/tool_time_screen_time_height"
             android:gravity="center"
             android:inAnimation="@anim/text_from_top_in"
             android:outAnimation="@anim/text_to_down_out" />
@@ -65,7 +65,7 @@
         <TextSwitcher
             android:id="@+id/text_switcher_minute_one"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/tool_time_screen_time_height"
             android:gravity="center"
             android:inAnimation="@anim/text_from_top_in"
             android:outAnimation="@anim/text_to_down_out" />
@@ -73,17 +73,17 @@
         <TextView
             android:id="@+id/text_view_colon_minute_second"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/tool_time_screen_time_height"
             android:gravity="center"
             android:text="@string/tool_time_screen_colon"
             android:textColor="?attr/app_show_text_theme"
-            android:textSize="100sp"
+            android:textSize="@dimen/tool_time_screen_time_text_size"
             android:textStyle="bold" />
 
         <TextSwitcher
             android:id="@+id/text_switcher_second_ten"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/tool_time_screen_time_height"
             android:gravity="center"
             android:inAnimation="@anim/text_from_top_in"
             android:outAnimation="@anim/text_to_down_out" />
@@ -91,7 +91,7 @@
         <TextSwitcher
             android:id="@+id/text_switcher_second_one"
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="@dimen/tool_time_screen_time_height"
             android:gravity="center"
             android:inAnimation="@anim/text_from_top_in"
             android:outAnimation="@anim/text_to_down_out" />
@@ -101,7 +101,7 @@
         android:id="@+id/text_view_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="@dimen/tool_time_screen_clickable_padding"
         android:textColor="?attr/app_show_second_text_theme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

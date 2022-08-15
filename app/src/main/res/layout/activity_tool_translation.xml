@@ -34,7 +34,7 @@
             android:id="@+id/linear_layout_language"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/tool_translation_layout_margin"
             android:background="@drawable/background_top_bottom_radius"
             android:gravity="center"
             android:orientation="horizontal"
@@ -48,14 +48,14 @@
                 android:gravity="center"
                 android:text="@string/tool_translation_language_chinese"
                 android:textColor="?attr/app_theme"
-                android:textSize="16sp" />
+                android:textSize="@dimen/tool_translation_text_size" />
 
             <ImageView
                 android:id="@+id/image_view_swap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="Swap"
-                android:padding="5dp"
+                android:padding="@dimen/tool_translation_clickable_padding"
                 android:src="@drawable/animation_swap_horizon" />
 
             <TextView
@@ -66,50 +66,50 @@
                 android:gravity="center"
                 android:text="@string/tool_translation_language_english"
                 android:textColor="?attr/app_theme"
-                android:textSize="16sp" />
+                android:textSize="@dimen/tool_translation_text_size" />
 
         </LinearLayout>
 
         <EditText
             android:id="@+id/edit_text_from"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="10dp"
+            android:layout_height="@dimen/tool_translation_edit_text_view_height"
+            android:layout_margin="@dimen/tool_translation_layout_margin"
             android:autofillHints="text"
             android:background="@drawable/background_top_bottom_radius"
             android:gravity="start|top"
             android:hint="@string/tool_translation_please_enter_text"
             android:inputType="textMultiLine"
             android:maxLength="850"
-            android:paddingHorizontal="15dp"
-            android:paddingTop="15dp"
-            android:paddingBottom="30dp"
+            android:paddingHorizontal="@dimen/tool_translation_edit_text_view_padding"
+            android:paddingTop="@dimen/tool_translation_edit_text_view_padding"
+            android:paddingBottom="@dimen/tool_translation_edit_text_view_padding_plus"
             android:textColor="?attr/app_text_theme"
-            android:textSize="16sp"
+            android:textSize="@dimen/tool_translation_text_size"
             app:layout_constraintTop_toBottomOf="@id/linear_layout_language" />
 
 
         <TextView
             android:id="@+id/edit_text_to"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="10dp"
+            android:layout_height="@dimen/tool_translation_edit_text_view_height"
+            android:layout_margin="@dimen/tool_translation_layout_margin"
             android:autofillHints="text"
             android:background="@drawable/background_top_bottom_radius"
             android:gravity="start|top"
-            android:paddingHorizontal="15dp"
-            android:paddingTop="30dp"
-            android:paddingBottom="15dp"
+            android:paddingHorizontal="@dimen/tool_translation_edit_text_view_padding"
+            android:paddingTop="@dimen/tool_translation_edit_text_view_padding_plus"
+            android:paddingBottom="@dimen/tool_translation_edit_text_view_padding"
             android:textColor="?attr/app_text_theme"
             android:textIsSelectable="true"
-            android:textSize="16sp"
+            android:textSize="@dimen/tool_translation_text_size"
             app:layout_constraintTop_toBottomOf="@id/edit_text_from" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/background_round"
-            android:padding="5dp"
+            android:padding="@dimen/tool_translation_clickable_padding"
             app:layout_constraintBottom_toTopOf="@id/edit_text_to"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +123,7 @@
                 android:contentDescription="Translate"
                 android:focusable="true"
                 android:foreground="@drawable/foreground_ripple"
-                android:src="@drawable/ic_translate"
+                android:src="@drawable/ic_tool_translation_translate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

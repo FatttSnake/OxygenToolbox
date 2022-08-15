@@ -27,6 +27,7 @@ public class App extends Application {
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
                 ResourceUtil.init(App.this);
                 SharedPreferencesUtils.init(App.this);
+
                 ResourceUtil.setAppLocale(SharedPreferencesUtils.getPreferenceLocale());
                 ResourceUtil.loadAppTheme(activity);
                 loadAppUiMode();
