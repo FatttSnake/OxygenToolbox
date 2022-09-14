@@ -19,9 +19,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.fatapp.oxygentoolbox.R;
-import com.fatapp.oxygentoolbox.tools.translation.util.ResponseListener;
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.fatapp.oxygentoolbox.util.ToolsList;
+import com.fatapp.oxygentoolbox.util.http.HttpHelper;
+import com.fatapp.oxygentoolbox.util.http.ResponseListener;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -29,20 +30,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.StringJoiner;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
 public class MainActivity extends AppCompatActivity {
     private final String TOOL_NAME = ToolsList.getToolName(getClass().getName());
-    private final String URL_YOU_DAO = "http://fanyi.youdao.com/translate?&doctype=json&type=%s&i=%s";
+    final String URL_YOU_DAO = "http://fanyi.youdao.com/translate?&doctype=json&type=%s&i=%s";
 
     private final String LANGUAGE_CHINESE = "ZH_CN";
     private final String LANGUAGE_ENGLISH = "EN";
@@ -155,7 +151,8 @@ public class MainActivity extends AppCompatActivity {
         progressBarInTranslation.setVisibility(View.VISIBLE);
 
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(editTextFrom.getWindowToken(), 0);
-        translateYouDao(languageFrom, languageTo, editTextFrom.getText().toString(), new ResponseListener() {
+
+        final HttpHelper httpHelper = new HttpHelper(this, URL_YOU_DAO, new ResponseListener() {
             @Override
             public void onResponse(int code, String responseBody) {
                 if (code == 200) {
@@ -191,32 +188,15 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(constraintLayoutRoot, "翻译失败", Snackbar.LENGTH_LONG).show();
             }
         });
-    }
 
-    private void translateYouDao(String from, String to, String text, @NonNull ResponseListener responseListener) {
-        if (from.equals(to)) {
-            responseListener.onFailed();
-            return;
-        }
-
-        new Thread() {
-            @Override
-            public void run() {
-                OkHttpClient okHttpClient = new OkHttpClient();
-                try {
-                    Request request = new Request.Builder().url(String.format(URL_YOU_DAO, from.toUpperCase() + 2 + to.toUpperCase(), URLEncoder.encode(text, StandardCharsets.UTF_8.toString()))).build();
-                    try (Response response = okHttpClient.newCall(request).execute()) {
-                        int code = response.code();
-                        String body = Objects.requireNonNull(response.body()).string();
-                        runOnUiThread(() -> responseListener.onResponse(code, body));
-                    } catch (IOException e) {
-                        runOnUiThread(responseListener::onFailed);
-                    }
-                } catch (UnsupportedEncodingException e) {
-                    runOnUiThread(responseListener::onFailed);
-                }
+        try {
+            if (languageFrom.equals(languageTo)) {
+                httpHelper.getResponseListener().onFailed();
             }
-        }.start();
+            httpHelper.request(languageFrom.toUpperCase() + 2 + languageTo.toUpperCase(), URLEncoder.encode(editTextFrom.getText().toString(), StandardCharsets.UTF_8.toString()));
+        } catch (UnsupportedEncodingException e) {
+            httpHelper.getResponseListener().onFailed();
+        }
     }
 
     @Override

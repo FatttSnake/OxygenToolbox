@@ -1,4 +1,4 @@
-package com.fatapp.oxygentoolbox.tools.translation.util;
+package com.fatapp.oxygentoolbox.util.http;
 
 public interface ResponseListener {
     void onResponse(int code, String responseBody);

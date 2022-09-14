@@ -13,6 +13,7 @@
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable-v24/avd_anim.xml" value="0.2915" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11944444444444445" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/a.xml" value="0.192" />
+        <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/activity_tool_ip.xml" value="0.2495" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/animation_dark_to_light_mode.xml" value="0.2915" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/animation_down_to_right_arrow.xml" value="0.22" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/drawable/animation_light_to_dark_mode.xml" value="0.2915" />
@@ -73,6 +74,7 @@
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/activity_splash.xml" value="0.1693840579710145" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/activity_time_screen.xml" value="0.34739583333333335" />
+        <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/activity_tool_ip.xml" value="0.29628046173578454" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/activity_tool_time_screen.xml" value="0.1" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/activity_tool_translation.xml" value="0.1" />
         <entry key="..\:/.workspace-android/Project-ToolBox/OxygenToolbox/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
