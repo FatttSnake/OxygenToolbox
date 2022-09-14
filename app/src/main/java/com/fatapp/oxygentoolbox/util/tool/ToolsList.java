@@ -1,7 +1,9 @@
-package com.fatapp.oxygentoolbox.util;
+package com.fatapp.oxygentoolbox.util.tool;
 
 import androidx.annotation.NonNull;
 
+import com.fatapp.oxygentoolbox.util.Locales;
+import com.fatapp.oxygentoolbox.util.SharedPreferencesUtils;
 import com.fatapp.oxygentoolbox.util.json.ToolsJson;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

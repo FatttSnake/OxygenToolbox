@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.layout.AutoLinefeedLayout;
 import com.fatapp.oxygentoolbox.layout.FoldLayout;
-import com.fatapp.oxygentoolbox.util.ToolsLauncher;
-import com.fatapp.oxygentoolbox.util.ToolsList;
 import com.fatapp.oxygentoolbox.util.VibratorController;
+import com.fatapp.oxygentoolbox.util.tool.ToolsLauncher;
+import com.fatapp.oxygentoolbox.util.tool.ToolsList;
 
 import java.util.Collections;
 

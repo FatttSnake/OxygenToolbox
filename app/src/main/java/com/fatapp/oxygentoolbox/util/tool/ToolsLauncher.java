@@ -1,4 +1,4 @@
-package com.fatapp.oxygentoolbox.util;
+package com.fatapp.oxygentoolbox.util.tool;
 
 import static androidx.core.content.ContextCompat.startActivity;
 

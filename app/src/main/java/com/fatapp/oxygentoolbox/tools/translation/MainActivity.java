@@ -4,7 +4,6 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -12,17 +11,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
-import com.fatapp.oxygentoolbox.util.ToolsList;
 import com.fatapp.oxygentoolbox.util.http.HttpHelper;
 import com.fatapp.oxygentoolbox.util.http.ResponseListener;
+import com.fatapp.oxygentoolbox.util.tool.BaseActivityNormal;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -33,11 +28,9 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.Objects;
 import java.util.StringJoiner;
 
-public class MainActivity extends AppCompatActivity {
-    private final String TOOL_NAME = ToolsList.getToolName(getClass().getName());
+public class MainActivity extends BaseActivityNormal {
     final String URL_YOU_DAO = "http://fanyi.youdao.com/translate?&doctype=json&type=%s&i=%s";
 
     private final String LANGUAGE_CHINESE = "ZH_CN";
@@ -53,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
     private String languageFrom = LANGUAGE_CHINESE;
     private String languageTo = LANGUAGE_ENGLISH;
-
-    private ConstraintLayout constraintLayoutRoot;
-    private Toolbar toolbar;
     private TextView textViewLanguageFrom;
     private ImageView imageViewSwap;
     private TextView textViewLanguageTo;
@@ -65,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progressBarInTranslation;
 
     private void initView() {
-        constraintLayoutRoot = findViewById(R.id.constraint_layout_root);
-        toolbar = findViewById(R.id.toolbar);
         textViewLanguageFrom = findViewById(R.id.text_view_language_from);
         imageViewSwap = findViewById(R.id.image_view_swap);
         textViewLanguageTo = findViewById(R.id.text_view_language_to);
@@ -79,10 +67,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tool_translation);
+        super.loadView(this, R.layout.activity_tool_translation);
 
         initView();
-        initLayout();
         initLanguageChoose();
         initTranslation();
     }
@@ -138,13 +125,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initLayout() {
-        constraintLayoutRoot.setPadding(0, ResourceUtil.getStatusBarHeight(getWindow(), getApplicationContext()), 0, 0);
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        Objects.requireNonNull(getSupportActionBar()).setTitle(TOOL_NAME);
-    }
-
     private void translate() {
         editTextFrom.setEnabled(false);
         imageViewTranslate.setEnabled(false);
@@ -185,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 editTextFrom.setEnabled(true);
                 imageViewTranslate.setEnabled(true);
                 progressBarInTranslation.setVisibility(View.INVISIBLE);
-                Snackbar.make(constraintLayoutRoot, "翻译失败", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getConstraintLayoutRoot(), "翻译失败", Snackbar.LENGTH_LONG).show();
             }
         });
 
@@ -197,14 +177,5 @@ public class MainActivity extends AppCompatActivity {
         } catch (UnsupportedEncodingException e) {
             httpHelper.getResponseListener().onFailed();
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

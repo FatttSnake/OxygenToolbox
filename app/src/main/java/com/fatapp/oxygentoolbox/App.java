@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.fatapp.oxygentoolbox.util.MultiLanguageUtils;
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.fatapp.oxygentoolbox.util.SharedPreferencesUtils;
-import com.fatapp.oxygentoolbox.util.ToolsList;
+import com.fatapp.oxygentoolbox.util.tool.ToolsList;
 
 import java.io.IOException;
 

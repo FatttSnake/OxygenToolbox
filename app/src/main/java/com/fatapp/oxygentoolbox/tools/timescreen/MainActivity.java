@@ -1,7 +1,6 @@
 package com.fatapp.oxygentoolbox.tools.timescreen;
 
 import android.animation.ObjectAnimator;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimatedVectorDrawable;
@@ -16,22 +15,20 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import androidx.annotation.ColorInt;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.fatapp.oxygentoolbox.R;
 import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.fatapp.oxygentoolbox.util.VariableChangeListener;
 import com.fatapp.oxygentoolbox.util.VariableChangeSupport;
-import com.ypz.bangscreentools.BangScreenTools;
+import com.fatapp.oxygentoolbox.util.tool.BaseActivityHorizontal;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivityHorizontal {
     private int uiMode = ResourceUtil.getAppUiMode();
     private VariableChangeSupport<String> hourTenVariableChangeSupport;
     private VariableChangeSupport<String> hourOneVariableChangeSupport;
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private VariableChangeSupport<Boolean> dateVisibilityChangeSupport;
     private VariableChangeSupport<Boolean> uiVisibilityChangeSupport;
 
-    private ConstraintLayout constraintLayoutRoot;
     private ImageView imageViewMode;
     private TextSwitcher textSwitcherHourTen;
     private TextSwitcher textSwitcherHourOne;
@@ -55,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewDate;
 
     private void initView() {
-        constraintLayoutRoot = findViewById(R.id.constraint_layout_root);
         imageViewMode = findViewById(R.id.image_view_mode);
         textSwitcherHourTen = findViewById(R.id.text_switcher_hour_ten);
         textSwitcherHourOne = findViewById(R.id.text_switcher_hour_one);
@@ -70,10 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        BangScreenTools.getBangScreenTools().fullscreen(getWindow(), this);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tool_time_screen);
+        super.loadView(this, R.layout.activity_tool_time_screen);
 
         initView();
         initTextSwitcher();
@@ -145,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 ObjectAnimator.ofFloat(imageViewMode, View.ALPHA, (boolean) newValue ? 0.0f : 1.0f, (boolean) newValue ? 1.0f : 0.0f).start();
             }
         });
-        constraintLayoutRoot.setOnClickListener(view -> uiVisibilityChangeSupport.setValue(!uiVisibilityChangeSupport.getValue()));
+        getConstraintLayoutRoot().setOnClickListener(view -> uiVisibilityChangeSupport.setValue(!uiVisibilityChangeSupport.getValue()));
     }
 
     private void initTextSwitcher() {
@@ -220,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setColors(@ColorInt int backgroundColor, @ColorInt int primaryTextColor) {
-        ObjectAnimator backgroundColorAnimator = ObjectAnimator.ofArgb(constraintLayoutRoot, "backgroundColor", ((ColorDrawable) constraintLayoutRoot.getBackground()).getColor(), backgroundColor);
+        ObjectAnimator backgroundColorAnimator = ObjectAnimator.ofArgb(getConstraintLayoutRoot(), "backgroundColor", ((ColorDrawable) getConstraintLayoutRoot().getBackground()).getColor(), backgroundColor);
         backgroundColorAnimator.setDuration(500L);
         backgroundColorAnimator.start();
         ((TextView) textSwitcherHourTen.getChildAt(0)).setTextColor(primaryTextColor);
@@ -237,11 +230,5 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) textSwitcherSecondTen.getChildAt(1)).setTextColor(primaryTextColor);
         ((TextView) textSwitcherSecondOne.getChildAt(0)).setTextColor(primaryTextColor);
         ((TextView) textSwitcherSecondOne.getChildAt(1)).setTextColor(primaryTextColor);
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        BangScreenTools.getBangScreenTools().windowChangeFullscreen(getWindow());
-        super.onWindowFocusChanged(hasFocus);
     }
 }
