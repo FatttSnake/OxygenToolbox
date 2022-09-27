@@ -77,4 +77,12 @@
     <string name="tool_translation_choose_language">选择语言</string>
     <string name="tool_translation_please_enter_text">请输入内容……</string>
     <string name="tool_translation_translation_failed">翻译失败</string>
+
+    <string name="tool_ip_current_IP">当前 IP：</string>
+    <string name="tool_ip_Unknown">未知</string>
+    <string name="tool_ip_ipaddress">IP 地址</string>
+    <string name="tool_ip_querying">查询中</string>
+    <string name="tool_ip_city">城市</string>
+    <string name="tool_ip_province">省份</string>
+    <string name="tool_ip_isp">网络提供商</string>
 </resources>

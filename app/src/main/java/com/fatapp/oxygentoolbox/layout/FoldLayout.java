@@ -130,7 +130,7 @@ public class FoldLayout extends LinearLayout implements View.OnClickListener {
                     super.onAnimationEnd(animation);
                     if (!isShow) {
                         LinearLayout linearLayout = defaultView.findViewById(R.id.linear_layout_head);
-                        linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_top_bottom_radius));
+                        linearLayout.setBackground(AppCompatResources.getDrawable(getContext(), R.drawable.background_radius));
                     }
                 }
             });

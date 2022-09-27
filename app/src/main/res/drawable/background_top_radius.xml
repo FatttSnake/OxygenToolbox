@@ -3,5 +3,5 @@
     <solid android:color="?attr/app_on_background_theme" />
     <corners
         android:topLeftRadius="10dp"
-        android:topRightRadius="10dp"/>
+        android:topRightRadius="10dp" />
 </shape>

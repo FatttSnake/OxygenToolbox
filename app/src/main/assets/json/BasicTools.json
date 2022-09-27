@@ -29,6 +29,13 @@
             "en": "Translation"
           },
           "activity": "com.fatapp.oxygentoolbox.tools.translation.MainActivity"
+        },
+        {
+          "text": {
+            "cn": "\u0049\u0050\u0020\u67e5\u8be2",
+            "en": "IP Query"
+          },
+          "activity": "com.fatapp.oxygentoolbox.tools.ip.MainActivity"
         }
       ]
     }
