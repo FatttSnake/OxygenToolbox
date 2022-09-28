@@ -18,6 +18,7 @@ import com.fatapp.oxygentoolbox.util.ResourceUtil;
 import com.fatapp.oxygentoolbox.util.http.HttpHelper;
 import com.fatapp.oxygentoolbox.util.http.ResponseListener;
 import com.fatapp.oxygentoolbox.util.tool.BaseActivityNormal;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,18 +67,18 @@ public class MainActivity extends BaseActivityNormal {
                             String desc = data.getString("desc");
                             textViewCurrentIP.setText(String.format("%s %s", ip, desc));
                         } else {
-                            onFailed();
+                            onFailure();
                         }
                     } catch (JSONException e) {
-                        onFailed();
+                        onFailure();
                     }
                 } else {
-                    onFailed();
+                    onFailure();
                 }
             }
 
             @Override
-            public void onFailed() {
+            public void onFailure() {
                 textViewCurrentIP.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
             }
         });
@@ -118,6 +119,8 @@ public class MainActivity extends BaseActivityNormal {
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(editTextIpAddress.getWindowToken(), 0);
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle(R.string.tool_ip_querying);
+        progressDialog.setMessage(ResourceUtil.getString(R.string.tool_ip_wait));
+        progressDialog.setCancelable(false);
         progressDialog.show();
         final HttpHelper httpHelper = new HttpHelper(this, URL_QUERY, new ResponseListener() {
             @Override
@@ -136,25 +139,31 @@ public class MainActivity extends BaseActivityNormal {
                             textViewResultCity.setText(city.isEmpty() ? ResourceUtil.getString(R.string.tool_ip_Unknown) : city);
                             textViewResultIsp.setText(isp.isEmpty() ? ResourceUtil.getString(R.string.tool_ip_Unknown) : isp);
                         } else {
-                            onFailed();
-                            textViewResultIP.setText(new JSONObject(responseBody).getString("msg"));
+                            setUnknown();
+                            Snackbar.make(getConstraintLayoutRoot(), new JSONObject(responseBody).getString("msg"), Snackbar.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
-                        onFailed();
+                        onFailure();
                     }
                 } else {
-                    onFailed();
+                    onFailure();
                 }
             }
 
             @Override
-            public void onFailed() {
-                textViewResultIP.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
-                textViewResultProvince.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
-                textViewResultCity.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
-                textViewResultIsp.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
+            public void onFailure() {
+                progressDialog.cancel();
+                setUnknown();
+                Snackbar.make(getConstraintLayoutRoot(), ResourceUtil.getString(R.string.tool_ip_query_failed), Snackbar.LENGTH_LONG).show();
             }
         });
         httpHelper.request(editTextIpAddress.getText().toString(), BuildConfig.ROLL_APP_ID, BuildConfig.ROLL_APP_SECRET);
+    }
+
+    private void setUnknown() {
+        textViewResultIP.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
+        textViewResultProvince.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
+        textViewResultCity.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
+        textViewResultIsp.setText(ResourceUtil.getString(R.string.tool_ip_Unknown));
     }
 }

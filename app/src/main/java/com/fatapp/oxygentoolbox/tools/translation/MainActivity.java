@@ -152,30 +152,30 @@ public class MainActivity extends BaseActivityNormal {
                         imageViewTranslate.setEnabled(true);
                         progressBarInTranslation.setVisibility(View.INVISIBLE);
                     } catch (JSONException e) {
-                        onFailed();
+                        onFailure();
                     }
                 } else {
-                    onFailed();
+                    onFailure();
                 }
             }
 
             @Override
-            public void onFailed() {
+            public void onFailure() {
                 textViewTo.setText(null);
                 editTextFrom.setEnabled(true);
                 imageViewTranslate.setEnabled(true);
                 progressBarInTranslation.setVisibility(View.INVISIBLE);
-                Snackbar.make(getConstraintLayoutRoot(), "翻译失败", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getConstraintLayoutRoot(), ResourceUtil.getString(R.string.tool_translation_translation_failed), Snackbar.LENGTH_LONG).show();
             }
         });
 
         try {
             if (languageFrom.equals(languageTo)) {
-                httpHelper.getResponseListener().onFailed();
+                httpHelper.getResponseListener().onFailure();
             }
             httpHelper.request(languageFrom.toUpperCase() + 2 + languageTo.toUpperCase(), URLEncoder.encode(editTextFrom.getText().toString(), StandardCharsets.UTF_8.toString()));
         } catch (UnsupportedEncodingException e) {
-            httpHelper.getResponseListener().onFailed();
+            httpHelper.getResponseListener().onFailure();
         }
     }
 }

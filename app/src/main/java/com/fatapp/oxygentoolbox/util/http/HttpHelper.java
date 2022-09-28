@@ -39,7 +39,7 @@ public class HttpHelper {
                     String body = Objects.requireNonNull(response.body()).string();
                     activity.runOnUiThread(() -> responseListener.onResponse(code, body));
                 } catch (IOException e) {
-                    activity.runOnUiThread(() -> responseListener.onFailed());
+                    activity.runOnUiThread(() -> responseListener.onFailure());
                 }
             }
         }.start();
