@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivityNormal {
         imageViewSwap = findViewById(R.id.image_view_swap);
         textViewLanguageTo = findViewById(R.id.text_view_language_to);
         editTextFrom = findViewById(R.id.edit_text_from);
-        textViewTo = findViewById(R.id.edit_text_to);
+        textViewTo = findViewById(R.id.text_view_to);
         imageViewTranslate = findViewById(R.id.image_view_translate);
         progressBarInTranslation = findViewById(R.id.progress_bar_in_translation);
     }

@@ -66,7 +66,7 @@
 
 
     <TextView
-        android:id="@+id/edit_text_to"
+        android:id="@+id/text_view_to"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tool_translation_edit_text_view_height"
         android:layout_margin="@dimen/tool_translation_layout_margin"
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/background_round"
         android:padding="@dimen/tool_translation_clickable_padding"
-        app:layout_constraintBottom_toTopOf="@id/edit_text_to"
+        app:layout_constraintBottom_toTopOf="@id/text_view_to"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_text_from">
