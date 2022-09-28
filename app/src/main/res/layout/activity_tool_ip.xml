@@ -10,7 +10,7 @@
         android:id="@+id/constraint_layout_current_ip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/common_layout_margin"
+        android:layout_margin="@dimen/tool_ip_layout_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -40,8 +40,8 @@
         android:id="@+id/constraint_layout_query"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/common_layout_margin"
-        android:padding="@dimen/tool_ip_common_padding"
+        android:layout_margin="@dimen/tool_ip_layout_margin"
+        android:padding="@dimen/tool_ip_layout_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/constraint_layout_current_ip">
@@ -55,7 +55,7 @@
             android:hint="@string/tool_ip_ipaddress"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:padding="@dimen/tool_ip_common_padding"
+            android:padding="@dimen/tool_ip_layout_padding"
             app:layout_constraintEnd_toStartOf="@id/image_view_query"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -69,7 +69,7 @@
             android:contentDescription="Query"
             android:focusable="true"
             android:foreground="@drawable/foreground_ripple"
-            android:padding="@dimen/tool_ip_common_padding"
+            android:padding="@dimen/tool_ip_layout_padding"
             android:src="@drawable/ic_search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,9 +80,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/common_layout_margin"
+        android:layout_margin="@dimen/tool_ip_layout_margin"
         android:orientation="vertical"
-        android:padding="@dimen/tool_ip_common_padding"
+        android:padding="@dimen/tool_ip_layout_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/constraint_layout_query">
@@ -95,14 +95,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_layout_margin"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
                 android:text="@string/tool_ip_ipaddress" />
 
             <TextView
                 android:id="@+id/text_view_result_ip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_layout_margin"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
                 android:text="@string/tool_ip_Unknown" />
         </LinearLayout>
 
@@ -114,14 +114,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_layout_margin"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
                 android:text="@string/tool_ip_province" />
 
             <TextView
                 android:id="@+id/text_view_result_province"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_layout_margin"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
                 android:text="@string/tool_ip_Unknown" />
         </LinearLayout>
 
@@ -133,14 +133,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_layout_margin"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
                 android:text="@string/tool_ip_city" />
 
             <TextView
                 android:id="@+id/text_view_result_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_layout_margin"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
                 android:text="@string/tool_ip_Unknown" />
         </LinearLayout>
 
@@ -152,14 +152,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_layout_margin"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
                 android:text="@string/tool_ip_isp" />
 
             <TextView
                 android:id="@+id/text_view_result_isp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_layout_margin"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
                 android:text="@string/tool_ip_Unknown" />
         </LinearLayout>
     </LinearLayout>
