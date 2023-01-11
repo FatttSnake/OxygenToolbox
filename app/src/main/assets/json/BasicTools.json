@@ -36,6 +36,13 @@
             "en": "IP Query"
           },
           "activity": "com.fatapp.oxygentoolbox.tools.ip.MainActivity"
+        },
+        {
+          "text": {
+            "cn": "\u8fdb\u5236\u8f6c\u6362",
+            "en": "Base Converter"
+          },
+          "activity": "com.fatapp.oxygentoolbox.tools.converter.MainActivity"
         }
       ]
     }

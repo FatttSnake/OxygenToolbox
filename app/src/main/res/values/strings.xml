@@ -3,6 +3,8 @@
     <string name="app_name">Oxygen</string>
     <string name="app_full_name">Oxygen Toolbox</string>
     <string name="app_desc">All in One</string>
+    
+    <string name="base_nan" translatable="false">NaN</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -123,4 +125,14 @@
     <string name="tool_ip_province">Province</string>
     <string name="tool_ip_isp">ISP</string>
     <string name="tool_ip_query_failed">Query failed, please check network connection.</string>
+    
+    <string name="tool_converter_base_2" translatable="false">2 (binary)</string>
+    <string name="tool_converter_base_8" translatable="false">8 (octal)</string>
+    <string name="tool_converter_base_10" translatable="false">10 (decimal)</string>
+    <string name="tool_converter_base_16" translatable="false">16 (hex)</string>
+    <string name="tool_converter_choose_base">Choose base</string>
+    <string name="tool_converter_from_base">From Base</string>
+    <string name="tool_converter_to_base">To Base</string>
+    <string name="tool_converter_please_enter_text">Please enter text…</string>
+    <string name="tool_converter_illegal_number">Illegal Number</string>
 </resources>
