@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.fatapp.oxygentoolbox"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -46,16 +46,16 @@ android {
     android.applicationVariants.all {
         variant ->
             variant.outputs.all {
-                output -> outputFileName = new File(variant.name, "OxygenToolbox" + "_" + defaultConfig.versionName + "-" + defaultConfig.versionCode + "_" + buildType.name + ".apk")
+                output -> outputFileName = "OxygenToolbox" + "_" + defaultConfig.versionName + "-" + defaultConfig.versionCode + "_" + buildType.name + ".apk"
             }
     }
 
     compileOptions {
         // Flag to enable support for the new language APIs
         coreLibraryDesugaringEnabled true
-        // Sets Java compatibility to Java 8
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        // Sets Java compatibility to Java 17
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     buildFeatures {
@@ -90,25 +90,27 @@ task exportLibrariesToJson(group: 'build', description: 'Generate libraries defi
 }
 
 afterEvaluate {
-    def assembleTask = tasks.findByName("assembleDebug")
-    assembleTask.dependsOn(exportLibrariesToJson)
+    tasks.findByName("assembleDebug").dependsOn(exportLibrariesToJson)
+    tasks.findByName("mergeDebugResources").dependsOn(exportLibrariesToJson)
+    tasks.findByName("packageDebugResources").dependsOn(exportLibrariesToJson)
+    tasks.findByName("mapDebugSourceSetPaths").dependsOn(exportLibrariesToJson)
 }
 
 dependencies {
     //noinspection GradleDependency
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.preference:preference:1.2.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
-    implementation 'androidx.core:core-splashscreen:1.0.0'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'com.google.android.material:material:1.9.0'
 
-    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.github.KilleTom:BangScreenToolsMaster:v1.0.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.11'
 }
