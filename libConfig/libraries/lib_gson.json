@@ -1,0 +1,9 @@
+{
+  "uniqueId": "com.google.code.gson:gson",
+  "developers": [
+    {
+      "name": "Google"
+    }
+  ],
+  "description": "A Java serialization/deserialization library to convert Java Objects into JSON and back."
+}

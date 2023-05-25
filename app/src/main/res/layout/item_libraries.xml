@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/item_libraries_card_margin"
+    android:background="?attr/app_on_background_theme"
+    android:clickable="true"
+    android:focusable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/app_on_background_theme">
+
+        <TextView
+            android:id="@+id/text_view_library_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingTop="@dimen/item_libraries_card_inner_padding"
+            android:paddingHorizontal="@dimen/item_libraries_card_inner_padding"
+            android:textAppearance="?textAppearanceHeadline5"
+            android:textColor="?attr/app_text_theme"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_library_creator"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_library_version"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Library name" />
+
+        <TextView
+            android:id="@+id/text_view_library_creator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingHorizontal="@dimen/item_libraries_card_inner_padding"
+            android:textAppearance="?textAppearanceSubtitle1"
+            android:textColor="?attr/app_second_text_theme"
+            app:layout_constraintBottom_toTopOf="@+id/view_library_description_divider"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_library_version"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_library_name"
+            tools:text="Creator" />
+
+        <TextView
+            android:id="@+id/text_view_library_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+            android:paddingTop="@dimen/item_libraries_card_inner_padding"
+            android:paddingEnd="@dimen/item_libraries_card_inner_padding"
+            android:textAppearance="?textAppearanceBody2"
+            android:textColor="?attr/app_second_text_theme"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/text_view_library_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_view_library_name"
+            app:layout_constraintTop_toTopOf="@id/text_view_library_name"
+            tools:text="Version" />
+
+        <View
+            android:id="@+id/view_library_description_divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/item_libraries_card_divider_height"
+            android:layout_marginHorizontal="@dimen/item_libraries_card_divider_padding_horizontal"
+            android:layout_marginVertical="@dimen/item_libraries_card_divider_padding_vertical"
+            android:background="?attr/app_divider_theme"
+            app:layout_constraintBottom_toTopOf="@id/text_view_library_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_library_creator" />
+
+        <TextView
+            android:id="@+id/text_view_library_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/item_libraries_card_inner_padding"
+            android:maxLines="20"
+            android:textAppearance="?textAppearanceBody2"
+            android:textColor="?attr/app_text_theme"
+            app:layout_constraintBottom_toTopOf="@id/view_library_bottom_divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_library_description_divider"
+            tools:text="This is library description.This is library description.This is library description.This is library description.This is library description.This is library description.This is library description.This is library description." />
+
+        <View
+            android:id="@+id/view_library_bottom_divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/item_libraries_card_divider_height"
+            android:layout_marginHorizontal="@dimen/item_libraries_card_divider_padding_horizontal"
+            android:layout_marginVertical="@dimen/item_libraries_card_divider_padding_vertical"
+            android:background="?attr/app_divider_theme"
+            app:layout_constraintBottom_toTopOf="@id/text_view_library_license"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_library_description" />
+
+        <TextView
+            android:id="@+id/text_view_library_license"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:maxLines="1"
+            android:paddingHorizontal="@dimen/item_libraries_card_inner_padding"
+            android:paddingBottom="@dimen/item_libraries_card_inner_padding"
+            android:textAppearance="?textAppearanceBody1"
+            android:textColor="?attr/app_text_theme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_library_bottom_divider"
+            tools:text="License" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

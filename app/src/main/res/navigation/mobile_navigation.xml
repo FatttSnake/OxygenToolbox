@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.fatapp.oxygentoolbox.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_theme"
+        android:name="com.fatapp.oxygentoolbox.ui.theme.ThemeFragment"
+        android:label="@string/menu_theme"
+        tools:layout="@layout/fragment_theme" />
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.fatapp.oxygentoolbox.ui.setting.SettingFragment"
+        android:label="@string/menu_setting"
+        tools:layout="@xml/fragment_setting">
+        <action
+            android:id="@+id/action_setting_to_about"
+            app:destination="@id/nav_about" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.fatapp.oxygentoolbox.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+
+</navigation>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_background">#FF202020</color>
+    <color name="app_on_background">#FF303030</color>
+    <color name="app_primary_text">#FFEEEEEE</color>
+    <color name="app_secondary_text">#FF757575</color>
+    <color name="app_show_light_background">@color/white</color>
+    <color name="app_show_light_primary_text">#FF757575</color>
+    <color name="app_show_light_secondary_text">#FF757575</color>
+    <color name="app_show_dark_background">@color/black</color>
+    <color name="app_show_dark_primary_text">#FFEEEEEE</color>
+    <color name="app_show_dark_secondary_text">#FF757575</color>
+    <color name="app_show_background">@color/app_show_dark_background</color>
+    <color name="app_show_primary_text">@color/app_show_dark_primary_text</color>
+    <color name="app_show_secondary_text">@color/app_show_dark_secondary_text</color>
+    <color name="app_ripple">#88CCCCCC</color>
+    <color name="app_divider">#FFADADAD</color>
+</resources>

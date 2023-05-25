@@ -1,0 +1,116 @@
+plugins {
+    id 'com.android.application'
+    id 'com.mikepenz.aboutlibraries.plugin'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.fatapp.oxygentoolbox"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Required when setting minSdkVersion to 20 or lower
+        multiDexEnabled true
+
+        Properties buildPro = loadBuildPro()
+        buildConfigField "String", "ROLL_APP_ID", buildPro['rollAppId']
+        buildConfigField "String", "ROLL_APP_SECRET", buildPro['rollAppSecret']
+    }
+
+    signingConfigs {
+        release {
+            Properties buildPro = loadBuildPro()
+            storeFile file(buildPro['storeFile'])
+            storePassword buildPro['storePassword']
+            keyAlias buildPro['keyAlias']
+            keyPassword buildPro['keyPassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+        }
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                output -> outputFileName = "OxygenToolbox" + "_" + defaultConfig.versionName + "-" + defaultConfig.versionCode + "_" + buildType.name + ".apk"
+            }
+    }
+
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+        // Sets Java compatibility to Java 17
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    namespace 'com.fatapp.oxygentoolbox'
+}
+
+def loadBuildPro() {
+    Properties buildProperties = new Properties()
+    buildProperties.load(new FileInputStream(file("../build.properties")))
+    return buildProperties
+}
+
+aboutLibraries {
+    registerAndroidTasks = false
+    configPath = "libConfig"
+    outputFileName = "dependencies.json"
+    exclusionPatterns = [
+            ~'androidx.*',
+            ~'org.jetbrains.*',
+            ~"com.google.android.*",
+            ~"com.google.guava:listenablefuture",
+            ~"com.squareup.okio:okio-jvm"
+    ]
+}
+
+task exportLibrariesToJson(group: 'build', description: 'Generate libraries definitions json file', type: com.mikepenz.aboutlibraries.plugin.AboutLibrariesTask, dependsOn: 'collectDependencies') {
+    resultDirectory = project.file('src/main/res/raw/')
+    variant = 'release'
+}
+
+afterEvaluate {
+    tasks.findByName("assembleDebug").dependsOn(exportLibrariesToJson)
+    tasks.findByName("mergeDebugResources").dependsOn(exportLibrariesToJson)
+    tasks.findByName("packageDebugResources").dependsOn(exportLibrariesToJson)
+    tasks.findByName("mapDebugSourceSetPaths").dependsOn(exportLibrariesToJson)
+}
+
+dependencies {
+    //noinspection GradleDependency
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'com.google.android.material:material:1.9.0'
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.github.KilleTom:BangScreenToolsMaster:v1.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.11'
+}

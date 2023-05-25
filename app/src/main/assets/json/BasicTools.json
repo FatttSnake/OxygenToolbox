@@ -1,0 +1,50 @@
+[
+  {
+    "id": "basic",
+    "content": {
+      "version": "1.0",
+      "versionID": 210510,
+      "mainVersion": 210510,
+      "font": "fonts/BasicTools.ttf",
+      "icon": "\uE6AE",
+      "title": {
+        "cn": "\u57fa\u7840\u5de5\u5177",
+        "en": "Basic Tools"
+      },
+      "desc": {
+        "cn": "\u4e00\u4e9b\u57fa\u7840\u7684\u5de5\u5177\uff0c\u0041\u0050\u0050\u4e3b\u4f53\u81ea\u5e26",
+        "en": "Some basic tools, the main body of the APP comes with it"
+      },
+      "buttons": [
+        {
+          "text": {
+            "cn": "\u65f6\u95f4\u5c4f\u5e55",
+            "en": "Time Screen"
+          },
+          "activity": "com.fatapp.oxygentoolbox.tools.timescreen.MainActivity"
+        },
+        {
+          "text": {
+            "cn": "\u7ffb\u8bd1",
+            "en": "Translation"
+          },
+          "activity": "com.fatapp.oxygentoolbox.tools.translation.MainActivity"
+        },
+        {
+          "text": {
+            "cn": "\u0049\u0050\u0020\u67e5\u8be2",
+            "en": "IP Query"
+          },
+          "activity": "com.fatapp.oxygentoolbox.tools.ip.MainActivity"
+        },
+        {
+          "text": {
+            "cn": "\u8fdb\u5236\u8f6c\u6362",
+            "en": "Base Converter"
+          },
+          "activity": "com.fatapp.oxygentoolbox.tools.converter.MainActivity"
+        }
+      ]
+    }
+  }
+]

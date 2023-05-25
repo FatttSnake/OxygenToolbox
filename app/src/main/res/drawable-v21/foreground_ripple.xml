@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/tools_button_ripple">
+    <item android:id="@android:id/mask">
+        <shape>
+            <solid android:color="?attr/tools_button_ripple" />
+            <corners android:radius="120dp" />
+        </shape>
+    </item>
+</ripple>

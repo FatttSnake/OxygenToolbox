@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Oxygen</string>
+    <string name="app_full_name">Oxygen Toolbox</string>
+    <string name="app_desc">All in One</string>
+    
+    <string name="base_nan" translatable="false">NaN</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">@string/app_full_name</string>
+    <string name="nav_header_subtitle" translatable="false">@string/app_desc</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_home_tools">Tools</string>
+    <string name="menu_home_fav">Favorite</string>
+    <string name="menu_theme">Theme</string>
+    <string name="menu_setting">Setting</string>
+    <string name="menu_about">About</string>
+    <string name="menu_exit">Exit</string>
+
+    <string name="shortcutDisabledMessage">Disable</string>
+    <string name="shortcutLongLabel">Oxygen Toolbox</string>
+    <string name="shortcutShortLabel">Oxygen Toolbox</string>
+
+    <string name="init_tools_failed">Failed to initialize tools</string>
+    <string name="activity_class_not_found">Can not load tool, it may be damaged</string>
+
+    <string name="setting_dark_mode">Dark Theme</string>
+    <string-array name="setting_dark_theme_selects_array">
+        <item>Follow Device</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string name="setting_base_settings">Base Settings</string>
+
+    <string name="setting_language">Language</string>
+    <string name="setting_language_key" translatable="false">app_language</string>
+    <string-array name="setting_language_array">
+        <item>Follow System</item>
+        <item>中文</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="setting_language_values">
+        <item>SYSTEM</item>
+        <item>zh_CN</item>
+        <item>en_US</item>
+    </string-array>
+    <string name="setting_language_default_value" translatable="false">SYSTEM</string>
+
+    <string name="setting_launch_page">Launch Page</string>
+    <string name="setting_launch_page_key" translatable="false">app_launch_page</string>
+    <string-array name="setting_launch_page_array">
+        <item>Tools</item>
+        <item>Favourites</item>
+    </string-array>
+    <string-array name="setting_launch_page_values">
+        <item>TOOLS</item>
+        <item>FAVOURITES</item>
+    </string-array>
+    <string name="setting_launch_page_default_value" translatable="false">TOOLS</string>
+
+    <string name="setting_ui_mode">Theme Mode</string>
+    <string name="setting_ui_mode_key" translatable="false">app_ui_mode</string>
+    <string-array name="setting_ui_mode_array">
+        <item>Follow System</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="setting_ui_mode_values">
+        <item>SYSTEM</item>
+        <item>LIGHT</item>
+        <item>DARK</item>
+    </string-array>
+    <string name="setting_ui_mode_default_value" translatable="false">SYSTEM</string>
+
+    <string name="setting_theme">Theme</string>
+    <string name="setting_theme_key" translatable="false">app_theme</string>
+    <string-array name="setting_theme_array">
+        <item>Red</item>
+        <item>Pink</item>
+        <item>Purple</item>
+        <item>Deep Purple</item>
+        <item>Indigo</item>
+        <item>Blue</item>
+        <item>Light Blue</item>
+        <item>Cyan</item>
+        <item>Teal</item>
+        <item>Green</item>
+        <item>Light Green</item>
+        <item>Lime</item>
+        <item>Yellow</item>
+        <item>Amber</item>
+        <item>Orange</item>
+        <item>Deep Orange</item>
+        <item>Brown</item>
+        <item>Grey</item>
+        <item>Blue Grey</item>
+    </string-array>
+    <string name="setting_theme_default_value" translatable="false">BLUE_GREY</string>
+
+    <string name="setting_open_source">Open Source License</string>
+    <string name="setting_search">Search</string>
+    <string name="setting_about">About</string>
+    <string name="setting_about_oxygen_toolbox">About OxygenToolbox</string>
+    <string name="setting_about_oxygen_toolbox_key" translatable="false">app_about</string>
+
+    <string name="tool_time_screen_colon" translatable="false">&#160;:&#160;</string>
+
+    <string name="tool_translation_choose_language">Choose a language</string>
+    <string name="tool_translation_language_chinese" translatable="false">中文</string>
+    <string name="tool_translation_language_english" translatable="false">English</string>
+    <string name="tool_translation_language_japanese" translatable="false">日本</string>
+    <string name="tool_translation_language_korean" translatable="false">한국인</string>
+    <string name="tool_translation_please_enter_text">Please enter text…</string>
+    <string name="tool_translation_translation_failed">Translation failed, please check network connection.</string>
+
+    <string name="tool_ip_current_IP">Current IP:&#160;</string>
+    <string name="tool_ip_Unknown">Unknown</string>
+    <string name="tool_ip_ipaddress">IP address</string>
+    <string name="tool_ip_querying">Querying</string>
+    <string name="tool_ip_wait">Please wait patiently…</string>
+    <string name="tool_ip_city">City</string>
+    <string name="tool_ip_province">Province</string>
+    <string name="tool_ip_isp">ISP</string>
+    <string name="tool_ip_query_failed">Query failed, please check network connection.</string>
+    
+    <string name="tool_converter_base_2" translatable="false">2 (binary)</string>
+    <string name="tool_converter_base_8" translatable="false">8 (octal)</string>
+    <string name="tool_converter_base_10" translatable="false">10 (decimal)</string>
+    <string name="tool_converter_base_16" translatable="false">16 (hex)</string>
+    <string name="tool_converter_choose_base">Choose base</string>
+    <string name="tool_converter_from_base">From Base</string>
+    <string name="tool_converter_to_base">To Base</string>
+    <string name="tool_converter_please_enter_text">Please enter text…</string>
+    <string name="tool_converter_illegal_number">Illegal Number</string>
+</resources>

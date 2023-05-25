@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_layout_body"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <com.fatapp.oxygentoolbox.layout.AutoLinefeedLayout
+        android:id="@+id/auto_linefeed_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/common_layout_margin"
+        android:background="@drawable/background_bottom_radius"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/fold_layout_body_auto_linefeed_layout_padding_horizontal"
+        android:paddingBottom="@dimen/fold_layout_body_auto_linefeed_layout_padding_bottom" />
+
+</LinearLayout>

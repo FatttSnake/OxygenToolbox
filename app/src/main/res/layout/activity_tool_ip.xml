@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tools.ip.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_current_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/tool_ip_layout_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_view_current_ip_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tool_ip_current_IP"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/text_view_current_ip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_view_current_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tool_ip_Unknown"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_view_current_ip_tip"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/tool_ip_layout_margin"
+        android:padding="@dimen/tool_ip_layout_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint_layout_current_ip">
+
+        <EditText
+            android:id="@+id/edit_text_ipaddress"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tool_ip_query_bar_size"
+            android:autofillHints="ip"
+            android:background="@drawable/background_left_radius_border"
+            android:hint="@string/tool_ip_ipaddress"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:padding="@dimen/tool_ip_layout_padding"
+            app:layout_constraintEnd_toStartOf="@id/image_view_query"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_view_query"
+            android:layout_width="@dimen/tool_ip_query_bar_size"
+            android:layout_height="@dimen/tool_ip_query_bar_size"
+            android:background="@drawable/foreground_right_radius"
+            android:clickable="true"
+            android:contentDescription="Query"
+            android:focusable="true"
+            android:foreground="@drawable/foreground_ripple"
+            android:padding="@dimen/tool_ip_layout_padding"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/edit_text_ipaddress"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/tool_ip_layout_margin"
+        android:orientation="vertical"
+        android:padding="@dimen/tool_ip_layout_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint_layout_query">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
+                android:text="@string/tool_ip_ipaddress" />
+
+            <TextView
+                android:id="@+id/text_view_result_ip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
+                android:text="@string/tool_ip_Unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
+                android:text="@string/tool_ip_province" />
+
+            <TextView
+                android:id="@+id/text_view_result_province"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
+                android:text="@string/tool_ip_Unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
+                android:text="@string/tool_ip_city" />
+
+            <TextView
+                android:id="@+id/text_view_result_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
+                android:text="@string/tool_ip_Unknown" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
+                android:text="@string/tool_ip_isp" />
+
+            <TextView
+                android:id="@+id/text_view_result_isp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/tool_ip_layout_margin"
+                android:text="@string/tool_ip_Unknown" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
