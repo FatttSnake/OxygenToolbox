@@ -24,7 +24,7 @@ import java.util.Collections;
 
 public class ToolsAdapter extends RecyclerView.Adapter<ToolsAdapter.ViewHolder> {
     private ViewGroup parent;
-    private Activity activity;
+    private final Activity activity;
 
     public ToolsAdapter(Activity activity) {
         this.activity = activity;

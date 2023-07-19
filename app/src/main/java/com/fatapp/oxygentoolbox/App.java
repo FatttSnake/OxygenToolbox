@@ -79,14 +79,9 @@ public class App extends Application {
 
     private void loadAppUiMode() {
         switch (SharedPreferencesUtils.getPreferenceUiMode()) {
-            case LIGHT:
-                ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_LIGHT);
-                break;
-            case DARK:
-                ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_DARK);
-                break;
-            default:
-                ResourceUtil.setAppUiMode(ResourceUtil.getSystemUiMode());
+            case LIGHT -> ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_LIGHT);
+            case DARK -> ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_DARK);
+            default -> ResourceUtil.setAppUiMode(ResourceUtil.getSystemUiMode());
         }
     }
 

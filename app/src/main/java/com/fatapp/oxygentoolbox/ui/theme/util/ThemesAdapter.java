@@ -35,63 +35,44 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder
         holder.getColorName().setText(ResourceUtil.getStringArray(R.array.setting_theme_array)[position]);
         holder.getCheck().setSelected(position == SharedPreferencesUtils.getPreferenceTheme().ordinal());
         switch (position) {
-            case 0:
-                setColor(holder, R.color.red_primary, R.color.red_primary_dark, R.color.red_primary_light, R.color.red_accent);
-                break;
-            case 1:
-                setColor(holder, R.color.pink_primary, R.color.pink_primary_dark, R.color.pink_primary_light, R.color.pink_accent);
-                break;
-            case 2:
-                setColor(holder, R.color.purple_primary, R.color.purple_primary_dark, R.color.purple_primary_light, R.color.purple_accent);
-                break;
-            case 3:
-                setColor(holder, R.color.deep_purple_primary, R.color.deep_purple_primary_dark, R.color.deep_purple_primary_light, R.color.deep_purple_accent);
-                break;
-            case 4:
-                setColor(holder, R.color.indigo_primary, R.color.indigo_primary_dark, R.color.indigo_primary_light, R.color.indigo_accent);
-                break;
-            case 5:
-                setColor(holder, R.color.blue_primary, R.color.blue_primary_dark, R.color.blue_primary_light, R.color.blue_accent);
-                break;
-            case 6:
-                setColor(holder, R.color.light_blue_primary, R.color.light_blue_primary_dark, R.color.light_blue_primary_light, R.color.light_blue_accent);
-                break;
-            case 7:
-                setColor(holder, R.color.cyan_primary, R.color.cyan_primary_dark, R.color.cyan_primary_light, R.color.cyan_accent);
-                break;
-            case 8:
-                setColor(holder, R.color.teal_primary, R.color.teal_primary_dark, R.color.teal_primary_light, R.color.teal_accent);
-                break;
-            case 9:
-                setColor(holder, R.color.green_primary, R.color.green_primary_dark, R.color.green_primary_light, R.color.green_accent);
-                break;
-            case 10:
-                setColor(holder, R.color.light_green_primary, R.color.light_green_primary_dark, R.color.light_green_primary_light, R.color.light_green_accent);
-                break;
-            case 11:
-                setColor(holder, R.color.lime_primary, R.color.lime_primary_dark, R.color.lime_primary_light, R.color.lime_accent);
-                break;
-            case 12:
-                setColor(holder, R.color.yellow_primary, R.color.yellow_primary_dark, R.color.yellow_primary_light, R.color.yellow_accent);
-                break;
-            case 13:
-                setColor(holder, R.color.amber_primary, R.color.amber_primary_dark, R.color.amber_primary_light, R.color.amber_accent);
-                break;
-            case 14:
-                setColor(holder, R.color.orange_primary, R.color.orange_primary_dark, R.color.orange_primary_light, R.color.orange_accent);
-                break;
-            case 15:
-                setColor(holder, R.color.deep_orange_primary, R.color.deep_orange_primary_dark, R.color.deep_orange_primary_light, R.color.deep_orange_accent);
-                break;
-            case 16:
-                setColor(holder, R.color.brown_primary, R.color.brown_primary_dark, R.color.brown_primary_light, R.color.brown_accent);
-                break;
-            case 17:
-                setColor(holder, R.color.grey_primary, R.color.grey_primary_dark, R.color.grey_primary_light, R.color.grey_accent);
-                break;
-            case 18:
-                setColor(holder, R.color.blue_grey_primary, R.color.blue_grey_primary_dark, R.color.blue_grey_primary_light, R.color.blue_grey_accent);
-                break;
+            case 0 ->
+                    setColor(holder, R.color.red_primary, R.color.red_primary_dark, R.color.red_primary_light, R.color.red_accent);
+            case 1 ->
+                    setColor(holder, R.color.pink_primary, R.color.pink_primary_dark, R.color.pink_primary_light, R.color.pink_accent);
+            case 2 ->
+                    setColor(holder, R.color.purple_primary, R.color.purple_primary_dark, R.color.purple_primary_light, R.color.purple_accent);
+            case 3 ->
+                    setColor(holder, R.color.deep_purple_primary, R.color.deep_purple_primary_dark, R.color.deep_purple_primary_light, R.color.deep_purple_accent);
+            case 4 ->
+                    setColor(holder, R.color.indigo_primary, R.color.indigo_primary_dark, R.color.indigo_primary_light, R.color.indigo_accent);
+            case 5 ->
+                    setColor(holder, R.color.blue_primary, R.color.blue_primary_dark, R.color.blue_primary_light, R.color.blue_accent);
+            case 6 ->
+                    setColor(holder, R.color.light_blue_primary, R.color.light_blue_primary_dark, R.color.light_blue_primary_light, R.color.light_blue_accent);
+            case 7 ->
+                    setColor(holder, R.color.cyan_primary, R.color.cyan_primary_dark, R.color.cyan_primary_light, R.color.cyan_accent);
+            case 8 ->
+                    setColor(holder, R.color.teal_primary, R.color.teal_primary_dark, R.color.teal_primary_light, R.color.teal_accent);
+            case 9 ->
+                    setColor(holder, R.color.green_primary, R.color.green_primary_dark, R.color.green_primary_light, R.color.green_accent);
+            case 10 ->
+                    setColor(holder, R.color.light_green_primary, R.color.light_green_primary_dark, R.color.light_green_primary_light, R.color.light_green_accent);
+            case 11 ->
+                    setColor(holder, R.color.lime_primary, R.color.lime_primary_dark, R.color.lime_primary_light, R.color.lime_accent);
+            case 12 ->
+                    setColor(holder, R.color.yellow_primary, R.color.yellow_primary_dark, R.color.yellow_primary_light, R.color.yellow_accent);
+            case 13 ->
+                    setColor(holder, R.color.amber_primary, R.color.amber_primary_dark, R.color.amber_primary_light, R.color.amber_accent);
+            case 14 ->
+                    setColor(holder, R.color.orange_primary, R.color.orange_primary_dark, R.color.orange_primary_light, R.color.orange_accent);
+            case 15 ->
+                    setColor(holder, R.color.deep_orange_primary, R.color.deep_orange_primary_dark, R.color.deep_orange_primary_light, R.color.deep_orange_accent);
+            case 16 ->
+                    setColor(holder, R.color.brown_primary, R.color.brown_primary_dark, R.color.brown_primary_light, R.color.brown_accent);
+            case 17 ->
+                    setColor(holder, R.color.grey_primary, R.color.grey_primary_dark, R.color.grey_primary_light, R.color.grey_accent);
+            case 18 ->
+                    setColor(holder, R.color.blue_grey_primary, R.color.blue_grey_primary_dark, R.color.blue_grey_primary_light, R.color.blue_grey_accent);
         }
 
         holder.getThemeLayout().setOnClickListener(view -> {

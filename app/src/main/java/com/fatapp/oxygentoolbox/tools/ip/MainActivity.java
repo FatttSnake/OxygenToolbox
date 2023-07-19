@@ -1,6 +1,6 @@
 package com.fatapp.oxygentoolbox.tools.ip;
 
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -117,15 +117,15 @@ public class MainActivity extends BaseActivityNormal {
 
     private void query() {
         ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(editTextIpAddress.getWindowToken(), 0);
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle(R.string.tool_ip_querying);
-        progressDialog.setMessage(ResourceUtil.getString(R.string.tool_ip_wait));
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle(ResourceUtil.getString(R.string.tool_ip_querying));
+        alertDialogBuilder.setMessage(ResourceUtil.getString(R.string.tool_ip_wait));
+        alertDialogBuilder.setCancelable(false);
+        AlertDialog alertDialog = alertDialogBuilder.show();
         final HttpHelper httpHelper = new HttpHelper(this, URL_QUERY, new ResponseListener() {
             @Override
             public void onResponse(int code, String responseBody) {
-                progressDialog.cancel();
+                alertDialog.cancel();
                 if (code == 200) {
                     try {
                         if (new JSONObject(responseBody).getInt("code") == 1) {
@@ -152,7 +152,7 @@ public class MainActivity extends BaseActivityNormal {
 
             @Override
             public void onFailure() {
-                progressDialog.cancel();
+                alertDialog.cancel();
                 setUnknown();
                 Snackbar.make(getConstraintLayoutRoot(), ResourceUtil.getString(R.string.tool_ip_query_failed), Snackbar.LENGTH_LONG).show();
             }

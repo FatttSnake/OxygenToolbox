@@ -27,20 +27,11 @@ public class MainActivity extends BaseActivityNormal {
     {
         for (int i = 0; i < 35; i++) {
             switch (i + 2) {
-                case 2:
-                    BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_2);
-                    break;
-                case 8:
-                    BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_8);
-                    break;
-                case 10:
-                    BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_10);
-                    break;
-                case 16:
-                    BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_16);
-                    break;
-                default:
-                    BASE_ITEMS[i] = String.valueOf(i + 2);
+                case 2 -> BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_2);
+                case 8 -> BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_8);
+                case 10 -> BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_10);
+                case 16 -> BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_16);
+                default -> BASE_ITEMS[i] = String.valueOf(i + 2);
             }
         }
     }
