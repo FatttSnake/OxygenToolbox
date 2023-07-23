@@ -116,13 +116,13 @@
     <string name="tool_translation_please_enter_text">Please enter text…</string>
     <string name="tool_translation_translation_failed">Translation failed, please check network connection.</string>
     
-    <string name="tool_converter_base_2" translatable="false">2 (binary)</string>
-    <string name="tool_converter_base_8" translatable="false">8 (octal)</string>
-    <string name="tool_converter_base_10" translatable="false">10 (decimal)</string>
-    <string name="tool_converter_base_16" translatable="false">16 (hex)</string>
-    <string name="tool_converter_choose_base">Choose base</string>
-    <string name="tool_converter_from_base">From Base</string>
-    <string name="tool_converter_to_base">To Base</string>
-    <string name="tool_converter_please_enter_text">Please enter text…</string>
-    <string name="tool_converter_illegal_number">Illegal Number</string>
+    <string name="tool_baseconverter_base_2" translatable="false">2 (binary)</string>
+    <string name="tool_baseconverter_base_8" translatable="false">8 (octal)</string>
+    <string name="tool_baseconverter_base_10" translatable="false">10 (decimal)</string>
+    <string name="tool_baseconverter_base_16" translatable="false">16 (hex)</string>
+    <string name="tool_baseconverter_choose_base">Choose base</string>
+    <string name="tool_baseconverter_from_base">From Base</string>
+    <string name="tool_baseconverter_to_base">To Base</string>
+    <string name="tool_baseconverter_please_enter_text">Please enter text…</string>
+    <string name="tool_baseconverter_illegal_number">Illegal Number</string>
 </resources>

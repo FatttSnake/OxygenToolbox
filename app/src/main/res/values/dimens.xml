@@ -45,10 +45,10 @@
     <dimen name="tool_translation_layout_margin">@dimen/common_layout_margin</dimen>
     <dimen name="tool_translation_edit_text_view_height">200dp</dimen>
 
-    <dimen name="tool_converter_text_size">16sp</dimen>
-    <dimen name="tool_converter_clickable_padding">5dp</dimen>
-    <dimen name="tool_converter_layout_margin">@dimen/common_layout_margin</dimen>
-    <dimen name="tool_converter_edit_text_view_height">200dp</dimen>
-    <dimen name="tool_converter_edit_text_view_padding">15dp</dimen>
-    <dimen name="tool_converter_edit_text_view_padding_plus">30dp</dimen>
+    <dimen name="tool_baseconverter_text_size">16sp</dimen>
+    <dimen name="tool_baseconverter_clickable_padding">5dp</dimen>
+    <dimen name="tool_baseconverter_layout_margin">@dimen/common_layout_margin</dimen>
+    <dimen name="tool_baseconverter_edit_text_view_height">200dp</dimen>
+    <dimen name="tool_baseconverter_edit_text_view_padding">15dp</dimen>
+    <dimen name="tool_baseconverter_edit_text_view_padding_plus">30dp</dimen>
 </resources>

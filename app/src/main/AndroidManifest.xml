@@ -65,7 +65,7 @@
             android:exported="false"
             android:theme="@style/Theme.OxygenToolbox.Default">
             <intent-filter>
-                <action android:name="oxygentoolbox.converter" />
+                <action android:name="oxygentoolbox.baseconverter" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

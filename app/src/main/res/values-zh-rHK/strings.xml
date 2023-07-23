@@ -78,9 +78,9 @@
     <string name="tool_translation_please_enter_text">请输入内容……</string>
     <string name="tool_translation_translation_failed">翻译失败，请检查网络连接。</string>
 
-    <string name="tool_converter_choose_base">选择进制</string>
-    <string name="tool_converter_from_base">源进制</string>
-    <string name="tool_converter_to_base">目标进制</string>
-    <string name="tool_converter_please_enter_text">请输入内容……</string>
-    <string name="tool_converter_illegal_number">非法数字</string>
+    <string name="tool_baseconverter_choose_base">选择进制</string>
+    <string name="tool_baseconverter_from_base">源进制</string>
+    <string name="tool_baseconverter_to_base">目标进制</string>
+    <string name="tool_baseconverter_please_enter_text">请输入内容……</string>
+    <string name="tool_baseconverter_illegal_number">非法数字</string>
 </resources>
