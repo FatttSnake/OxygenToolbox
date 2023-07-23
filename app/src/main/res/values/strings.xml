@@ -115,16 +115,6 @@
     <string name="tool_translation_language_korean" translatable="false">한국인</string>
     <string name="tool_translation_please_enter_text">Please enter text…</string>
     <string name="tool_translation_translation_failed">Translation failed, please check network connection.</string>
-
-    <string name="tool_ip_current_IP">Current IP:&#160;</string>
-    <string name="tool_ip_Unknown">Unknown</string>
-    <string name="tool_ip_ipaddress">IP address</string>
-    <string name="tool_ip_querying">Querying</string>
-    <string name="tool_ip_wait">Please wait patiently…</string>
-    <string name="tool_ip_city">City</string>
-    <string name="tool_ip_province">Province</string>
-    <string name="tool_ip_isp">ISP</string>
-    <string name="tool_ip_query_failed">Query failed, please check network connection.</string>
     
     <string name="tool_converter_base_2" translatable="false">2 (binary)</string>
     <string name="tool_converter_base_8" translatable="false">8 (octal)</string>

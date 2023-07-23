@@ -32,17 +32,10 @@
         },
         {
           "text": {
-            "cn": "\u0049\u0050\u0020\u67e5\u8be2",
-            "en": "IP Query"
-          },
-          "activity": "com.fatapp.oxygentoolbox.tools.ip.MainActivity"
-        },
-        {
-          "text": {
             "cn": "\u8fdb\u5236\u8f6c\u6362",
             "en": "Base Converter"
           },
-          "activity": "com.fatapp.oxygentoolbox.tools.converter.MainActivity"
+          "activity": "com.fatapp.oxygentoolbox.tools.baseconverter.MainActivity"
         }
       ]
     }
