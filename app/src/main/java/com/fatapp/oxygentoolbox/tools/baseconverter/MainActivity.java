@@ -119,7 +119,11 @@ public class MainActivity extends BaseActivityNormal {
                 imageViewConvert.setEnabled(charSequence.length() != 0);
                 if (!Pattern.compile(HexConversionUtils.getRegExp(baseFrom)).matcher(charSequence).matches()) {
                     editTextFrom.setText(beforeText.toString());
-                    editTextFrom.setSelection(beforeText.toString().length() - 1);
+                    try {
+                        editTextFrom.setSelection(beforeText.toString().length() - 1);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     textViewTo.setText(null);
                 }
