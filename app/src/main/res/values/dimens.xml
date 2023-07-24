@@ -2,6 +2,7 @@
 <resources>
     <dimen name="common_layout_margin">10dp</dimen>
     <dimen name="common_text_size">20sp</dimen>
+    <dimen name="common_text_size_small">16sp</dimen>
 
     <dimen name="splash_logo_size">288dp</dimen>
 
@@ -38,17 +39,24 @@
     <dimen name="tool_time_screen_time_height">120dp</dimen>
     <dimen name="tool_time_screen_time_text_size">100sp</dimen>
 
-    <dimen name="tool_translation_text_size">16sp</dimen>
+    <dimen name="tool_translation_text_size">@dimen/common_text_size_small</dimen>
     <dimen name="tool_translation_clickable_padding">5dp</dimen>
     <dimen name="tool_translation_edit_text_view_padding">15dp</dimen>
     <dimen name="tool_translation_edit_text_view_padding_plus">30dp</dimen>
     <dimen name="tool_translation_layout_margin">@dimen/common_layout_margin</dimen>
     <dimen name="tool_translation_edit_text_view_height">200dp</dimen>
 
-    <dimen name="tool_baseconverter_text_size">16sp</dimen>
+    <dimen name="tool_baseconverter_text_size">@dimen/common_text_size_small</dimen>
     <dimen name="tool_baseconverter_clickable_padding">5dp</dimen>
     <dimen name="tool_baseconverter_layout_margin">@dimen/common_layout_margin</dimen>
     <dimen name="tool_baseconverter_edit_text_view_height">200dp</dimen>
     <dimen name="tool_baseconverter_edit_text_view_padding">15dp</dimen>
     <dimen name="tool_baseconverter_edit_text_view_padding_plus">30dp</dimen>
+
+    <dimen name="tool_unicode_text_size">@dimen/common_text_size_small</dimen>
+    <dimen name="tool_unicode_clickable_padding">5dp</dimen>
+    <dimen name="tool_unicode_layout_margin">@dimen/common_layout_margin</dimen>
+    <dimen name="tool_unicode_edit_text_view_height">200dp</dimen>
+    <dimen name="tool_unicode_edit_text_view_padding">15dp</dimen>
+    <dimen name="tool_unicode_edit_text_view_padding_plus">30dp</dimen>
 </resources>

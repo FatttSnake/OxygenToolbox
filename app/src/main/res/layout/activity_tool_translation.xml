@@ -30,7 +30,7 @@
             android:id="@+id/image_view_swap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="Swap"
+            android:contentDescription="@string/tool_common_swap"
             android:padding="@dimen/tool_translation_clickable_padding"
             android:src="@drawable/animation_swap_horizon" />
 
@@ -54,7 +54,7 @@
         android:autofillHints="text"
         android:background="@drawable/background_radius"
         android:gravity="start|top"
-        android:hint="@string/tool_translation_please_enter_text"
+        android:hint="@string/tool_common_please_enter_text"
         android:inputType="textMultiLine"
         android:maxLength="850"
         android:paddingHorizontal="@dimen/tool_translation_edit_text_view_padding"
@@ -96,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:contentDescription="Translate"
+            android:contentDescription="@string/tool_common_translation"
             android:focusable="true"
             android:foreground="@drawable/foreground_ripple"
             android:src="@drawable/ic_tool_translation_translate"

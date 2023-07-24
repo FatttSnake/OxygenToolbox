@@ -36,6 +36,13 @@
             "en": "Base Converter"
           },
           "activity": "com.fatapp.oxygentoolbox.tools.baseconverter.MainActivity"
+        },
+        {
+          "text": {
+            "cn": "\u0055\u006e\u0069\u0063\u006f\u0064\u0065\u0020\u8f6c\u6362",
+            "en": "Unicode Converter"
+          },
+          "activity": "com.fatapp.oxygentoolbox.tools.unicode.MainActivity"
         }
       ]
     }

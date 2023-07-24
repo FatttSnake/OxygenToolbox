@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tools.baseconverter.MainActivity">
+    tools:context=".tools.unicode.MainActivity">
 
     <LinearLayout
         android:id="@+id/linear_layout_base"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/tool_baseconverter_layout_margin"
+        android:layout_margin="@dimen/tool_unicode_layout_margin"
         android:background="@drawable/background_radius"
         android:gravity="center"
         android:orientation="horizontal"
@@ -22,16 +22,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/tool_baseconverter_base_10"
+            android:text="@string/tool_unicode_text"
             android:textColor="?attr/app_theme"
-            android:textSize="@dimen/tool_baseconverter_text_size" />
+            android:textSize="@dimen/tool_unicode_text_size" />
 
         <ImageView
             android:id="@+id/image_view_swap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/tool_common_swap"
-            android:padding="@dimen/tool_baseconverter_clickable_padding"
+            android:padding="@dimen/tool_unicode_clickable_padding"
             android:src="@drawable/animation_swap_horizon" />
 
         <TextView
@@ -40,52 +40,52 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/tool_baseconverter_base_2"
+            android:text="@string/tool_unicode_unicode"
             android:textColor="?attr/app_theme"
-            android:textSize="@dimen/tool_baseconverter_text_size" />
+            android:textSize="@dimen/tool_unicode_text_size" />
 
     </LinearLayout>
 
     <EditText
         android:id="@+id/edit_text_from"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tool_baseconverter_edit_text_view_height"
-        android:layout_margin="@dimen/tool_baseconverter_layout_margin"
+        android:layout_height="@dimen/tool_unicode_edit_text_view_height"
+        android:layout_margin="@dimen/tool_unicode_layout_margin"
         android:autofillHints="text"
         android:background="@drawable/background_radius"
         android:gravity="start|top"
         android:hint="@string/tool_common_please_enter_text"
         android:inputType="text"
         android:maxLength="850"
-        android:paddingHorizontal="@dimen/tool_baseconverter_edit_text_view_padding"
-        android:paddingTop="@dimen/tool_baseconverter_edit_text_view_padding"
-        android:paddingBottom="@dimen/tool_baseconverter_edit_text_view_padding_plus"
+        android:paddingHorizontal="@dimen/tool_unicode_edit_text_view_padding"
+        android:paddingTop="@dimen/tool_unicode_edit_text_view_padding"
+        android:paddingBottom="@dimen/tool_unicode_edit_text_view_padding_plus"
         android:textColor="?attr/app_text_theme"
-        android:textSize="@dimen/tool_baseconverter_text_size"
+        android:textSize="@dimen/tool_unicode_text_size"
         app:layout_constraintTop_toBottomOf="@id/linear_layout_base" />
 
 
     <TextView
         android:id="@+id/text_view_to"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tool_baseconverter_edit_text_view_height"
-        android:layout_margin="@dimen/tool_baseconverter_layout_margin"
+        android:layout_height="@dimen/tool_unicode_edit_text_view_height"
+        android:layout_margin="@dimen/tool_unicode_layout_margin"
         android:autofillHints="text"
         android:background="@drawable/background_radius"
         android:gravity="start|top"
-        android:paddingHorizontal="@dimen/tool_baseconverter_edit_text_view_padding"
-        android:paddingTop="@dimen/tool_baseconverter_edit_text_view_padding_plus"
-        android:paddingBottom="@dimen/tool_baseconverter_edit_text_view_padding"
+        android:paddingHorizontal="@dimen/tool_unicode_edit_text_view_padding"
+        android:paddingTop="@dimen/tool_unicode_edit_text_view_padding_plus"
+        android:paddingBottom="@dimen/tool_unicode_edit_text_view_padding"
         android:textColor="?attr/app_text_theme"
         android:textIsSelectable="true"
-        android:textSize="@dimen/tool_baseconverter_text_size"
+        android:textSize="@dimen/tool_unicode_text_size"
         app:layout_constraintTop_toBottomOf="@id/edit_text_from" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_round"
-        android:padding="@dimen/tool_baseconverter_clickable_padding"
+        android:padding="@dimen/tool_unicode_clickable_padding"
         app:layout_constraintBottom_toTopOf="@id/text_view_to"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
