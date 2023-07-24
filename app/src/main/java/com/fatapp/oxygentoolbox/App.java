@@ -21,15 +21,12 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        ResourceUtil.init(App.this);
-        SharedPreferencesUtils.init(App.this);
-        ResourceUtil.setAppLocale(SharedPreferencesUtils.getPreferenceLocale());
-        loadTools();
+        init();
 
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                init();
                 ResourceUtil.loadAppTheme(activity);
                 loadAppUiMode();
             }
@@ -75,6 +72,13 @@ public class App extends Application {
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         MultiLanguageUtils.attachBaseContext(this);
+    }
+
+    private void init() {
+        ResourceUtil.init(App.this);
+        SharedPreferencesUtils.init(App.this);
+        ResourceUtil.setAppLocale(SharedPreferencesUtils.getPreferenceLocale());
+        loadTools();
     }
 
     private void loadAppUiMode() {
