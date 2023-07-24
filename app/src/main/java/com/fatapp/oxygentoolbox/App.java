@@ -21,17 +21,14 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        init();
 
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-                ResourceUtil.init(App.this);
-                SharedPreferencesUtils.init(App.this);
-
-                ResourceUtil.setAppLocale(SharedPreferencesUtils.getPreferenceLocale());
+                init();
                 ResourceUtil.loadAppTheme(activity);
                 loadAppUiMode();
-                loadTools();
             }
 
             @Override
@@ -77,16 +74,18 @@ public class App extends Application {
         MultiLanguageUtils.attachBaseContext(this);
     }
 
+    private void init() {
+        ResourceUtil.init(App.this);
+        SharedPreferencesUtils.init(App.this);
+        ResourceUtil.setAppLocale(SharedPreferencesUtils.getPreferenceLocale());
+        loadTools();
+    }
+
     private void loadAppUiMode() {
         switch (SharedPreferencesUtils.getPreferenceUiMode()) {
-            case LIGHT:
-                ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_LIGHT);
-                break;
-            case DARK:
-                ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_DARK);
-                break;
-            default:
-                ResourceUtil.setAppUiMode(ResourceUtil.getSystemUiMode());
+            case LIGHT -> ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_LIGHT);
+            case DARK -> ResourceUtil.setAppUiMode(ResourceUtil.UI_MODE_DARK);
+            default -> ResourceUtil.setAppUiMode(ResourceUtil.getSystemUiMode());
         }
     }
 

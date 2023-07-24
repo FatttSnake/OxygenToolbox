@@ -1,4 +1,4 @@
-package com.fatapp.oxygentoolbox.tools.converter;
+package com.fatapp.oxygentoolbox.tools.baseconverter;
 
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
@@ -27,20 +27,11 @@ public class MainActivity extends BaseActivityNormal {
     {
         for (int i = 0; i < 35; i++) {
             switch (i + 2) {
-                case 2:
-                    BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_2);
-                    break;
-                case 8:
-                    BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_8);
-                    break;
-                case 10:
-                    BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_10);
-                    break;
-                case 16:
-                    BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_converter_base_16);
-                    break;
-                default:
-                    BASE_ITEMS[i] = String.valueOf(i + 2);
+                case 2 -> BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_baseconverter_base_2);
+                case 8 -> BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_baseconverter_base_8);
+                case 10 -> BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_baseconverter_base_10);
+                case 16 -> BASE_ITEMS[i] = ResourceUtil.getString(R.string.tool_baseconverter_base_16);
+                default -> BASE_ITEMS[i] = String.valueOf(i + 2);
             }
         }
     }
@@ -67,7 +58,7 @@ public class MainActivity extends BaseActivityNormal {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.loadView(this, R.layout.activity_tool_converter);
+        super.loadView(this, R.layout.activity_tool_baseconverter);
 
         initView();
         initBaseChoose();
@@ -76,7 +67,7 @@ public class MainActivity extends BaseActivityNormal {
 
     private void initBaseChoose() {
         textViewBaseFrom.setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
-                .setTitle(ResourceUtil.getString(R.string.tool_converter_choose_base))
+                .setTitle(ResourceUtil.getString(R.string.tool_baseconverter_choose_base))
                 .setItems(BASE_ITEMS, (dialogInterface, i) -> {
                     textViewBaseFrom.setText(BASE_ITEMS[i]);
                     baseFrom = i + 2;
@@ -86,7 +77,7 @@ public class MainActivity extends BaseActivityNormal {
                 .show());
 
         textViewBaseTo.setOnClickListener(view -> new MaterialAlertDialogBuilder(this)
-                .setTitle(ResourceUtil.getString(R.string.tool_converter_choose_base))
+                .setTitle(ResourceUtil.getString(R.string.tool_baseconverter_choose_base))
                 .setItems(BASE_ITEMS, (dialogInterface, i) -> {
                     textViewBaseTo.setText(BASE_ITEMS[i]);
                     baseTo = i + 2;
@@ -128,7 +119,11 @@ public class MainActivity extends BaseActivityNormal {
                 imageViewConvert.setEnabled(charSequence.length() != 0);
                 if (!Pattern.compile(HexConversionUtils.getRegExp(baseFrom)).matcher(charSequence).matches()) {
                     editTextFrom.setText(beforeText.toString());
-                    editTextFrom.setSelection(beforeText.toString().length() - 1);
+                    try {
+                        editTextFrom.setSelection(beforeText.toString().length() - 1);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     textViewTo.setText(null);
                 }
@@ -155,7 +150,7 @@ public class MainActivity extends BaseActivityNormal {
             textViewTo.setText(result);
         } catch (Exception e) {
             textViewTo.setText(ResourceUtil.getString(R.string.base_nan));
-            Snackbar.make(getConstraintLayoutRoot(), ResourceUtil.getString(R.string.tool_converter_illegal_number), Snackbar.LENGTH_LONG).show();
+            Snackbar.make(getConstraintLayoutRoot(), ResourceUtil.getString(R.string.tool_baseconverter_illegal_number), Snackbar.LENGTH_LONG).show();
         }
     }
 }

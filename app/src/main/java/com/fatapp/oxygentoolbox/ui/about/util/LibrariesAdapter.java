@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class LibrariesAdapter extends RecyclerView.Adapter<LibrariesAdapter.ViewHolder> implements Filterable {
@@ -70,8 +71,8 @@ public class LibrariesAdapter extends RecyclerView.Adapter<LibrariesAdapter.View
                     String licenseStr = new JSONObject(dependencies.getLicenses()).getString(license);
                     LicenseJson licenseObject = new Gson().fromJson(licenseStr, new TypeToken<LicenseJson>() {
                     }.getType());
-                    new MaterialAlertDialogBuilder(context).setMessage(licenseObject.getContent()).show()
-                            .getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    Objects.requireNonNull(new MaterialAlertDialogBuilder(context).setMessage(licenseObject.getContent()).show()
+                            .getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 } catch (JSONException e) {
                     new MaterialAlertDialogBuilder(context).setMessage(String.format("Could not load license \"%s\"", license)).show();
                 }

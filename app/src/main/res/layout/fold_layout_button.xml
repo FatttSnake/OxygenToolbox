@@ -4,5 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <Button
         android:id="@+id/button_tool"
+        android:textAllCaps="false"
         style="@style/ToolsButton" />
 </LinearLayout>

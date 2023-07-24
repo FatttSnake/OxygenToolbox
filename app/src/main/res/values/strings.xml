@@ -108,31 +108,30 @@
 
     <string name="tool_time_screen_colon" translatable="false">&#160;:&#160;</string>
 
+    <string name="tool_common_please_enter_text">Please enter text…</string>
+    <string name="tool_common_convert">Convert</string>
+    <string name="tool_common_translation">Translation</string>
+    <string name="tool_common_swap">Swap</string>
+    <string name="tool_common_choose">Choose</string>
+
     <string name="tool_translation_choose_language">Choose a language</string>
     <string name="tool_translation_language_chinese" translatable="false">中文</string>
     <string name="tool_translation_language_english" translatable="false">English</string>
     <string name="tool_translation_language_japanese" translatable="false">日本</string>
     <string name="tool_translation_language_korean" translatable="false">한국인</string>
-    <string name="tool_translation_please_enter_text">Please enter text…</string>
     <string name="tool_translation_translation_failed">Translation failed, please check network connection.</string>
-
-    <string name="tool_ip_current_IP">Current IP:&#160;</string>
-    <string name="tool_ip_Unknown">Unknown</string>
-    <string name="tool_ip_ipaddress">IP address</string>
-    <string name="tool_ip_querying">Querying</string>
-    <string name="tool_ip_wait">Please wait patiently…</string>
-    <string name="tool_ip_city">City</string>
-    <string name="tool_ip_province">Province</string>
-    <string name="tool_ip_isp">ISP</string>
-    <string name="tool_ip_query_failed">Query failed, please check network connection.</string>
     
-    <string name="tool_converter_base_2" translatable="false">2 (binary)</string>
-    <string name="tool_converter_base_8" translatable="false">8 (octal)</string>
-    <string name="tool_converter_base_10" translatable="false">10 (decimal)</string>
-    <string name="tool_converter_base_16" translatable="false">16 (hex)</string>
-    <string name="tool_converter_choose_base">Choose base</string>
-    <string name="tool_converter_from_base">From Base</string>
-    <string name="tool_converter_to_base">To Base</string>
-    <string name="tool_converter_please_enter_text">Please enter text…</string>
-    <string name="tool_converter_illegal_number">Illegal Number</string>
+    <string name="tool_baseconverter_base_2" translatable="false">2 (binary)</string>
+    <string name="tool_baseconverter_base_8" translatable="false">8 (octal)</string>
+    <string name="tool_baseconverter_base_10" translatable="false">10 (decimal)</string>
+    <string name="tool_baseconverter_base_16" translatable="false">16 (hex)</string>
+    <string name="tool_baseconverter_choose_base">Choose base</string>
+    <string name="tool_baseconverter_from_base">From Base</string>
+    <string name="tool_baseconverter_to_base">To Base</string>
+    <string name="tool_baseconverter_illegal_number">Illegal Number</string>
+
+    <string name="tool_unicode_ascii" translatable="false">ASCII</string>
+    <string name="tool_unicode_unicode" translatable="false">Unicode</string>
+    <string name="tool_unicode_text">Text</string>
+    <string name="tool_unicode_illegal_input">Illegal Input</string>
 </resources>

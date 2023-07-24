@@ -74,23 +74,20 @@
     <string name="setting_about">关于</string>
     <string name="setting_about_oxygen_toolbox">关于 氧工具</string>
 
+    <string name="tool_common_please_enter_text">请输入内容……</string>
+    <string name="tool_common_convert">转换</string>
+    <string name="tool_common_translation">翻译</string>
+    <string name="tool_common_swap">交换</string>
+    <string name="tool_common_choose">选择</string>
+
     <string name="tool_translation_choose_language">选择语言</string>
-    <string name="tool_translation_please_enter_text">请输入内容……</string>
     <string name="tool_translation_translation_failed">翻译失败，请检查网络连接。</string>
 
-    <string name="tool_ip_current_IP">当前 IP：</string>
-    <string name="tool_ip_Unknown">未知</string>
-    <string name="tool_ip_ipaddress">IP 地址</string>
-    <string name="tool_ip_querying">查询中</string>
-    <string name="tool_ip_wait">请耐心等待……</string>
-    <string name="tool_ip_city">城市</string>
-    <string name="tool_ip_province">省份</string>
-    <string name="tool_ip_isp">网络提供商</string>
-    <string name="tool_ip_query_failed">查询失败，请检查网络连接。</string>
+    <string name="tool_baseconverter_choose_base">选择进制</string>
+    <string name="tool_baseconverter_from_base">源进制</string>
+    <string name="tool_baseconverter_to_base">目标进制</string>
+    <string name="tool_baseconverter_illegal_number">非法数字</string>
 
-    <string name="tool_converter_choose_base">选择进制</string>
-    <string name="tool_converter_from_base">源进制</string>
-    <string name="tool_converter_to_base">目标进制</string>
-    <string name="tool_converter_please_enter_text">请输入内容……</string>
-    <string name="tool_converter_illegal_number">非法数字</string>
+    <string name="tool_unicode_text">文本</string>
+    <string name="tool_unicode_illegal_input">非法输入</string>
 </resources>

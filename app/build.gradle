@@ -1,3 +1,5 @@
+import com.mikepenz.aboutlibraries.plugin.AboutLibrariesTask
+
 plugins {
     id 'com.android.application'
     id 'com.mikepenz.aboutlibraries.plugin'
@@ -19,8 +21,6 @@ android {
         multiDexEnabled true
 
         Properties buildPro = loadBuildPro()
-        buildConfigField "String", "ROLL_APP_ID", buildPro['rollAppId']
-        buildConfigField "String", "ROLL_APP_SECRET", buildPro['rollAppSecret']
     }
 
     signingConfigs {
@@ -39,13 +39,12 @@ android {
             shrinkResources true
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            zipAlignEnabled true
         }
     }
 
-    android.applicationVariants.all {
+    android.applicationVariants.configureEach {
         variant ->
-            variant.outputs.all {
+            variant.outputs.configureEach {
                 output -> outputFileName = "OxygenToolbox" + "_" + defaultConfig.versionName + "-" + defaultConfig.versionCode + "_" + buildType.name + ".apk"
             }
     }
@@ -84,7 +83,8 @@ aboutLibraries {
     ]
 }
 
-task exportLibrariesToJson(group: 'build', description: 'Generate libraries definitions json file', type: com.mikepenz.aboutlibraries.plugin.AboutLibrariesTask, dependsOn: 'collectDependencies') {
+tasks.register('exportLibrariesToJson', AboutLibrariesTask) {
+    dependsOn 'collectDependencies'
     resultDirectory = project.file('src/main/res/raw/')
     variant = 'release'
 }
